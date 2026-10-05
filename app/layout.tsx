@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Besley, League_Spartan } from "next/font/google";
+import { Bebas_Neue, Besley, League_Spartan } from "next/font/google";
 import "./globals.css";
 
 const besley = Besley({
@@ -11,8 +11,14 @@ const besley = Besley({
 
 const leagueSpartan = League_Spartan({
   subsets: ["latin"],
-  weight: "500",
+  weight: ["500", "600"],
   variable: "--font-league-spartan",
+});
+
+const bebas = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-bebas-neue",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${besley.variable} ${leagueSpartan.variable} h-full antialiased`}
+      className={`${besley.variable} ${leagueSpartan.variable} ${bebas.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-white font-serif text-olive">{children}</body>
     </html>

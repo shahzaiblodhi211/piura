@@ -1,4 +1,3 @@
-import { ContactFeatures } from "@/components/contact-features";
 import { CtaArrow } from "@/components/cta-arrow";
 import { PageShell } from "@/components/page-shell";
 import { SplitTitle } from "@/components/split-title";
@@ -195,7 +194,6 @@ export default function StoryPage() {
           </div>
         </section>
 
-        <ContactFeatures className="w-full bg-[rgba(245,240,236,0.48)]" />
       </main>
     </PageShell>
   );

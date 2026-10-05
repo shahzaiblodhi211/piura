@@ -1,4 +1,3 @@
-import { ContactFeatures } from "@/components/contact-features";
 import { ContactForm } from "@/components/contact-form";
 import { PageShell } from "@/components/page-shell";
 import { SplitTitle } from "@/components/split-title";
@@ -58,7 +57,6 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <ContactFeatures />
       </main>
     </PageShell>
   );

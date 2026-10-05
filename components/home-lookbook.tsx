@@ -4,11 +4,13 @@ import { useLayoutEffect, useRef, useState } from "react";
 import { gsap, registerGsap } from "@/lib/gsap";
 
 const photos = [
-  { src: "/assets/home-look-1.png", alt: "Woman in a Piura bikini on the sand" },
-  { src: "/assets/home-look-2.png", alt: "Woman in a Piura bikini walking the shore" },
-  { src: "/assets/home-look-3.png", alt: "Woman in a Piura bikini by the water" },
-  { src: "/assets/home-look-4.png", alt: "Woman in a Piura bikini in the shallows" },
-  { src: "/assets/home-look-5.png", alt: "Woman in a Piura bikini at golden hour" },
+  { src: "/assets/home-girls-1.png", alt: "Woman in a pink Piura bikini on the sand" },
+  { src: "/assets/home-girls-2.png", alt: "Woman in a sage Piura bikini by the water" },
+  { src: "/assets/home-girls-3.png", alt: "Woman in a pink Piura bikini standing in the surf" },
+  { src: "/assets/home-girls-4.png", alt: "Woman in a pink Piura bikini walking the shore" },
+  { src: "/assets/home-girls-5.png", alt: "Woman in a patterned Piura bikini on the beach" },
+  { src: "/assets/home-girls-6.png", alt: "Woman in a pink Piura bikini facing the sea" },
+  { src: "/assets/home-girls-7.png", alt: "Woman in a Piura bikini at the waterline" },
 ];
 
 const COPIES = 3;
@@ -187,7 +189,7 @@ export function HomeLookbook() {
         <div
           ref={trackRef}
           data-look-track
-          className="flex w-max touch-pan-y gap-7"
+          className="flex w-max touch-pan-y gap-2.5"
         >
           {slides.map((slide) => (
             <button
@@ -203,7 +205,7 @@ export function HomeLookbook() {
                 }
                 goToSlot(slide.slot);
               }}
-              className="relative h-[380px] w-[284px] shrink-0 overflow-hidden sm:h-[512px] sm:w-[384px]"
+              className="relative h-[280px] w-[186px] shrink-0 overflow-hidden rounded-[2px] sm:h-[362px] sm:w-[241px]"
             >
               <img
                 alt={slide.alt}

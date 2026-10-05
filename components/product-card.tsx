@@ -12,46 +12,23 @@ export function ProductCard({ product }: { product: Product }) {
       <div
         data-photo="product"
         data-product-media
-        className="relative aspect-[333/440] w-full overflow-hidden bg-[rgba(245,240,236,0.48)]"
+        className="relative aspect-[382/536] w-full overflow-hidden bg-[#f5f2ed]"
       >
-        <div
-          className="absolute overflow-hidden"
-          style={{
-            width: product.box.width,
-            height: product.box.height,
-            left: product.box.left,
-            top: product.box.top,
-          }}
-        >
-          {product.cover ? (
-            <img
-              data-photo-img
-              alt={product.alt}
-              src={product.src}
-              className="absolute inset-0 size-full object-cover will-change-transform"
-            />
-          ) : (
-            <img
-              data-photo-img
-              alt={product.alt}
-              src={product.src}
-              className="absolute max-w-none will-change-transform"
-              style={product.crop}
-            />
-          )}
-        </div>
+        <img
+          data-photo-img
+          alt={product.alt}
+          src={product.src}
+          className="absolute inset-0 size-full object-contain will-change-transform"
+        />
+        <span className="absolute top-0 left-0 z-10 flex h-7 w-[92px] items-center justify-center bg-ink font-bebas text-[14px] tracking-[0.56px] text-white">
+          PREORDER
+        </span>
       </div>
       <p
         data-product-name
-        className="mt-[22px] font-serif text-[16px] leading-normal font-medium tracking-[0.64px] text-olive uppercase"
+        className="mt-[18px] font-bebas text-[22px] leading-none tracking-[0.88px] text-ink uppercase"
       >
         {product.name}
-      </p>
-      <p
-        data-product-price
-        className="mt-1 font-serif text-[16px] leading-normal font-medium tracking-[0.64px] text-olive uppercase"
-      >
-        {product.price}
       </p>
     </Link>
   );

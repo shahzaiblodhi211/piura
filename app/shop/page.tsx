@@ -1,4 +1,4 @@
-import { ContactFeatures } from "@/components/contact-features";
+import { HomeHeader } from "@/components/home-header";
 import { PageShell } from "@/components/page-shell";
 import { ShopGrid } from "@/components/shop-grid";
 import { SplitTitle } from "@/components/split-title";
@@ -11,14 +11,7 @@ export const metadata: Metadata = {
     "Everything under the sun — fully lined, seamless, and cut for effortless tan lines. Designed in Miami, crafted in Piura, Peru.",
 };
 
-const filters: ShopFilter[] = [
-  "all",
-  "tops",
-  "bottoms",
-  "sunchild",
-  "moonchild",
-  "classics",
-];
+const filters: ShopFilter[] = ["all", "triangle", "contour", "onepiece"];
 
 export default async function ShopPage({
   searchParams,
@@ -31,37 +24,36 @@ export default async function ShopPage({
     : "all";
 
   return (
-    <PageShell>
-      <main className="w-full">
-        <section className="relative w-full overflow-hidden">
+    <PageShell hero>
+      <main className="w-full bg-white">
+        <section className="relative w-full">
           <div
-            data-photo="hero"
-            className="relative mx-auto h-[360px] w-full max-w-[1560px] overflow-hidden sm:h-[480px] xl:h-[600px]"
+            data-hero-frame
+            className="relative mx-auto aspect-[1560/806] w-full max-w-[1560px] overflow-hidden"
           >
-            <img
-              data-photo-img
-              alt="Woman in a bikini walking in the water with a tote and a sailboat behind her"
-              src="/assets/shop-hero.png"
-              className="absolute top-[0.08%] left-0 h-[173.36%] w-full max-w-none will-change-transform"
-            />
-            <div className="absolute inset-0 bg-[rgba(177,174,171,0.2)]" />
+            <div className="absolute inset-0 -scale-x-100">
+              <img
+                alt="Woman in a striped bikini lying on the sand, looking out at the water"
+                src="/assets/shop-hero-coast.png"
+                className="absolute top-[-15.38%] left-[-0.02%] h-[145.41%] w-[100.04%] max-w-none"
+              />
+            </div>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(77,77,77,0.2)] from-[13%] to-transparent to-[26%]" />
           </div>
+          <HomeHeader />
         </section>
 
-        <section className="mx-auto w-full max-w-[1560px] px-5 pt-12 sm:px-8 md:px-12 md:pt-16 lg:px-16 xl:px-20 xl:pt-[93px]">
-          <p
-            data-intro
-            className="font-serif text-[16px] leading-normal font-medium tracking-[1.44px] text-brown md:text-[18px]"
-          >
+        <section className="mx-auto w-full max-w-[1560px] px-5 pt-16 sm:px-8 xl:px-20 xl:pt-[93px]">
+          <p data-intro className="font-serif text-[18px] leading-normal text-ink">
             The Collection
           </p>
           <SplitTitle
             text="Everything under the sun — fully lined, seamless, and cut for effortless tan lines."
-            className="mt-3 w-full max-w-[1318px] font-serif text-[32px] leading-[1.2] font-normal tracking-[-0.04em] text-olive sm:text-[44px] md:text-[56px] md:leading-[73px] md:tracking-[-2.24px]"
+            className="mt-8 w-full max-w-[1396px] font-bebas text-[40px] leading-[1.1] text-ink sm:text-[56px] sm:leading-[1.1] lg:mt-10 lg:text-[80px] lg:leading-[88px]"
           />
           <p
             data-intro
-            className="mt-6 w-full max-w-[569px] font-serif text-[18px] leading-[30px] font-normal text-body md:mt-8 md:text-[20px] md:leading-[35px]"
+            className="mt-8 w-full max-w-[569px] font-serif text-[18px] leading-[30px] text-ink md:text-[20px] md:leading-[32px]"
           >
             Designed in Miami, crafted in Piura, Peru. Small runs, made to last
             well beyond a single summer.
@@ -70,12 +62,10 @@ export default async function ShopPage({
 
         <section
           id="shop"
-          className="mx-auto w-full max-w-[1560px] scroll-mt-8 px-5 pt-10 pb-16 sm:px-8 md:px-12 md:pt-14 md:pb-24 lg:px-16 xl:px-20 xl:pt-[118px] xl:pb-[80px]"
+          className="mx-auto w-full max-w-[1560px] scroll-mt-8 pt-12 pb-16 sm:pt-16 xl:pt-[125px] xl:pb-[80px]"
         >
           <ShopGrid key={initialFilter} initialFilter={initialFilter} />
         </section>
-
-        <ContactFeatures className="w-full bg-[rgba(245,240,236,0.48)]" />
       </main>
     </PageShell>
   );

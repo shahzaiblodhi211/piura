@@ -4,11 +4,10 @@ import { useLayoutEffect, useRef } from "react";
 import { gsap, registerGsap } from "@/lib/gsap";
 
 const items = [
-  "Chase the sun",
-  "Collect memories",
-  "Wear confidence",
-  "Designed in Miami",
-  "Crafted in Perú",
+  "CHASE THE SUN",
+  "COLLECT MEMORIES",
+  "WEAR CONFIDENCE",
+  "DESIGNED IN MIAMI",
 ] as const;
 
 function Sequence({ hidden }: { hidden?: boolean }) {
@@ -20,13 +19,13 @@ function Sequence({ hidden }: { hidden?: boolean }) {
       {items.map((item) => (
         <p
           key={item}
-          className="flex items-center whitespace-nowrap font-serif text-[16px] leading-[27px] font-medium tracking-[1.28px] text-white uppercase"
+          className="flex items-center font-bebas text-[32px] leading-none whitespace-nowrap text-ink sm:text-[48px]"
         >
           <span>{item}</span>
           <img
-            src="/assets/home-ticker-diamond.svg"
+            src="/assets/home-sparkle-ink.svg"
             alt=""
-            className="mx-[50px]"
+            className="mx-6 sm:mx-8"
           />
         </p>
       ))}
@@ -51,7 +50,7 @@ export function HomeTicker() {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden bg-olive py-[16px]">
+    <div className="w-full overflow-hidden bg-[#f6f3ee] py-5">
       <div ref={trackRef} className="flex w-max items-center will-change-transform">
         <Sequence />
         <Sequence hidden />

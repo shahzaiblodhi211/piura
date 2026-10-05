@@ -103,7 +103,7 @@ export function ShopGrid({
 
   return (
     <div>
-      <div data-tabs className="flex w-full flex-wrap gap-3">
+      <div data-tabs className="flex w-full flex-wrap gap-x-6 gap-y-3 px-5 sm:px-8 xl:px-20">
         {shopFilters.map((item) => {
           const active = filter === item.id;
           return (
@@ -113,21 +113,21 @@ export function ShopGrid({
               data-tab
               onClick={() => applyFilter(item.id)}
               aria-pressed={active}
-              className={`flex h-[44px] items-center justify-center px-[26px] font-serif text-[14px] tracking-[0.28px] uppercase ${
+              className={`flex h-[44px] items-center justify-center gap-4 px-[26px] font-bebas text-[16px] leading-none uppercase ${
                 active
-                  ? "bg-[#6e7355] text-cream"
+                  ? "bg-ink text-cream"
                   : "border border-[rgba(53,53,36,0.4)] bg-white text-olive"
               }`}
             >
-              {item.label}
-              <span className="pl-3 font-bold">{item.count}</span>
+              <span>{item.label}</span>
+              <span>{item.count}</span>
             </button>
           );
         })}
       </div>
       <div
         ref={gridRef}
-        className="mt-10 grid w-full grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 sm:mt-12 xl:grid-cols-4 xl:mt-[84px] xl:gap-x-6 xl:gap-y-[90px]"
+        className="mx-auto mt-12 grid w-full max-w-[1560px] grid-cols-1 gap-x-[11px] gap-y-16 px-5 sm:mt-16 sm:grid-cols-2 sm:px-8 xl:mt-[120px] xl:grid-cols-4 xl:gap-y-[70px] xl:px-20"
       >
         {products.map((product) => {
           const shown = visible.has(product.name);

@@ -1,26 +1,26 @@
 import type { ReactNode } from "react";
 import { AnnouncementBar } from "./announcement-bar";
+import { ComeCloserPopup } from "./come-closer-popup";
 import { GsapRoot } from "./gsap-root";
+import { HomeHeader } from "./home-header";
 import { SiteFooter } from "./site-footer";
-import { SiteHeader } from "./site-header";
+import { SitePerks } from "./site-perks";
 
 export function PageShell({
   children,
-  overlay = false,
-  invert,
+  hero = false,
 }: {
   children: ReactNode;
-  overlay?: boolean;
-  invert?: boolean;
+  hero?: boolean;
 }) {
   return (
     <GsapRoot>
-      <AnnouncementBar />
-      <div className={overlay ? "relative" : undefined}>
-        <SiteHeader overlay={overlay} invert={invert} />
-        {children}
-      </div>
-      <SiteFooter />
+      <AnnouncementBar coast />
+      {hero ? null : <HomeHeader solid />}
+      {children}
+      <SitePerks />
+      <SiteFooter tone="ink" />
+      <ComeCloserPopup />
     </GsapRoot>
   );
 }

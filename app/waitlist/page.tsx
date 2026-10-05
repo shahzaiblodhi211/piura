@@ -1,4 +1,3 @@
-import { ContactFeatures } from "@/components/contact-features";
 import { CtaArrow } from "@/components/cta-arrow";
 import { PageShell } from "@/components/page-shell";
 import { SplitTitle } from "@/components/split-title";
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function WaitlistPage() {
   return (
-    <PageShell overlay>
+    <PageShell>
       <main className="w-full">
         <section className="relative w-full overflow-hidden min-h-[640px] xl:min-h-[839px]">
           <div data-photo="hero" className="absolute inset-0">
@@ -154,7 +153,6 @@ export default function WaitlistPage() {
           </div>
         </section>
 
-        <ContactFeatures className="w-full bg-[rgba(245,240,236,0.48)] xl:mt-0" />
       </main>
     </PageShell>
   );

@@ -1,4 +1,3 @@
-import { ContactFeatures } from "@/components/contact-features";
 import { PageShell } from "@/components/page-shell";
 import { SizeChart } from "@/components/size-chart";
 import { SizeDiagram } from "@/components/size-diagram";
@@ -215,7 +214,6 @@ export default function SizeGuidePage() {
           </p>
         </section>
 
-        <ContactFeatures className="w-full bg-[rgba(245,240,236,0.48)]" />
       </main>
     </PageShell>
   );

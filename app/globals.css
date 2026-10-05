@@ -20,6 +20,8 @@
   --color-body: var(--body);
   --font-serif: var(--font-besley);
   --font-display: var(--font-league-spartan);
+  --font-bebas: var(--font-bebas-neue);
+  --color-ink: #22211f;
 }
 
 html {
@@ -59,9 +61,27 @@ body {
   }
 }
 
+@keyframes piura-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.piura-float {
+  animation: piura-float 4.8s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .piura-float {
+    animation: none;
   }
 }
 

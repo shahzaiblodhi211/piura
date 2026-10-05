@@ -75,50 +75,56 @@ export function GsapRoot({ children }: { children: ReactNode }) {
         const img =
           wrap.querySelector<HTMLElement>("[data-photo-img]") ??
           wrap.querySelector<HTMLElement>("img");
-        if (!img) return;
-
         const kind = wrap.getAttribute("data-photo");
-        if (kind === "hero") {
+
+        if (kind === "hero" && img) {
           gsap.set(wrap, { autoAlpha: 1 });
           gsap.fromTo(
             img,
-            { scale: 1.08 },
+            { scale: 1.06, transformOrigin: "50% 50%" },
             { scale: 1, duration: 1.8, ease: "power3.out" },
           );
           return;
         }
 
-        gsap.set(wrap, { autoAlpha: 1, clipPath: "inset(100% 0 0 0)" });
-        gsap.set(img, {
-          scale: kind === "product" ? 1.12 : 1.2,
-          yPercent: 0,
-          transformOrigin: "50% 60%",
-        });
+        if (kind === "product" && img) {
+          gsap.set(wrap, { autoAlpha: 1, clipPath: "inset(100% 0 0 0)" });
+          gsap.set(img, { scale: 1.08, transformOrigin: "50% 50%" });
+          const reveal = gsap.timeline({
+            scrollTrigger: {
+              trigger: wrap,
+              start: "top 82%",
+              toggleActions: "play none none none",
+            },
+          });
+          reveal
+            .to(wrap, { clipPath: "inset(0% 0 0 0)", duration: 1.2, ease: "piura" })
+            .to(img, { scale: 1, duration: 1.35, ease: "power3.out" }, 0);
+          return;
+        }
 
-        const reveal = gsap.timeline({
-          scrollTrigger: {
-            trigger: wrap,
-            start: "top 82%",
-            toggleActions: "play none none none",
+        gsap.fromTo(
+          wrap,
+          { autoAlpha: 0 },
+          {
+            autoAlpha: 1,
+            duration: 0.95,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: wrap,
+              start: "top 88%",
+              toggleActions: "play none none none",
+            },
           },
-        });
+        );
+      });
 
-        reveal
-          .to(wrap, { clipPath: "inset(0% 0 0 0)", duration: 1.45, ease: "piura" })
-          .to(img, { scale: 1, duration: 1.7, ease: "power3.out" }, 0);
-
-        if (kind === "product") return;
-
-        gsap.to(img, {
-          yPercent: 10,
-          ease: "none",
-          scrollTrigger: {
-            trigger: wrap,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.8,
-          },
-        });
+      root.querySelectorAll<HTMLElement>("[data-hero-frame]").forEach((frame) => {
+        gsap.fromTo(
+          frame,
+          { scale: 1.06, transformOrigin: "50% 40%" },
+          { scale: 1, duration: 2.2, ease: "power2.out" },
+        );
       });
 
       forms.forEach((form) => {

@@ -88,6 +88,7 @@ export function GsapRoot({ children }: { children: ReactNode }) {
         }
 
         if (kind === "product" && img) {
+          if (wrap.closest("[data-product-wrap]")) return;
           gsap.set(wrap, { autoAlpha: 1, clipPath: "inset(100% 0 0 0)" });
           gsap.set(img, { scale: 1.08, transformOrigin: "50% 50%" });
           const reveal = gsap.timeline({
@@ -290,19 +291,7 @@ export function GsapRoot({ children }: { children: ReactNode }) {
       });
 
       if (tabs.length) {
-        gsap.set(tabs, { y: 22, opacity: 0 });
-        gsap.to(tabs, {
-          y: 0,
-          opacity: 1,
-          duration: 0.85,
-          stagger: 0.06,
-          ease: "piura",
-          scrollTrigger: {
-            trigger: tabs[0],
-            start: "top 90%",
-            toggleActions: "play none none none",
-          },
-        });
+        gsap.set(tabs, { y: 0, opacity: 1 });
 
         tabs.forEach((tab) => {
           if (!canHover) return;

@@ -6,7 +6,6 @@ export function ProductCard({ product }: { product: Product }) {
     <Link
       href={`/product/${productSlug(product.name)}`}
       data-product
-      data-reveal
       className="block w-full cursor-pointer"
     >
       <div
@@ -20,9 +19,11 @@ export function ProductCard({ product }: { product: Product }) {
           src={product.src}
           className="absolute inset-0 size-full object-cover object-[center_18%] will-change-transform"
         />
-        <span className="absolute top-0 left-0 z-10 flex h-6 w-[78px] items-center justify-center bg-ink font-bebas text-[12px] tracking-[0.48px] text-white sm:h-7 sm:w-[92px] sm:text-[14px]">
-          PREORDER
-        </span>
+        {product.kind === "bikini" || product.kind === "onepiece" ? (
+          <span className="absolute top-0 left-0 z-10 flex h-6 w-[78px] items-center justify-center bg-ink font-bebas text-[12px] tracking-[0.48px] text-white sm:h-7 sm:w-[92px] sm:text-[14px]">
+            PREORDER
+          </span>
+        ) : null}
       </div>
       <p
         data-product-name

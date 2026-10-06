@@ -15,31 +15,31 @@ export const metadata: Metadata = {
 const categories = [
   {
     label: "COASTLINES",
-    href: "/shop",
+    href: "/shop?filter=coastlines",
     box: "h-12 w-[76px] sm:h-14 sm:w-[92px] xl:h-[72px] xl:w-[116px]",
     src: "/assets/cat-coastlines.png",
   },
   {
     label: "TOPS",
-    href: "/shop",
+    href: "/shop?filter=tops",
     box: "h-16 w-12 sm:h-20 sm:w-[60px] xl:h-[103px] xl:w-[76px]",
     crop: { width: "204.2%", height: "300.83%", left: "-104.2%", top: "-39.36%" },
   },
   {
     label: "BOTTOMS",
-    href: "/shop",
+    href: "/shop?filter=bottoms",
     box: "h-12 w-16 sm:h-14 sm:w-20 xl:h-[74px] xl:w-[98px]",
     crop: { width: "188.63%", height: "497.78%", left: "0%", top: "-264.62%" },
   },
   {
     label: "PIURA CLASSICS",
-    href: "/shop",
+    href: "/shop?filter=classics",
     box: "h-16 w-11 sm:h-20 sm:w-14 xl:h-[105px] xl:w-[71px]",
     crop: { width: "204.77%", height: "276.02%", left: "-104.77%", top: "-138.96%" },
   },
   {
     label: "ACCESSORIES",
-    href: "/shop",
+    href: "/#tote",
     box: "h-14 w-11 sm:h-[72px] sm:w-14 xl:h-[93px] xl:w-[71px]",
     crop: { width: "185.99%", height: "283.82%", left: "0%", top: "-33.53%" },
   },
@@ -225,7 +225,7 @@ export default function Home() {
             ))}
           </div>
           <div data-reveal className="mt-12 flex justify-center">
-            <OutlineButton href="/shop" dark>
+            <OutlineButton href="/shop?filter=coastlines" dark>
               PREORDER THE COLLECTION
             </OutlineButton>
           </div>
@@ -233,7 +233,7 @@ export default function Home() {
 
         <HomeTicker />
 
-        <section className="grid w-full lg:grid-cols-2">
+        <section id="tote" className="grid w-full scroll-mt-6 lg:grid-cols-2">
           <div data-photo="still" className="group relative h-[280px] overflow-hidden sm:h-[380px] md:h-[480px] lg:h-[580px] xl:h-[685px]">
             <span className="absolute inset-0 origin-center transition-transform duration-700 ease-out group-hover:scale-[1.03]">
               <img
@@ -287,18 +287,18 @@ export default function Home() {
             </OutlineButton>
           </div>
           <div className="mt-10 grid lg:grid-cols-2">
-            <CollectionTile src="/assets/home-coll-tops.jpg" label="TOPS" href="/shop" />
+            <CollectionTile src="/assets/home-coll-tops.jpg" label="SARA" href="/shop?filter=sara" />
             <CollectionTile
               src="/assets/home-coll-bottoms.jpg"
-              label="BOTTOMS"
-              href="/shop"
+              label="BALI"
+              href="/shop?filter=bali"
               focus="object-[center_36%]"
             />
           </div>
-          <CollectionTile src="/assets/home-coll-classics.jpg" label="THE CLASSICS" href="/shop" />
+          <CollectionTile src="/assets/home-coll-classics.jpg" label="MARINA" href="/shop?filter=marina" />
           <div className="grid lg:grid-cols-2">
-            <CollectionTile src="/assets/home-coll-sun.jpg" label="SUNCHILD" href="/shop" />
-            <CollectionTile src="/assets/home-coll-moon.jpg" label="MOONCHILD" href="/shop" />
+            <CollectionTile src="/assets/home-coll-sun.jpg" label="SUNCHILD" href="/shop?filter=sunchild" />
+            <CollectionTile src="/assets/home-coll-moon.jpg" label="MOONCHILD" href="/shop?filter=moonchild" />
           </div>
         </section>
 

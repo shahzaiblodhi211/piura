@@ -1,7 +1,8 @@
 import { spawn } from "child_process";
+import { writeFileSync } from "fs";
 
 const chrome = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
-const port = 9416;
+const port = 9421;
 const child = spawn(chrome, ["--headless=new", "--disable-gpu", `--remote-debugging-port=${port}`, "--hide-scrollbars", "about:blank"], { stdio: "ignore" });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function getWs() {
@@ -34,18 +35,27 @@ const send = (method, params = {}) => new Promise((resolve) => {
 });
 await send("Page.enable");
 await send("Runtime.enable");
-await send("Emulation.setDeviceMetricsOverride", { width: 1280, height: 900, deviceScaleFactor: 1, mobile: false });
+await send("Emulation.setDeviceMetricsOverride", { width: 1440, height: 1100, deviceScaleFactor: 1, mobile: false });
 await send("Page.navigate", { url: "http://localhost:3000/shop" });
-await sleep(2000);
-const shop = await send("Runtime.evaluate", {
+await sleep(2200);
+await send("Runtime.evaluate", { expression: `document.querySelector("#shop")?.scrollIntoView({block:"start"})` });
+await sleep(600);
+const res = await send("Runtime.evaluate", {
   expression: `(() => {
-    const cards = [...document.querySelectorAll("[data-product]")];
-    const tagged = cards.filter((el) => el.textContent.includes("PREORDER"));
-    const missing = cards.filter((el) => !el.textContent.includes("PREORDER")).map((el) => el.querySelector("[data-product-name]")?.textContent.trim());
-    return { cards: cards.length, tagged: tagged.length, missing };
+    const tabs = [...document.querySelectorAll("[data-tab]")].map((el) => ({
+      text: el.textContent.replace(/\\s+/g, " ").trim(),
+      opacity: getComputedStyle(el).opacity,
+      top: Math.round(el.getBoundingClientRect().top),
+    }));
+    const copy = [...document.querySelectorAll("p")].find((p) => p.textContent.includes("Designed in Miami"));
+    const grid = document.querySelector("[data-product-wrap]");
+    const gap = copy && grid ? Math.round(grid.getBoundingClientRect().top - copy.getBoundingClientRect().bottom) : null;
+    return { tabs, gap };
   })()`,
   returnByValue: true,
 });
-console.log(JSON.stringify(shop.result?.result?.value));
+console.log(JSON.stringify(res.result?.result?.value, null, 2));
+const shot = await send("Page.captureScreenshot", { format: "jpeg", quality: 55 });
+writeFileSync(".verify/tabs-visible.jpg", Buffer.from(shot.result.data, "base64"));
 child.kill();
 ws.close();

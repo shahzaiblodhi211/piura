@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { ProductCard } from "./product-card";
-import { gsap, registerGsap } from "@/lib/gsap";
+import { gsap, registerGsap, ScrollTrigger } from "@/lib/gsap";
 import {
   filterProducts,
   products,
@@ -10,95 +11,81 @@ import {
   type ShopFilter,
 } from "@/lib/products";
 
+function showCards(cards: HTMLElement[], animate: boolean) {
+  registerGsap();
+  cards.forEach((card) => {
+    ScrollTrigger.getAll().forEach((trigger) => {
+      if (trigger.trigger instanceof Element && card.contains(trigger.trigger)) trigger.kill();
+    });
+    const nodes = [card, ...card.querySelectorAll<HTMLElement>("*")];
+    gsap.killTweensOf(nodes);
+    gsap.set(nodes, { autoAlpha: 1, opacity: 1, y: 0, scale: 1, clipPath: "none" });
+  });
+
+  if (!animate || cards.length === 0) return;
+
+  gsap.fromTo(
+    cards,
+    { autoAlpha: 0, y: 22 },
+    {
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.55,
+      stagger: 0.04,
+      ease: "piura",
+      overwrite: "auto",
+    },
+  );
+}
+
 export function ShopGrid({
   initialFilter = "all",
 }: {
   initialFilter?: ShopFilter;
 }) {
+  const router = useRouter();
   const [filter, setFilter] = useState<ShopFilter>(initialFilter);
   const gridRef = useRef<HTMLDivElement>(null);
-  const busy = useRef(false);
-  const firstPaint = useRef(true);
+  const seen = useRef<Set<string> | null>(null);
   const visible = new Set(filterProducts(filter).map((item) => item.name));
 
   useEffect(() => {
-    if (firstPaint.current) {
-      firstPaint.current = false;
-      return;
-    }
+    setFilter(initialFilter);
+  }, [initialFilter]);
 
+  useEffect(() => {
     const root = gridRef.current;
-    if (!root) {
-      busy.current = false;
-      return;
-    }
+    if (!root) return;
 
-    const incoming = [
-      ...root.querySelectorAll<HTMLElement>("[data-product-wrap]"),
-    ].filter((card) => card.dataset.shown === "true");
+    root.parentElement?.querySelectorAll<HTMLElement>("[data-tab]").forEach((tab) => {
+      gsap.set(tab, { autoAlpha: 1, opacity: 1, y: 0 });
+    });
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      gsap.set(incoming, { autoAlpha: 1, y: 0, scale: 1 });
-      busy.current = false;
-      return;
-    }
-
-    registerGsap();
-    gsap.fromTo(
-      incoming,
-      { autoAlpha: 0, y: 28, scale: 0.96 },
-      {
-        autoAlpha: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.7,
-        stagger: 0.045,
-        ease: "piura",
-        onComplete: () => {
-          busy.current = false;
-        },
-      },
+    const shown = [...root.querySelectorAll<HTMLElement>("[data-product-wrap]")].filter(
+      (card) => card.dataset.shown === "true",
     );
+    const names = shown.map((card) => card.dataset.name ?? "");
+    const first = seen.current === null;
+    const incoming = first
+      ? shown
+      : shown.filter((card) => !seen.current?.has(card.dataset.name ?? ""));
+    seen.current = new Set(names);
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    showCards(first ? shown : incoming, !reduced && incoming.length > 0);
+    if (!first) {
+      shown
+        .filter((card) => !incoming.includes(card))
+        .forEach((card) => {
+          gsap.set(card, { autoAlpha: 1, y: 0, scale: 1 });
+        });
+    }
   }, [filter]);
 
   function applyFilter(next: ShopFilter) {
-    if (next === filter || busy.current) return;
-
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
-      setFilter(next);
-      return;
-    }
-
-    registerGsap();
-    const root = gridRef.current;
-    if (!root) {
-      setFilter(next);
-      return;
-    }
-
-    const cards = [...root.querySelectorAll<HTMLElement>("[data-product-wrap]")];
-    const nextVisible = new Set(filterProducts(next).map((item) => item.name));
-    const leaving = cards.filter(
-      (card) => !nextVisible.has(card.dataset.name ?? "") && card.dataset.shown === "true",
-    );
-
-    busy.current = true;
-
-    if (!leaving.length) {
-      setFilter(next);
-      return;
-    }
-
-    gsap.to(leaving, {
-      autoAlpha: 0,
-      y: 16,
-      scale: 0.97,
-      duration: 0.32,
-      stagger: 0.02,
-      ease: "power3.in",
-      onComplete: () => setFilter(next),
-    });
+    if (next === filter) return;
+    setFilter(next);
+    router.replace(next === "all" ? "/shop" : `/shop?filter=${next}`, { scroll: false });
   }
 
   return (
@@ -127,7 +114,7 @@ export function ShopGrid({
       </div>
       <div
         ref={gridRef}
-        className="mx-auto mt-8 grid w-full max-w-[1560px] grid-cols-2 gap-x-3 gap-y-8 px-5 sm:mt-12 sm:gap-x-4 sm:gap-y-12 sm:px-8 md:mt-16 lg:grid-cols-3 xl:mt-[120px] xl:grid-cols-4 xl:gap-x-[11px] xl:gap-y-[70px] xl:px-20"
+        className="mx-auto mt-8 grid w-full max-w-[1560px] grid-cols-2 gap-x-3 gap-y-8 px-5 sm:mt-10 sm:gap-x-4 sm:gap-y-12 sm:px-8 lg:grid-cols-3 xl:mt-14 xl:grid-cols-4 xl:gap-x-[11px] xl:gap-y-[70px] xl:px-20"
       >
         {products.map((product) => {
           const shown = visible.has(product.name);

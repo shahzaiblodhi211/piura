@@ -2,7 +2,7 @@ import { HomeHeader } from "@/components/home-header";
 import { PageShell } from "@/components/page-shell";
 import { ShopGrid } from "@/components/shop-grid";
 import { SplitTitle } from "@/components/split-title";
-import type { ShopFilter } from "@/lib/products";
+import { acceptedFilters, type ShopFilter } from "@/lib/products";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Everything under the sun — fully lined, seamless, and cut for effortless tan lines. Designed in Miami, crafted in Piura, Peru.",
 };
 
-const filters: ShopFilter[] = ["all", "triangle", "bandeau", "contour", "onepiece"];
+const filters: ShopFilter[] = acceptedFilters;
 
 export default async function ShopPage({
   searchParams,
@@ -29,7 +29,7 @@ export default async function ShopPage({
         <section className="relative w-full overflow-x-clip">
           <div
             data-hero-frame
-            className="relative h-[340px] w-full overflow-hidden sm:h-[440px] md:h-[540px] lg:h-[640px] xl:h-[744px]"
+            className="relative mx-auto h-[340px] w-full max-w-[1560px] overflow-hidden sm:h-[440px] md:h-[540px] lg:h-[640px] xl:h-[744px]"
           >
             <div className="absolute inset-0 -scale-x-100">
               <img
@@ -62,7 +62,7 @@ export default async function ShopPage({
 
         <section
           id="shop"
-          className="mx-auto w-full max-w-[1560px] scroll-mt-8 pt-12 pb-16 sm:pt-16 xl:pt-[125px] xl:pb-[80px]"
+          className="mx-auto w-full max-w-[1560px] scroll-mt-8 pt-10 pb-16 sm:pt-12 xl:pt-16 xl:pb-[80px]"
         >
           <ShopGrid key={initialFilter} initialFilter={initialFilter} />
         </section>

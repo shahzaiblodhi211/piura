@@ -1,6 +1,20 @@
 import { classicProducts } from "./classics";
 
-export type ShopFilter = "all" | "triangle" | "bandeau" | "contour" | "onepiece";
+export type ShopFilter =
+  | "all"
+  | "coastlines"
+  | "classics"
+  | "triangle"
+  | "bandeau"
+  | "contour"
+  | "onepiece"
+  | "tops"
+  | "bottoms"
+  | "sunchild"
+  | "moonchild"
+  | "sara"
+  | "bali"
+  | "marina";
 
 export type SizeQty = { size: string; qty: number };
 
@@ -281,17 +295,41 @@ export const products: Product[] = [
   ...classicProducts,
 ];
 
+const printFilters = ["sunchild", "moonchild", "sara", "bali", "marina"] as const;
+
 export function filterProducts(filter: ShopFilter) {
   if (filter === "all") return products;
-  return products.filter((product) => productStyles(product).includes(filter));
+  return products.filter((product) => {
+    if (filter === "coastlines") return product.kind === "bikini" || product.kind === "onepiece";
+    if (filter === "classics") return typeof product.price === "number";
+    if (filter === "tops") return product.kind === "top";
+    if (filter === "bottoms") return product.kind === "bottom";
+    if ((printFilters as readonly string[]).includes(filter)) {
+      return product.name.toLowerCase().startsWith(filter);
+    }
+    return productStyles(product).includes(filter);
+  });
 }
 
 export const shopFilters: { id: ShopFilter; label: string; count: number }[] = [
   { id: "all", label: "All Swim", count: 0 },
+  { id: "coastlines", label: "Coastlines", count: 0 },
+  { id: "classics", label: "Classics", count: 0 },
   { id: "triangle", label: "Triangle", count: 0 },
   { id: "bandeau", label: "Bandeau", count: 0 },
   { id: "contour", label: "Contour", count: 0 },
   { id: "onepiece", label: "One-Piece", count: 0 },
+];
+
+export const acceptedFilters: ShopFilter[] = [
+  ...shopFilters.map((item) => item.id),
+  "tops",
+  "bottoms",
+  "sunchild",
+  "moonchild",
+  "sara",
+  "bali",
+  "marina",
 ];
 
 for (const item of shopFilters) {

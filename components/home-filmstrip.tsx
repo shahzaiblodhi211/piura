@@ -4,13 +4,13 @@ import { useLayoutEffect, useRef } from "react";
 import { gsap, registerGsap } from "@/lib/gsap";
 
 const shots = [
-  ["home-girls-1.png", "Woman in a pink Piura bikini on the sand"],
-  ["home-girls-2.png", "Woman in a sage Piura bikini by the water"],
-  ["home-girls-3.png", "Woman in a pink Piura bikini standing in the surf"],
-  ["home-girls-4.png", "Woman in a pink Piura bikini walking the shore"],
-  ["home-girls-5.png", "Woman in a patterned Piura bikini on the beach"],
-  ["home-girls-6.png", "Woman in a pink Piura bikini facing the sea"],
-  ["home-girls-7.png", "Woman in a Piura bikini at the waterline"],
+  ["home-girls-1.jpg", "Woman in a pink Piura bikini on the sand"],
+  ["home-girls-2.jpg", "Woman in a sage Piura bikini by the water"],
+  ["home-girls-3.jpg", "Woman in a pink Piura bikini standing in the surf"],
+  ["home-girls-4.jpg", "Woman in a pink Piura bikini walking the shore"],
+  ["home-girls-5.jpg", "Woman in a patterned Piura bikini on the beach"],
+  ["home-girls-6.jpg", "Woman in a pink Piura bikini facing the sea"],
+  ["home-girls-7.jpg", "Woman in a Piura bikini at the waterline"],
 ] as const;
 
 function Strip({ hidden }: { hidden?: boolean }) {
@@ -19,12 +19,12 @@ function Strip({ hidden }: { hidden?: boolean }) {
       {shots.map(([src, alt]) => (
         <span
           key={src}
-          className="group block h-[280px] w-[186px] shrink-0 overflow-hidden rounded-[2px] sm:h-[362px] sm:w-[241px]"
+          className="group block h-[200px] w-[132px] shrink-0 overflow-hidden rounded-[2px] sm:h-[280px] sm:w-[186px] lg:h-[362px] lg:w-[241px]"
         >
           <img
             alt={hidden ? "" : alt}
             src={`/assets/${src}`}
-            className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+            className="size-full object-cover object-[center_22%] transition-transform duration-700 ease-out group-hover:scale-[1.05]"
           />
         </span>
       ))}

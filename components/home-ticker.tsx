@@ -19,7 +19,7 @@ function Sequence({ hidden }: { hidden?: boolean }) {
       {items.map((item) => (
         <p
           key={item}
-          className="flex items-center font-bebas text-[32px] leading-none whitespace-nowrap text-ink sm:text-[48px]"
+          className="flex items-center font-bebas text-[26px] leading-none whitespace-nowrap text-ink sm:text-[36px] md:text-[48px]"
         >
           <span>{item}</span>
           <img

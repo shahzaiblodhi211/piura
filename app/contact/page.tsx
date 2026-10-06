@@ -22,7 +22,7 @@ export default function ContactPage() {
           </p>
           <SplitTitle
             text="From Miami, the same day."
-            className="mt-3 font-serif text-[36px] leading-[1.15] font-normal tracking-[-0.04em] text-olive sm:text-[44px] md:mt-[12px] md:text-[56px] md:leading-[73px] md:tracking-[-2.24px]"
+            className="mt-3 font-serif text-[32px] leading-[1.15] font-normal tracking-[-0.04em] text-olive sm:text-[40px] md:mt-[12px] md:text-[56px] md:leading-[73px] md:tracking-[-2.24px]"
           />
           <p
             data-intro
@@ -40,12 +40,12 @@ export default function ContactPage() {
               data-photo
               className="w-full min-[1400px]:max-w-[701px] min-[1400px]:shrink-0"
             >
-              <div className="relative aspect-square w-full overflow-hidden">
+              <div className="relative h-[300px] w-full overflow-hidden sm:h-[400px] md:h-[480px] lg:h-[560px] min-[1400px]:aspect-square min-[1400px]:h-auto">
                 <img
                   data-photo-img
                   alt="Woman on the beach wearing sunglasses"
-                  src="/assets/contact-photo.png"
-                  className="absolute inset-0 size-full object-cover will-change-transform"
+                  src="/assets/contact-photo.jpg"
+                  className="absolute inset-0 size-full object-cover object-[center_28%] will-change-transform"
                 />
               </div>
             </div>

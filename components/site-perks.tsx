@@ -29,14 +29,14 @@ export function SitePerks() {
           <div
             key={perk.title}
             data-feature
-            className="flex h-[125px] items-center gap-4 rounded-[2px] bg-[#f6f1ee] px-5"
+            className="flex min-h-[96px] items-center gap-3 rounded-[2px] bg-[#f6f1ee] px-4 sm:h-[125px] sm:gap-4 sm:px-5"
           >
-            <img src={perk.icon} alt="" data-feature-icon className="shrink-0" />
+            <img src={perk.icon} alt="" data-feature-icon className="h-9 w-9 shrink-0 object-contain sm:h-12 sm:w-12" />
             <div>
-              <p className="font-bebas text-[22px] tracking-[1.04px] text-ink uppercase sm:text-[26px]">
+              <p className="font-bebas text-[18px] tracking-[0.72px] text-ink uppercase sm:text-[22px] lg:text-[26px]">
                 {perk.title}
               </p>
-              <p className="font-serif text-[16px] tracking-[-0.32px] text-ink">{perk.body}</p>
+              <p className="font-serif text-[14px] tracking-[-0.28px] text-ink sm:text-[16px]">{perk.body}</p>
             </div>
           </div>
         ))}

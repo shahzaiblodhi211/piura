@@ -14,14 +14,14 @@ export default function WaitlistPage() {
   return (
     <PageShell>
       <main className="w-full">
-        <section className="relative w-full overflow-hidden min-h-[640px] xl:min-h-[839px]">
+        <section className="relative h-[520px] w-full overflow-hidden sm:h-[600px] md:h-[680px] xl:h-[839px]">
           <div data-photo="hero" className="absolute inset-0">
             <div className="absolute inset-0 overflow-hidden">
               <img
                 data-photo-img
                 alt="Woman in a sun hat looking out over the coast"
                 src="/assets/waitlist-hero.png"
-                className="absolute inset-0 size-full object-cover object-center will-change-transform"
+                className="absolute inset-0 size-full object-cover object-[center_32%] will-change-transform"
               />
             </div>
             <div
@@ -33,7 +33,7 @@ export default function WaitlistPage() {
             />
           </div>
 
-          <div className="relative mx-auto flex min-h-[640px] w-full max-w-[1560px] flex-col justify-start px-5 pt-40 pb-16 sm:px-8 md:px-12 md:pt-28 xl:min-h-[839px] xl:px-[87px] xl:pt-[200px] xl:pb-16">
+          <div className="relative mx-auto flex h-full w-full max-w-[1560px] flex-col justify-center px-5 py-16 sm:px-8 md:px-12 xl:px-[87px] xl:pt-[200px] xl:pb-16">
             <p
               data-intro
               className="font-serif text-[16px] leading-normal font-medium tracking-[1.44px] text-[#fbf8f6] capitalize md:text-[18px]"
@@ -42,11 +42,11 @@ export default function WaitlistPage() {
             </p>
             <SplitTitle
               text="Join the waitlist"
-              className="mt-2 font-serif text-[40px] leading-[1.1] font-semibold tracking-[-0.04em] text-[#fbf8f6] sm:text-[56px] xl:text-[79px] xl:tracking-[-3.16px]"
+              className="mt-2 font-serif text-[34px] leading-[1.1] font-semibold tracking-[-0.04em] text-[#fbf8f6] sm:text-[48px] md:text-[64px] xl:text-[79px] xl:tracking-[-3.16px]"
             />
             <p
               data-intro
-              className="mt-3 w-full max-w-[707px] font-serif text-[26px] leading-[1.2] font-normal text-[#fbf8f6] italic sm:text-[36px] xl:mt-4 xl:text-[44px] xl:tracking-[-1.76px]"
+              className="mt-3 w-full max-w-[707px] font-serif text-[20px] leading-[1.25] font-normal text-[#fbf8f6] italic sm:text-[28px] md:text-[36px] xl:mt-4 xl:text-[44px] xl:tracking-[-1.76px]"
             >
               Get first dibs on the new drop — shop 24 hours before everyone
               else.
@@ -79,12 +79,12 @@ export default function WaitlistPage() {
               data-photo
               className="w-full min-[1400px]:max-w-[633px] min-[1400px]:shrink-0"
             >
-              <div className="relative aspect-[633/754] w-full overflow-hidden">
+              <div className="relative h-[320px] w-full overflow-hidden sm:h-[420px] md:h-[520px] min-[1400px]:aspect-[633/754] min-[1400px]:h-auto">
                 <img
                   data-photo-img
                   alt="Woman in a white shirt sitting on a boat"
-                  src="/assets/waitlist-portrait.png"
-                  className="absolute inset-0 size-full object-cover will-change-transform"
+                  src="/assets/waitlist-portrait.jpg"
+                  className="absolute inset-0 size-full object-cover object-[center_24%] will-change-transform"
                 />
               </div>
             </div>
@@ -116,15 +116,15 @@ export default function WaitlistPage() {
 
         <section
           data-photo
-          className="relative w-full min-h-[560px] overflow-hidden xl:min-h-[741px]"
+          className="relative h-[340px] w-full overflow-hidden sm:h-[440px] md:h-[540px] xl:h-[741px]"
         >
           <img
             data-photo-img
             alt="Piura tote and sun hat on a coastal rock"
-            src="/assets/waitlist-tote.png"
-            className="absolute top-[-9.26%] left-[-0.01%] h-[118.55%] w-full max-w-none will-change-transform"
+            src="/assets/waitlist-tote.jpg"
+            className="absolute inset-0 size-full object-cover object-[center_42%]"
           />
-          <div className="relative mx-auto flex min-h-[560px] w-full max-w-[1560px] flex-col justify-center px-5 py-16 sm:px-8 md:px-12 xl:min-h-[741px] xl:px-[105px] xl:py-[144px]">
+          <div className="relative mx-auto flex h-full w-full max-w-[1560px] flex-col justify-center px-5 py-10 sm:px-8 sm:py-16 md:px-12 xl:px-[105px] xl:py-[144px]">
             <p
               data-intro
               className="font-serif text-[16px] leading-normal font-medium tracking-normal text-brown capitalize md:text-[18px]"

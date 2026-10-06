@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
 import {
   productDescription,
+  productPriceLine,
   productSizes,
   type Product,
 } from "@/lib/products";
@@ -42,7 +43,7 @@ function CroppedImage({
           style={crop}
         />
       ) : (
-        <img alt={alt} src={src} className="size-full object-contain" />
+        <img alt={alt} src={src} className="size-full object-cover object-[center_16%]" />
       )}
     </div>
   );
@@ -73,8 +74,8 @@ function Thumbnails({
           onClick={() => onSelect(slideIndex)}
           className={`relative snap-start overflow-hidden bg-[#f9f6f4] ${
             fill
-              ? "h-[150px] min-w-[132px] flex-1 sm:h-[168px]"
-              : "h-[90px] w-[74px] shrink-0 sm:h-[180px] sm:w-[148px]"
+              ? "h-[84px] min-w-[68px] flex-1 sm:h-[120px] sm:min-w-[100px] md:h-[150px] md:min-w-[132px]"
+              : "h-[72px] w-[58px] shrink-0 sm:h-[120px] sm:w-[100px] md:h-[180px] md:w-[148px]"
           } ${slideIndex === index ? "opacity-100" : "opacity-48"}`}
         >
           <CroppedImage
@@ -122,10 +123,15 @@ function ProductCopy({
     <>
       <h1
         data-intro
-        className="font-serif text-[24px] leading-[1.2] font-normal tracking-[-0.04em] text-olive md:text-[28px] md:tracking-[-1.12px]"
+        className="font-serif text-[22px] leading-[1.2] font-normal tracking-[-0.04em] text-olive sm:text-[24px] md:text-[28px] md:tracking-[-1.12px]"
       >
         {product.name}
       </h1>
+      {productPriceLine(product) ? (
+        <p data-intro className="mt-3 font-serif text-[18px] leading-none tracking-[0.36px] text-olive">
+          {productPriceLine(product)}
+        </p>
+      ) : null}
       <p
         data-intro
         className="mt-6 w-full max-w-[470px] font-serif text-[16px] leading-[25px] font-normal text-body"
@@ -261,7 +267,7 @@ export function ProductDetail({
     return (
       <div className="mx-auto flex w-full max-w-[1560px] flex-col gap-10 px-5 pt-10 pb-16 sm:px-8 md:px-12 md:pt-12 lg:px-16 xl:flex-row xl:items-start xl:justify-between xl:px-20 xl:pt-16 xl:pb-20">
         <div className="flex w-full flex-col items-center xl:max-w-[720px]">
-          <div className="relative aspect-square w-full max-w-[520px]">
+          <div className="relative h-[380px] w-full max-w-[320px] sm:h-[460px] sm:max-w-[400px] md:h-[540px] md:max-w-[520px]">
             {stage("absolute inset-4")}
           </div>
           {slides.length > 1 ? (
@@ -327,7 +333,7 @@ export function ProductDetail({
 
       <div className="relative flex flex-col px-5 pt-10 pb-8 sm:px-8 min-[1400px]:h-[906px] min-[1400px]:px-0 min-[1400px]:pt-0 min-[1400px]:pb-0">
         <div className="absolute inset-0 hidden bg-[#f9f6f4] min-[1400px]:block" />
-        <div className="relative h-[520px] w-full min-[1400px]:h-[818px]">
+        <div className="relative h-[420px] w-full sm:h-[520px] md:h-[640px] min-[1400px]:h-[818px]">
           {stage("absolute inset-0")}
         </div>
         {slides.length > 1 ? (

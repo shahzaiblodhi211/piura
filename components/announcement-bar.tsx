@@ -30,17 +30,17 @@ export function AnnouncementBar({ coast = false }: { coast?: boolean }) {
     return (
       <div
         data-chrome
-        className="flex h-[55px] w-full items-center justify-center gap-4 bg-ink px-4 sm:gap-6"
+        className="flex h-11 w-full items-center justify-center gap-3 bg-ink px-3 sm:h-[55px] sm:gap-6 sm:px-4"
       >
-        <img src="/assets/home-sparkle.svg" alt="" className="shrink-0" />
-        <p className="flex items-center gap-3.5 font-bebas text-[18px] leading-none tracking-[0.72px] text-white sm:text-[24px]">
+        <img src="/assets/home-sparkle.svg" alt="" className="h-3.5 w-3.5 shrink-0 sm:h-auto sm:w-auto" />
+        <p className="flex items-center gap-2.5 font-bebas text-[15px] leading-none tracking-[0.6px] text-white sm:gap-3.5 sm:text-[20px] md:text-[24px]">
           <span className="whitespace-nowrap">COASTLINES PREORDER NOW</span>
           <img src="/assets/home-dot.svg" alt="" />
           <span className="hidden whitespace-nowrap sm:inline">
             THE NEW ERA OF PIURA
           </span>
         </p>
-        <img src="/assets/home-sparkle.svg" alt="" className="shrink-0" />
+        <img src="/assets/home-sparkle.svg" alt="" className="h-3.5 w-3.5 shrink-0 sm:h-auto sm:w-auto" />
       </div>
     );
   }

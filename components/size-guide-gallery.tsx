@@ -16,7 +16,7 @@ const views = [
     },
   },
   {
-    src: "/assets/pdp-mannequin-front.png",
+    src: "/assets/pdp-mannequin-front.jpg",
     alt: "Sunchild Triangle Bottom on a dress form, front",
     thumb: {
       width: "99.94%",
@@ -66,7 +66,7 @@ export function SizeGuideGallery({ children }: { children: ReactNode }) {
                 type="button"
                 data-guide-thumb={viewIndex}
                 onClick={() => setIndex(viewIndex)}
-                className={`relative h-[180px] w-[148px] shrink-0 snap-start overflow-hidden bg-[#f9f6f4] ${
+                className={`relative h-[112px] w-[92px] shrink-0 snap-start overflow-hidden bg-[#f9f6f4] sm:h-[180px] sm:w-[148px] ${
                   viewIndex === index ? "opacity-100" : "opacity-48"
                 }`}
               >
@@ -103,7 +103,7 @@ export function SizeGuideGallery({ children }: { children: ReactNode }) {
         slides={views}
         index={index}
         fill="cover"
-        className="relative aspect-[728/805] w-full max-w-[728px] min-[1400px]:mt-0"
+        className="relative mx-auto h-[320px] w-full max-w-[280px] sm:h-[420px] sm:max-w-[380px] md:h-[520px] md:max-w-[480px] lg:h-[640px] lg:max-w-[728px] min-[1400px]:mt-0"
       />
     </div>
   );

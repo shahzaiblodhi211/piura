@@ -37,7 +37,7 @@ export function LegalLayout({
             </p>
             <SplitTitle
               text={title}
-              className="mt-3 font-serif text-[36px] leading-[1.15] font-normal tracking-[-0.04em] text-olive sm:text-[44px] md:mt-[17px] md:text-[56px] md:leading-[73px] md:tracking-[-2.24px]"
+              className="mt-3 font-serif text-[32px] leading-[1.15] font-normal tracking-[-0.04em] text-olive sm:text-[40px] md:mt-[17px] md:text-[56px] md:leading-[73px] md:tracking-[-2.24px]"
             />
             <p
               data-intro

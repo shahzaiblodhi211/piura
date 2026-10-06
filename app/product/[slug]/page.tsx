@@ -44,7 +44,7 @@ export default async function ProductPage({
           <div className="w-full max-w-[640px]">
             <SplitTitle
               text="Sizes and quantity"
-              className="font-serif text-[36px] leading-[1.15] font-normal tracking-[-0.04em] text-olive md:text-[56px] md:leading-[73px] md:tracking-[-2.24px]"
+              className="font-serif text-[32px] leading-[1.15] font-normal tracking-[-0.04em] text-olive sm:text-[40px] md:text-[56px] md:leading-[73px] md:tracking-[-2.24px]"
             />
             <p
               data-intro
@@ -77,11 +77,11 @@ export default async function ProductPage({
               ))}
             </div>
           </div>
-          <div className="relative aspect-[3/4] w-full overflow-hidden lg:aspect-auto lg:w-[380px] lg:shrink-0">
+          <div className="relative mx-auto h-[360px] w-full max-w-[280px] overflow-hidden sm:h-[440px] sm:max-w-[340px] lg:mx-0 lg:h-[520px] lg:w-[320px] lg:max-w-none lg:shrink-0 xl:h-[560px] xl:w-[380px]">
             <img
               alt={shot.alt}
               src={shot.src}
-              className="size-full object-contain lg:absolute lg:inset-0"
+              className="absolute inset-0 size-full object-cover object-[center_16%]"
             />
           </div>
         </section>

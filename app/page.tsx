@@ -2,7 +2,7 @@ import { HomeFilmstrip } from "@/components/home-filmstrip";
 import { HomeHeader } from "@/components/home-header";
 import { HomeTicker } from "@/components/home-ticker";
 import { PageShell } from "@/components/page-shell";
-import { productSlug, products, type Product } from "@/lib/products";
+import { piecePrices, productPriceLine, productSlug, products, type Product } from "@/lib/products";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -14,27 +14,33 @@ export const metadata: Metadata = {
 
 const categories = [
   {
+    label: "COASTLINES",
+    href: "/shop",
+    box: "h-12 w-[76px] sm:h-14 sm:w-[92px] xl:h-[72px] xl:w-[116px]",
+    src: "/assets/cat-coastlines.png",
+  },
+  {
     label: "TOPS",
     href: "/shop",
-    box: "h-[103px] w-[76px]",
+    box: "h-16 w-12 sm:h-20 sm:w-[60px] xl:h-[103px] xl:w-[76px]",
     crop: { width: "204.2%", height: "300.83%", left: "-104.2%", top: "-39.36%" },
   },
   {
     label: "BOTTOMS",
     href: "/shop",
-    box: "h-[74px] w-[98px]",
+    box: "h-12 w-16 sm:h-14 sm:w-20 xl:h-[74px] xl:w-[98px]",
     crop: { width: "188.63%", height: "497.78%", left: "0%", top: "-264.62%" },
   },
   {
-    label: "THE CLASSICS",
+    label: "PIURA CLASSICS",
     href: "/shop",
-    box: "h-[105px] w-[71px]",
+    box: "h-16 w-11 sm:h-20 sm:w-14 xl:h-[105px] xl:w-[71px]",
     crop: { width: "204.77%", height: "276.02%", left: "-104.77%", top: "-138.96%" },
   },
   {
-    label: "TOTE",
+    label: "ACCESSORIES",
     href: "/shop",
-    box: "h-[93px] w-[71px]",
+    box: "h-14 w-11 sm:h-[72px] sm:w-14 xl:h-[93px] xl:w-[71px]",
     crop: { width: "185.99%", height: "283.82%", left: "0%", top: "-33.53%" },
   },
 ];
@@ -52,7 +58,7 @@ function OutlineButton({
     <Link
       href={href}
       data-btn
-      className={`inline-flex h-[52px] items-center justify-center border-2 px-10 font-bebas text-[18px] tracking-[0.36px] uppercase whitespace-nowrap ${
+      className={`inline-flex h-11 items-center justify-center border-2 px-6 font-bebas text-[16px] tracking-[0.32px] uppercase whitespace-nowrap sm:h-[52px] sm:px-10 sm:text-[18px] ${
         dark
           ? "border-ink text-ink"
           : "border-white text-white"
@@ -66,18 +72,25 @@ function OutlineButton({
 function MeetCard({ product }: { product: Product }) {
   return (
     <Link href={`/product/${productSlug(product.name)}`} className="group flex flex-col gap-[18px]">
-      <span className="relative block aspect-[382/536] w-full overflow-hidden bg-[#f5f2ed]">
+      <span className="relative block aspect-[382/536] w-full overflow-hidden">
         <img
           alt={product.alt}
           src={product.src}
-          className="size-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.045]"
+          className="size-full object-cover object-[center_18%] transition-transform duration-700 ease-out group-hover:scale-[1.045]"
         />
-        <span className="absolute top-0 left-0 flex h-7 w-[92px] items-center justify-center bg-ink font-bebas text-[14px] tracking-[0.56px] text-white">
+        <span className="absolute top-0 left-0 flex h-6 w-[78px] items-center justify-center bg-ink font-bebas text-[12px] tracking-[0.48px] text-white sm:h-7 sm:w-[92px] sm:text-[14px]">
           PREORDER
         </span>
       </span>
-      <span className="font-bebas text-[18px] tracking-[0.88px] text-ink uppercase sm:text-[22px]">
-        {product.name}
+      <span className="flex flex-col gap-2">
+        <span className="font-bebas text-[15px] leading-tight tracking-[0.6px] text-ink uppercase sm:text-[18px] lg:text-[22px]">
+          {product.name}
+        </span>
+        {productPriceLine(product) ? (
+          <span className="font-serif text-[14px] leading-none tracking-[0.28px] text-olive sm:text-[16px]">
+            {productPriceLine(product)}
+          </span>
+        ) : null}
       </span>
     </Link>
   );
@@ -87,27 +100,23 @@ function CollectionTile({
   src,
   label,
   href,
-  crop,
+  focus = "object-[center_28%]",
 }: {
   src: string;
   label: string;
   href: string;
-  crop?: { width: string; height: string; left: string; top: string };
+  focus?: string;
 }) {
   return (
     <Link
       href={href}
       data-photo="still"
-      className="group relative block min-h-[420px] overflow-hidden lg:min-h-[785px]"
+      className="group relative block h-[300px] overflow-hidden sm:h-[400px] md:h-[520px] lg:h-[660px] xl:h-[785px]"
     >
       <span className="absolute inset-0 origin-center transition-transform duration-700 ease-out group-hover:scale-[1.035]">
-        {crop ? (
-          <img alt="" src={src} className="absolute max-w-none" style={crop} />
-        ) : (
-          <img alt="" src={src} className="absolute inset-0 size-full object-cover" />
-        )}
+        <img alt="" src={src} className={`absolute inset-0 size-full object-cover ${focus}`} />
       </span>
-      <span className="absolute bottom-8 left-6 font-bebas text-[40px] text-white underline decoration-[6px] underline-offset-[14px] transition-transform duration-500 ease-out group-hover:-translate-y-1 sm:bottom-12 sm:left-12 sm:text-[60px]">
+      <span className="absolute bottom-5 left-5 font-bebas text-[28px] text-white underline decoration-[3px] underline-offset-[8px] transition-transform duration-500 ease-out group-hover:-translate-y-1 sm:bottom-8 sm:left-8 sm:text-[40px] sm:decoration-[4px] md:text-[52px] lg:bottom-12 lg:left-12 lg:text-[60px] lg:decoration-[6px] lg:underline-offset-[14px]">
         {label}
       </span>
     </Link>
@@ -118,14 +127,14 @@ export default function Home() {
   return (
     <PageShell hero>
       <main className="w-full">
-        <section className="relative min-h-[640px] w-full xl:min-h-[751px]">
+        <section className="relative h-[480px] w-full sm:h-[560px] md:h-[640px] xl:h-[751px]">
           <div className="absolute inset-0">
             <div className="absolute inset-0 overflow-hidden">
               <div data-hero-frame className="absolute inset-0">
                 <img
                   alt="Two women in Piura bikinis on the beach"
-                  src="/assets/home-coast-hero.png"
-                  className="absolute top-[-26.64%] left-0 h-[138.5%] w-full max-w-none"
+                  src="/assets/home-coast-hero.jpg"
+                  className="absolute inset-0 size-full object-cover object-[70%_46%]"
                 />
               </div>
             </div>
@@ -138,22 +147,22 @@ export default function Home() {
             />
           </div>
           <HomeHeader />
-          <div className="relative mx-auto flex min-h-[640px] w-full max-w-[1560px] flex-col justify-end px-5 pt-36 pb-16 sm:px-8 xl:min-h-[751px] xl:px-[60px] xl:pt-[186px] xl:pb-[100px]">
-            <p data-intro className="font-serif text-[16px] tracking-[-0.32px] text-[#f1f1f1]">
+          <div className="relative mx-auto flex h-full w-full max-w-[1560px] flex-col justify-end px-5 pt-24 pb-10 sm:px-8 sm:pt-28 sm:pb-14 md:pb-16 xl:px-[60px] xl:pt-[186px] xl:pb-[100px]">
+            <p data-intro className="font-serif text-[14px] tracking-[-0.28px] text-[#f1f1f1] sm:text-[16px]">
               THE WAIT IS OVER
             </p>
-            <h1 className="mt-2 font-bebas text-[72px] leading-none text-white sm:text-[110px] xl:text-[150px]">
+            <h1 className="mt-2 font-bebas text-[52px] leading-none text-white sm:text-[84px] md:text-[120px] xl:text-[150px]">
               <span data-intro className="block">
                 COASTLINES
               </span>
             </h1>
             <p
               data-intro
-              className="font-serif text-[40px] leading-none text-white italic sm:text-[56px] xl:text-[78px] xl:tracking-[-3.12px]"
+              className="font-serif text-[30px] leading-none text-white italic sm:text-[44px] md:text-[60px] xl:text-[78px] xl:tracking-[-3.12px]"
             >
               IS HERE
             </p>
-            <div data-intro className="mt-6 max-w-[206px] font-bebas text-[18px] leading-normal tracking-[0.36px] text-white">
+            <div data-intro className="mt-5 max-w-[206px] font-bebas text-[16px] leading-normal tracking-[0.32px] text-white sm:mt-6 sm:text-[18px]">
               <p>
                 The new era of <span className="text-[20px] tracking-[0.4px]">PIURA</span>
               </p>
@@ -165,31 +174,35 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mx-auto w-full max-w-[1560px] px-5 py-16 sm:px-8 md:py-20 xl:px-8">
+        <section className="mx-auto w-full max-w-[1560px] px-5 py-12 sm:px-8 sm:py-16 md:py-20 xl:px-8">
           <h2
             data-reveal
-            className="text-center font-bebas text-[48px] leading-none text-ink sm:text-[64px] xl:text-[80px]"
+            className="text-center font-bebas text-[40px] leading-none text-ink sm:text-[56px] md:text-[68px] xl:text-[80px]"
           >
-            OUR CATEGORIES
+            SHOP PIURA
           </h2>
-          <div data-reveal className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
+          <div data-reveal className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-4 lg:grid-cols-5 lg:gap-5">
             {categories.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="group flex h-[125px] items-center justify-center gap-4 rounded-[2px] bg-[#f6f1ee] px-4 transition-colors duration-300 hover:bg-[#efe6df]"
+                className="group flex min-h-[104px] flex-col items-center justify-center gap-2 rounded-[2px] bg-[#f6f1ee] px-3 py-3 text-center transition-colors duration-300 hover:bg-[#efe6df] last:col-span-2 last:w-[calc(50%-6px)] last:justify-self-center sm:min-h-[120px] sm:flex-row sm:gap-3 sm:px-4 sm:last:w-[calc(50%-8px)] lg:flex-col lg:last:col-span-1 lg:last:w-auto lg:last:justify-self-stretch xl:min-h-[132px] xl:flex-row xl:gap-4"
               >
                 <span className={`relative shrink-0 overflow-hidden ${item.box}`}>
                   <span className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105">
-                    <img
-                      alt=""
-                      src="/assets/home-cat-sheet.png"
-                      className="absolute max-w-none"
-                      style={item.crop}
-                    />
+                    {item.src ? (
+                      <img alt="" src={item.src} className="absolute inset-0 size-full object-contain" />
+                    ) : (
+                      <img
+                        alt=""
+                        src="/assets/home-cat-sheet.png"
+                        className="absolute max-w-none"
+                        style={item.crop}
+                      />
+                    )}
                   </span>
                 </span>
-                <span className="font-bebas text-[28px] text-ink sm:text-[34px]">
+                <span className="font-bebas text-[18px] leading-none text-ink sm:text-[22px] lg:text-[20px] xl:text-[28px]">
                   {item.label}
                 </span>
               </Link>
@@ -197,17 +210,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mx-auto w-full max-w-[1560px] px-5 pb-16 sm:px-8 xl:px-0">
+        <section className="mx-auto w-full max-w-[1680px] px-5 pb-12 sm:px-8 sm:pb-16">
           <div data-reveal className="text-center">
-            <h2 className="font-bebas text-[48px] leading-none text-ink sm:text-[64px] xl:text-[80px]">
+            <h2 className="font-bebas text-[40px] leading-none text-ink sm:text-[56px] md:text-[68px] xl:text-[80px]">
               Meet The New PIURA
             </h2>
-            <p className="mx-auto mt-4 max-w-[354px] font-serif text-[16px] leading-[26px] text-ink">
-              <span className="uppercase">S</span>
-              un-drenched designs inspired by coastlines, made for your next destination
+            <p className="mx-auto mt-3 font-serif text-[15px] leading-[24px] text-ink sm:mt-4 sm:text-[16px] sm:leading-[26px] md:text-[18px]">
+              Cheeky. Flattering. Made to be noticed.
             </p>
           </div>
-          <div data-reveal className="mt-12 grid grid-cols-2 gap-x-4 gap-y-12 lg:grid-cols-4 lg:gap-x-[11px]">
+          <div data-reveal className="mt-8 grid grid-cols-2 gap-x-3 gap-y-8 sm:mt-12 sm:gap-x-4 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-[11px]">
             {products.slice(0, 4).map((product) => (
               <MeetCard key={product.name} product={product} />
             ))}
@@ -222,17 +234,17 @@ export default function Home() {
         <HomeTicker />
 
         <section className="grid w-full lg:grid-cols-2">
-          <div data-photo="still" className="group relative min-h-[420px] overflow-hidden lg:min-h-[685px]">
+          <div data-photo="still" className="group relative h-[280px] overflow-hidden sm:h-[380px] md:h-[480px] lg:h-[580px] xl:h-[685px]">
             <span className="absolute inset-0 origin-center transition-transform duration-700 ease-out group-hover:scale-[1.03]">
               <img
                 alt="The Piura tote on the sand"
-                src="/assets/home-tote.png"
-                className="absolute top-0 left-[-13.62%] h-[113.14%] w-[127.24%] max-w-none"
+                src="/assets/home-tote.jpg"
+                className="absolute inset-0 size-full object-cover object-[center_32%]"
               />
             </span>
           </div>
-          <div className="relative flex flex-col justify-center bg-[#f6f3ee] px-6 py-16 sm:px-12 lg:px-16 xl:px-[70px]">
-            <span className="piura-float absolute top-8 right-6 z-10 flex size-[160px] flex-col items-center justify-center rounded-full bg-[#f6d2ca] text-center font-bebas text-[22px] leading-[1.05] tracking-[-0.24px] text-ink sm:right-10">
+          <div className="relative flex flex-col justify-center bg-[#f6f3ee] px-5 py-12 sm:px-12 sm:py-16 lg:px-16 xl:px-[70px]">
+            <span className="piura-float absolute top-5 right-4 z-10 flex size-[108px] flex-col items-center justify-center rounded-full bg-[#f6d2ca] text-center font-bebas text-[14px] leading-[1.05] tracking-[-0.2px] text-ink sm:top-8 sm:right-8 sm:size-[140px] sm:text-[18px] lg:size-[160px] lg:text-[22px]">
               <span>FREE TOTE</span>
               <span>WITH 2 BIKINI</span>
               <span>SETS</span>
@@ -242,19 +254,19 @@ export default function Home() {
               <p className="font-serif text-[16px] tracking-[-0.32px] text-ink">
               THE PIURA TOTE
             </p>
-              <h2 className="mt-4 max-w-[520px] font-bebas text-[64px] leading-[0.9] text-ink sm:text-[80px] xl:text-[100px] xl:leading-[87px]">
+              <h2 className="mt-3 max-w-[min(520px,calc(100%-120px))] font-bebas text-[44px] leading-[0.9] text-ink sm:mt-4 sm:max-w-[min(520px,calc(100%-150px))] sm:text-[68px] lg:text-[84px] xl:text-[100px] xl:leading-[87px]">
                 <span className="block">TAKE PIURA</span>
                 <span className="block">WITH YOU</span>
               </h2>
-              <p className="mt-6 max-w-[418px] font-serif text-[18px] leading-[26px] tracking-[-0.36px] text-ink">
+              <p className="mt-5 max-w-[418px] font-serif text-[16px] leading-[24px] tracking-[-0.32px] text-ink sm:mt-6 sm:text-[18px] sm:leading-[26px]">
                 The perfect beach bag for sunny days, salty hair and every getaway.
-                Shop the PIURA tote on its own — or get it free when you buy 2 bikini
-                sets.
+                Shop the PIURA tote on its own for ${piecePrices.tote} — or get it free
+                when you buy 2 bikini sets.
               </p>
               <Link
                 href="/shop"
                 data-btn
-                className="mt-8 inline-flex h-[52px] w-fit items-center justify-center bg-ink px-10 font-bebas text-[18px] tracking-[0.36px] text-[#f6f3ee] uppercase"
+                className="mt-6 inline-flex h-11 w-fit items-center justify-center bg-ink px-6 font-bebas text-[16px] tracking-[0.32px] text-[#f6f3ee] uppercase sm:mt-8 sm:h-[52px] sm:px-10 sm:text-[18px]"
               >
                 SHOP THE COLLECTION
               </Link>
@@ -267,7 +279,7 @@ export default function Home() {
             data-reveal
             className="mx-auto flex w-full max-w-[1560px] flex-col gap-8 px-5 sm:px-8 lg:flex-row lg:items-end lg:justify-between xl:px-12"
           >
-            <h2 className="font-bebas text-[48px] leading-none text-ink sm:text-[64px] xl:text-[80px]">
+            <h2 className="font-bebas text-[40px] leading-none text-ink sm:text-[56px] md:text-[68px] xl:text-[80px]">
               OUR COLLECTION
             </h2>
             <OutlineButton href="/shop" dark>
@@ -275,25 +287,25 @@ export default function Home() {
             </OutlineButton>
           </div>
           <div className="mt-10 grid lg:grid-cols-2">
-            <CollectionTile src="/assets/home-coll-tops.png" label="TOPS" href="/shop" />
+            <CollectionTile src="/assets/home-coll-tops.jpg" label="TOPS" href="/shop" />
             <CollectionTile
-              src="/assets/home-coll-bottoms.png"
+              src="/assets/home-coll-bottoms.jpg"
               label="BOTTOMS"
               href="/shop"
-              crop={{ width: "100%", height: "148.38%", left: "0%", top: "-20.69%" }}
+              focus="object-[center_36%]"
             />
           </div>
-          <CollectionTile src="/assets/home-coll-classics.png" label="THE CLASSICS" href="/shop" />
+          <CollectionTile src="/assets/home-coll-classics.jpg" label="THE CLASSICS" href="/shop" />
           <div className="grid lg:grid-cols-2">
-            <CollectionTile src="/assets/home-coll-sun.png" label="SUNCHILD" href="/shop" />
-            <CollectionTile src="/assets/home-coll-moon.png" label="MOONCHILD" href="/shop" />
+            <CollectionTile src="/assets/home-coll-sun.jpg" label="SUNCHILD" href="/shop" />
+            <CollectionTile src="/assets/home-coll-moon.jpg" label="MOONCHILD" href="/shop" />
           </div>
         </section>
 
         <section className="w-full overflow-hidden pt-16 md:pt-24">
           <h2
             data-reveal
-            className="px-5 text-center font-bebas text-[40px] leading-none text-ink sm:text-[56px] xl:text-[80px]"
+            className="px-5 text-center font-bebas text-[32px] leading-none text-ink sm:text-[48px] md:text-[64px] xl:text-[80px]"
           >
             real girls, real destinations
           </h2>

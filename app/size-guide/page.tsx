@@ -42,7 +42,7 @@ export default function SizeGuidePage() {
           </p>
           <SplitTitle
             text="Fit is everything."
-            className="mt-3 font-serif text-[36px] leading-[1.15] font-normal tracking-[-0.04em] text-olive sm:text-[44px] md:text-[56px] md:leading-[73px] md:tracking-[-2.24px]"
+            className="mt-3 font-serif text-[32px] leading-[1.15] font-normal tracking-[-0.04em] text-olive sm:text-[40px] md:text-[56px] md:leading-[73px] md:tracking-[-2.24px]"
           />
           <p
             data-intro
@@ -117,7 +117,7 @@ export default function SizeGuidePage() {
               >
                 Size Guide
               </p>
-              <h2 className="mt-3 font-serif text-[36px] leading-[1.15] font-normal tracking-[-0.04em] text-olive sm:text-[44px] md:text-[56px] md:leading-[73px] md:tracking-[-2.24px]">
+              <h2 className="mt-3 font-serif text-[32px] leading-[1.15] font-normal tracking-[-0.04em] text-olive sm:text-[40px] md:text-[56px] md:leading-[73px] md:tracking-[-2.24px]">
                 <span className="inline-block overflow-hidden pb-[0.08em] align-bottom [perspective:220px]">
                   <span
                     data-title-word

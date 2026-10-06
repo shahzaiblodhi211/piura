@@ -74,17 +74,8 @@ export function SiteFooter({ tone = "light" }: { tone?: "light" | "ink" }) {
       <div className="mx-auto w-full max-w-[1560px] px-5 pt-12 pb-10 sm:px-8 md:px-12 md:pt-[59px] lg:px-16 xl:px-[60px]">
         <div data-reveal>
           {ink ? (
-            <Link href="/" aria-label="Piura Swim" className="flex w-fit items-end gap-3">
-              <span className="relative block h-[41px] w-[76px] overflow-hidden">
-                <img
-                  alt=""
-                  src="/assets/logo.png"
-                  className="absolute top-[-60.54%] left-[-6.45%] h-[221.08%] w-[216.94%] max-w-none brightness-0 invert"
-                />
-              </span>
-              <span className="font-display text-[16px] leading-none font-medium tracking-[-0.96px] text-white">
-                2.0
-              </span>
+            <Link href="/" aria-label="Piura Swim" className="block w-fit">
+              <img alt="" src="/assets/brand/piura-white.svg" className="h-9 w-auto sm:h-11" />
             </Link>
           ) : (
             <Logo />

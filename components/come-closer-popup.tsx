@@ -13,17 +13,17 @@ const perks = [
   {
     src: "/assets/popup/perk-drops.png",
     label: "NEW DROPS FIRST",
-    box: "h-[92px] w-[91px]",
+    box: "h-14 w-14 sm:h-[92px] sm:w-[91px]",
   },
   {
     src: "/assets/popup/perk-access.png",
     label: "EXCLUSIVE ACCESS",
-    box: "size-[69px]",
+    box: "size-12 sm:size-[69px]",
   },
   {
     src: "/assets/popup/perk-scenes.png",
     label: "BEHIND THE SCENES",
-    box: "size-[84px]",
+    box: "size-14 sm:size-[84px]",
   },
 ];
 
@@ -174,7 +174,7 @@ export function ComeCloserPopup() {
         <div className="relative h-[240px] overflow-hidden sm:h-[320px] md:h-full">
           <img
             alt="Woman in a red bikini with the Piura tote on the beach"
-            src="/assets/popup/portrait.png"
+            src="/assets/popup/portrait.jpg"
             className="absolute inset-0 size-full object-cover object-[center_22%]"
           />
         </div>
@@ -189,19 +189,14 @@ export function ComeCloserPopup() {
             <img src="/assets/popup/close.svg" alt="" width={24} height={24} />
           </button>
 
-          <div className="flex items-end justify-center gap-[14px]">
-            <span className="relative block h-[23px] w-[86px] overflow-hidden">
-              <img alt="" src="/assets/popup/logo.png" className="size-full object-cover" />
-            </span>
-            <span className="font-display text-[14px] leading-none font-medium tracking-[-0.84px] text-ink">
-              2.0
-            </span>
+          <div className="flex justify-center">
+            <img alt="" src="/assets/brand/piura-black.svg" className="h-10 w-auto sm:h-[52px]" />
           </div>
 
           <div className="relative mt-8 md:mt-14">
             <h2
               id="come-closer-title"
-              className="text-center font-bebas text-[52px] leading-none tracking-[-2px] text-[#353524] sm:text-[68px] md:text-[84px] md:tracking-[-3.36px]"
+              className="text-center font-bebas text-[42px] leading-none tracking-[-1.5px] text-[#353524] sm:text-[64px] md:text-[84px] md:tracking-[-3.36px]"
             >
               COME CLOSER
             </h2>
@@ -212,8 +207,8 @@ export function ComeCloserPopup() {
             />
           </div>
 
-          <p className="mx-auto mt-6 max-w-[382px] text-center font-serif text-[18px] leading-[26px] tracking-[-0.4px] text-ink md:mt-10 md:text-[20px]">
-            Be first to know about new drops, restocks and everything PIURA
+          <p className="mx-auto mt-5 max-w-[382px] text-center font-serif text-[16px] leading-[24px] tracking-[-0.32px] text-ink sm:mt-6 sm:text-[18px] sm:leading-[26px] md:mt-10 md:text-[20px]">
+            Get first access to new drops, exclusive discounts &amp; everything PIURA.
           </p>
 
           {joined ? (
@@ -250,10 +245,10 @@ export function ComeCloserPopup() {
                 {index > 0 ? (
                   <span className="absolute top-4 -left-px hidden h-[72px] w-px bg-[#d5d0c8] sm:block md:top-6 md:h-[102px]" />
                 ) : null}
-                <span className="flex h-[92px] w-full items-center justify-center">
+                <span className="flex h-16 w-full items-center justify-center sm:h-[92px]">
                   <img alt="" src={perk.src} className={`${perk.box} object-contain`} />
                 </span>
-                <p className="mt-1 w-[79px] text-center font-bebas text-[13px] leading-tight text-[#353524] md:text-[16px]">
+                <p className="mt-1 w-[72px] text-center font-bebas text-[11px] leading-tight text-[#353524] sm:w-[79px] sm:text-[13px] md:text-[16px]">
                   {perk.label}
                 </p>
               </div>

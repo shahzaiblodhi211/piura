@@ -12,7 +12,7 @@ export function ImageStage({
   slides,
   index,
   className,
-  fill = "contain",
+  fill = "cover",
 }: {
   slides: StageSlide[];
   index: number;
@@ -87,9 +87,9 @@ export function ImageStage({
             alt={slide.alt}
             src={slide.src}
             className={
-              fill === "cover"
-                ? "absolute inset-0 size-full object-cover object-[center_18%]"
-                : "absolute inset-0 size-full object-contain"
+              fill === "contain"
+                ? "absolute inset-0 size-full object-contain object-center"
+                : "absolute inset-0 size-full object-cover object-[center_16%]"
             }
           />
         </div>

@@ -95,12 +95,12 @@ function ChapterPhoto({
       data-photo
       className={`w-full min-[1400px]:w-1/2 min-[1400px]:shrink-0 ${className}`}
     >
-      <div className="relative aspect-square w-full overflow-hidden">
+      <div className="relative h-[300px] w-full overflow-hidden sm:h-[400px] md:h-[480px] lg:h-[560px] min-[1400px]:aspect-square min-[1400px]:h-auto">
         <img
           data-photo-img
           alt={alt}
           src={src}
-          className="absolute inset-0 size-full object-cover will-change-transform"
+          className="absolute inset-0 size-full object-cover object-[center_30%] will-change-transform"
         />
       </div>
     </div>

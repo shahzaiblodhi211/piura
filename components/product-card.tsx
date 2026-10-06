@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { productSlug, type Product } from "@/lib/products";
+import { productPriceLine, productSlug, type Product } from "@/lib/products";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
@@ -12,24 +12,32 @@ export function ProductCard({ product }: { product: Product }) {
       <div
         data-photo="product"
         data-product-media
-        className="relative aspect-[382/536] w-full overflow-hidden bg-[#f5f2ed]"
+        className="relative aspect-[382/536] w-full overflow-hidden"
       >
         <img
           data-photo-img
           alt={product.alt}
           src={product.src}
-          className="absolute inset-0 size-full object-contain will-change-transform"
+          className="absolute inset-0 size-full object-cover object-[center_18%] will-change-transform"
         />
-        <span className="absolute top-0 left-0 z-10 flex h-7 w-[92px] items-center justify-center bg-ink font-bebas text-[14px] tracking-[0.56px] text-white">
+        <span className="absolute top-0 left-0 z-10 flex h-6 w-[78px] items-center justify-center bg-ink font-bebas text-[12px] tracking-[0.48px] text-white sm:h-7 sm:w-[92px] sm:text-[14px]">
           PREORDER
         </span>
       </div>
       <p
         data-product-name
-        className="mt-[18px] font-bebas text-[22px] leading-none tracking-[0.88px] text-ink uppercase"
+        className="mt-3 font-bebas text-[16px] leading-none tracking-[0.64px] text-ink uppercase sm:mt-[18px] sm:text-[20px] lg:text-[22px]"
       >
         {product.name}
       </p>
+      {productPriceLine(product) ? (
+        <p
+          data-product-price
+          className="mt-2 font-serif text-[14px] leading-none tracking-[0.28px] text-olive sm:text-[16px]"
+        >
+          {productPriceLine(product)}
+        </p>
+      ) : null}
     </Link>
   );
 }

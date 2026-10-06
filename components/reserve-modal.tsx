@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import { gsap, registerGsap } from "@/lib/gsap";
 
 const fieldClass =
-  "h-[68px] w-full border border-olive bg-white px-[26px] font-serif text-[18px] tracking-[0.36px] text-olive placeholder:text-olive focus:outline-none";
+  "h-12 w-full border border-olive bg-white px-4 font-serif text-[16px] tracking-[0.32px] text-olive placeholder:text-olive focus:outline-none sm:h-14 sm:px-5 md:h-[68px] md:px-[26px] md:text-[18px] md:tracking-[0.36px]";
 
 function prettySize(size: string) {
   return size.toLowerCase().replace(/\b\w/g, (letter) => letter.toUpperCase());
@@ -145,14 +145,14 @@ export function ReserveModal({
         >
           <img src="/assets/icon-plus.svg" alt="" className="rotate-45" />
         </button>
-        <div className="relative h-[240px] overflow-hidden md:h-auto md:min-h-[589px]">
+        <div className="relative h-[220px] overflow-hidden sm:h-[280px] md:h-full md:min-h-[520px] lg:min-h-[589px]">
           <img
             alt=""
-            src="/assets/reserve-modal.png"
-            className="absolute top-0 left-0 h-[184.5%] w-[305.98%] max-w-none"
+            src="/assets/reserve-modal-one.jpg"
+            className="absolute inset-0 size-full object-cover object-[60%_40%]"
           />
         </div>
-        <div className="flex flex-col justify-center px-6 py-10 sm:px-10 md:px-12 md:py-14 xl:px-[60px]">
+        <div className="flex flex-col justify-center px-5 py-8 sm:px-10 sm:py-10 md:px-12 md:py-14 xl:px-[60px]">
           <h2
             id="reserve-title"
             className="font-serif text-[28px] leading-[1.15] font-normal tracking-[-0.04em] text-olive md:text-[36px] md:leading-[62px] md:tracking-[-1.44px]"
@@ -174,7 +174,7 @@ export function ReserveModal({
             </p>
           ) : (
             <form
-              className="mt-10 flex w-full max-w-[581px] flex-col"
+              className="mt-6 flex w-full max-w-[581px] flex-col gap-4 md:mt-10 md:gap-[37px]"
               onSubmit={onSubmit}
             >
               <label className="sr-only" htmlFor="reserve-email">
@@ -199,11 +199,11 @@ export function ReserveModal({
                 type="tel"
                 autoComplete="tel"
                 placeholder="Phone (optional)"
-                className={`mt-[37px] ${fieldClass}`}
+                className={fieldClass}
               />
               <button
                 type="submit"
-                className="mt-[62px] flex h-[54px] w-full items-center justify-center bg-olive px-[34px] font-serif text-[18px] tracking-[0.36px] text-cream uppercase whitespace-nowrap"
+                className="mt-1 flex h-12 w-full items-center justify-center bg-olive px-6 font-serif text-[16px] tracking-[0.32px] text-cream uppercase sm:text-[18px] md:mt-6 md:h-[54px] md:px-[34px] md:tracking-[0.36px]"
               >
                 reserve my place
               </button>

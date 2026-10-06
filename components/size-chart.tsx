@@ -15,25 +15,25 @@ export function SizeChart() {
           className="absolute top-[-10.46%] left-0 h-[118.95%] w-full max-w-none"
         />
       </div>
-      <table className="w-full border-collapse xl:hidden">
+      <table className="w-full border-collapse text-left xl:hidden">
         <caption className="sr-only">Piura Swim size chart in inches</caption>
         <thead>
-          <tr className="font-serif text-[13px] tracking-[0.12em] text-brown uppercase">
-            <th className="px-5 py-6 text-left font-normal">Size</th>
-            <th className="px-5 py-6 text-left font-normal">Bust (A)</th>
-            <th className="px-5 py-6 text-left font-normal">Waist (B)</th>
-            <th className="px-5 py-6 text-left font-normal">Hips (C)</th>
+          <tr className="font-serif text-[11px] tracking-[0.08em] text-brown uppercase sm:text-[13px] sm:tracking-[0.12em]">
+            <th className="px-3 py-4 text-left font-normal sm:px-5 sm:py-6">Size</th>
+            <th className="px-3 py-4 text-left font-normal sm:px-5 sm:py-6">Bust (A)</th>
+            <th className="px-3 py-4 text-left font-normal sm:px-5 sm:py-6">Waist (B)</th>
+            <th className="px-3 py-4 text-left font-normal sm:px-5 sm:py-6">Hips (C)</th>
           </tr>
         </thead>
         <tbody>
           {rows.map((row) => (
             <tr key={row.size} className="font-serif text-olive">
-              <th className="px-5 py-7 text-left text-[40px] leading-none font-normal">
+              <th className="px-3 py-4 text-left text-[26px] leading-none font-normal sm:px-5 sm:py-7 sm:text-[36px] md:text-[40px]">
                 {row.size}
               </th>
-              <td className="px-5 py-7 text-[18px]">{row.bust}</td>
-              <td className="px-5 py-7 text-[18px]">{row.waist}</td>
-              <td className="px-5 py-7 text-[18px]">{row.hips}</td>
+              <td className="px-3 py-4 text-[14px] sm:px-5 sm:py-7 sm:text-[18px]">{row.bust}</td>
+              <td className="px-3 py-4 text-[14px] sm:px-5 sm:py-7 sm:text-[18px]">{row.waist}</td>
+              <td className="px-3 py-4 text-[14px] sm:px-5 sm:py-7 sm:text-[18px]">{row.hips}</td>
             </tr>
           ))}
         </tbody>

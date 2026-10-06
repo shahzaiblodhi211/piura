@@ -4,7 +4,7 @@ import { FormEvent, useLayoutEffect, useRef, useState } from "react";
 import { gsap, registerGsap } from "@/lib/gsap";
 
 const fieldClass =
-  "h-[68px] w-full border border-olive bg-white px-[26px] font-serif text-[18px] tracking-[0.36px] text-olive placeholder:text-olive focus:outline-none";
+  "h-14 w-full border border-olive bg-white px-4 font-serif text-[16px] tracking-[0.32px] text-olive placeholder:text-olive focus:outline-none sm:h-[68px] sm:px-[26px] sm:text-[18px]";
 
 export function WaitlistForm() {
   const [joined, setJoined] = useState(false);
@@ -76,7 +76,7 @@ export function WaitlistForm() {
       <button
         type="submit"
         data-btn
-        className="mt-7 flex h-[71px] w-full max-w-[629px] items-center justify-center bg-olive px-[22px] font-serif text-[18px] tracking-[0.36px] text-cream uppercase whitespace-nowrap"
+        className="mt-7 flex h-14 w-full max-w-full items-center justify-center bg-olive px-4 font-serif text-[16px] tracking-[0.32px] text-cream uppercase sm:h-[71px] sm:px-[22px] sm:text-[18px]"
       >
         JOIN THE WAITLIST
       </button>

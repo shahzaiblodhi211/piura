@@ -50,7 +50,9 @@ export default async function ProductPage({
               data-intro
               className="mt-6 font-serif text-[18px] leading-[30px] font-normal text-body md:text-[20px] md:leading-[34px]"
             >
-              {product.colorway} Fabric codes: {product.fabric}.
+              {product.price
+                ? product.colorway
+                : `${product.colorway} Fabric codes: ${product.fabric}.`}
             </p>
             <div className="mt-8 flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-12">
               {product.runs.map((run) => (
@@ -60,7 +62,7 @@ export default async function ProductPage({
                   </p>
                   <div className="mt-3 grid grid-cols-[56px_1fr] font-serif text-[15px] font-medium tracking-[0.64px] text-olive uppercase">
                     <p>Size</p>
-                    <p>Units</p>
+                    <p>{product.price ? "Status" : "Units"}</p>
                   </div>
                   {run.counts.map((row) => (
                     <div
@@ -69,7 +71,7 @@ export default async function ProductPage({
                       className="grid grid-cols-[56px_1fr] border-t border-[#353524] py-1.5 font-serif text-[15px] leading-6 font-medium text-[#83807b]"
                     >
                       <p>{row.size}</p>
-                      <p>{row.qty}</p>
+                      <p>{product.price ? (row.qty > 0 ? "In stock" : "Sold out") : row.qty}</p>
                     </div>
                   ))}
                   <div className="border-t border-[#353524]" />

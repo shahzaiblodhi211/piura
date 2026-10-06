@@ -1,4 +1,6 @@
-export type ShopFilter = "all" | "triangle" | "contour" | "onepiece";
+import { classicProducts } from "./classics";
+
+export type ShopFilter = "all" | "triangle" | "bandeau" | "contour" | "onepiece";
 
 export type SizeQty = { size: string; qty: number };
 
@@ -16,8 +18,9 @@ export type Product = {
   name: string;
   src: string;
   alt: string;
-  kind: "bikini" | "onepiece";
-  collection: "triangle" | "contour" | "onepiece";
+  kind: "bikini" | "onepiece" | "top" | "bottom";
+  collection: "triangle" | "contour" | "onepiece" | "sunchild" | "moonchild" | "bella" | "bali" | "sara" | "marina" | "classics";
+  price?: number;
   colorway: string;
   fabric: string;
   details: string;
@@ -26,6 +29,7 @@ export type Product = {
 };
 
 export function productPriceLine(product: Product) {
+  if (typeof product.price === "number") return `$${product.price}`;
   if (product.kind !== "bikini") return null;
   return `Top $${piecePrices.top} · Bottom $${piecePrices.bottom}`;
 }
@@ -67,12 +71,43 @@ function bikiniRuns(): SizeRun[] {
   ];
 }
 
-export const shopFilters: { id: ShopFilter; label: string; count: number }[] = [
-  { id: "all", label: "All Swim", count: 8 },
-  { id: "triangle", label: "Triangle", count: 3 },
-  { id: "contour", label: "Contour", count: 3 },
-  { id: "onepiece", label: "One-Piece", count: 2 },
-];
+const triangleClassics = new Set([
+  "Sunchild Triangle Top",
+  "Sunchild Triangle Bottom",
+  "Moonchild Triangle Top",
+  "Moonchild Triangle Bottom",
+  "Bella Side-Tie Scrunch Bottom",
+  "Bella Bikini Top",
+  "Bali Side-Tie Bikini Scrunch Bottom",
+  "Bali Bikini Top",
+  "Sara Side-Tie Scrunch Bottom",
+  "Sara Bikini Top",
+  "Marina Tri Bandeau Bottom",
+  "Marina Tri Bandeau Top",
+]);
+
+const bandeauClassics = new Set([
+  "Moonchild Mesh Bottom",
+  "Moonchild Bandeau Top",
+  "Sunchild Mesh Bottom",
+  "Sunchild Bandeau Top",
+  "Marina Tri Bandeau Bottom",
+  "Marina Tri Bandeau Top",
+]);
+
+export function productStyles(product: Product): ShopFilter[] {
+  if (
+    product.collection === "triangle" ||
+    product.collection === "contour" ||
+    product.collection === "onepiece"
+  ) {
+    return [product.collection];
+  }
+  const styles: ShopFilter[] = [];
+  if (triangleClassics.has(product.name)) styles.push("triangle");
+  if (bandeauClassics.has(product.name)) styles.push("bandeau");
+  return styles;
+}
 
 export const products: Product[] = [
   {
@@ -243,11 +278,24 @@ export const products: Product[] = [
     ],
     runs: [{ piece: "80 units", counts: onePieceRun }],
   },
+  ...classicProducts,
 ];
 
 export function filterProducts(filter: ShopFilter) {
   if (filter === "all") return products;
-  return products.filter((product) => product.collection === filter);
+  return products.filter((product) => productStyles(product).includes(filter));
+}
+
+export const shopFilters: { id: ShopFilter; label: string; count: number }[] = [
+  { id: "all", label: "All Swim", count: 0 },
+  { id: "triangle", label: "Triangle", count: 0 },
+  { id: "bandeau", label: "Bandeau", count: 0 },
+  { id: "contour", label: "Contour", count: 0 },
+  { id: "onepiece", label: "One-Piece", count: 0 },
+];
+
+for (const item of shopFilters) {
+  item.count = filterProducts(item.id).length;
 }
 
 export function productSlug(name: string) {
@@ -266,6 +314,7 @@ export function pairProduct(_product: Product) {
 }
 
 export function productDescription(product: Product) {
+  if (typeof product.price === "number") return product.details;
   return `${product.colorway} ${product.details}`;
 }
 

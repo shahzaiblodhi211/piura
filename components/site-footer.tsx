@@ -5,6 +5,7 @@ import { NewsletterForm } from "./newsletter-form";
 const shopLinks = [
   { href: "/shop", label: "All Swim" },
   { href: "/shop?filter=triangle", label: "TRIANGLE" },
+  { href: "/shop?filter=bandeau", label: "BANDEAU" },
   { href: "/shop?filter=contour", label: "CONTOUR" },
   { href: "/shop?filter=onepiece", label: "ONE-PIECE" },
 ];

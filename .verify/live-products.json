@@ -1,0 +1,2534 @@
+[
+  {
+    "id": "gid://shopify/Product/15719560020049",
+    "handle": "sunchild-triangle-top",
+    "title": "Sunchild Triangle Top",
+    "description": "The long-awaited addition to the Sunchild print. The signature Piura pattern you already love, reimagined in a fresh, flattering triangle cut, designed to sculpt and support while keeping that effortless beach-girl feel. Wear it under the sun, by the ocean, or wherever your summer takes you.",
+    "productType": "swimwear",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "Small",
+          "Medium",
+          "Large",
+          "XL"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/59174170984529",
+        "title": "Small",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/59174171017297",
+        "title": "Medium",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/59174171050065",
+        "title": "Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/59174171082833",
+        "title": "XL",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "XL"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/36775385-EF1D-4BDA-8879-440389DA4DA9.jpg?v=1772880168",
+        "altText": "Sunchild Triangle Top, Piura Swim",
+        "width": 3547,
+        "height": 5320
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/C6F4DE24-FB79-4617-843C-F85D1CB80541.jpg?v=1772880168",
+        "altText": "Sunchild Triangle Top, Piura Swim",
+        "width": 3541,
+        "height": 5311
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/D4CBCC8F-D4E4-48CA-AFCE-C79B6FFE8761.jpg?v=1772880168",
+        "altText": "Sunchild Triangle Top, Piura Swim",
+        "width": 3544,
+        "height": 5316
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/36775385-EF1D-4BDA-8879-440389DA4DA9.jpg?v=1772880168",
+      "altText": "Sunchild Triangle Top, Piura Swim",
+      "width": 3547,
+      "height": 5320
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "top",
+      "recommended-products-seguno",
+      "just-dropped"
+    ],
+    "category": "tops",
+    "collection": "sunchild",
+    "pairsWith": "sunchild-triangle-bottom",
+    "fitNotes": [
+      "Classic triangle silhouette with adjustable ties",
+      "Signature Sunchild print",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/15719560118353",
+    "handle": "sunchild-triangle-bottom",
+    "title": "Sunchild Triangle Bottom",
+    "description": "The Sunchild print in a flattering triangle cut. Seamless and fully lined, with minimal, cheeky coverage for effortless tan lines. Pairs with the Sunchild Triangle Top.",
+    "productType": "swimwear",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "Small",
+          "Medium",
+          "Large",
+          "XL"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/59174176227409",
+        "title": "Small",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/59174176260177",
+        "title": "Medium",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/59174176292945",
+        "title": "Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/59174176325713",
+        "title": "XL",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "XL"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/D06AC86B-4E9A-4798-8522-1C710D5F5A1F.jpg?v=1772880330",
+        "altText": "Sunchild Triangle Bottom, Piura Swim",
+        "width": 3547,
+        "height": 5321
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/125BE315-34FB-463C-BD82-6429732A6A23.jpg?v=1772880331",
+        "altText": "Sunchild Triangle Bottom, Piura Swim",
+        "width": 3542,
+        "height": 5312
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/7F5C6C89-3853-45E1-A437-C64A4D5BAAC9.jpg?v=1772880331",
+        "altText": "Sunchild Triangle Bottom, Piura Swim",
+        "width": 3544,
+        "height": 5316
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/60175D54-F198-4046-B998-BBCADCA692AE.jpg?v=1772880330",
+        "altText": "Sunchild Triangle Bottom, Piura Swim",
+        "width": 3547,
+        "height": 5321
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/D06AC86B-4E9A-4798-8522-1C710D5F5A1F.jpg?v=1772880330",
+      "altText": "Sunchild Triangle Bottom, Piura Swim",
+      "width": 3547,
+      "height": 5321
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "bottom",
+      "recommended-products-seguno",
+      "just-dropped"
+    ],
+    "category": "bottoms",
+    "collection": "sunchild",
+    "pairsWith": "sunchild-triangle-top",
+    "fitNotes": [
+      "Minimal / cheeky coverage",
+      "Seamless triangle silhouette",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/15719560544337",
+    "handle": "moonchild-triangle-top",
+    "title": "Moonchild Triangle Top",
+    "description": "The long-awaited addition to the Moonchild print. The signature Piura pattern reimagined in a fresh, flattering triangle cut, designed to sculpt and support while keeping that effortless beach-girl feel. The perfect blend of statement and simplicity.",
+    "productType": "",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "Small",
+          "Medium",
+          "Large",
+          "XL"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/59174180552785",
+        "title": "Small",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/59174180585553",
+        "title": "Medium",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/59174180618321",
+        "title": "Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/59174180651089",
+        "title": "XL",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "XL"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/6F82D216-4D22-4D33-AEE3-17B5E2433A67.jpg?v=1772880570",
+        "altText": "Moonchild Triangle Top, Piura Swim",
+        "width": 3544,
+        "height": 5316
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/E908E22C-F7B9-4875-BC5B-6D8AAC20F84B.jpg?v=1772880583",
+        "altText": "Moonchild Triangle Top, Piura Swim",
+        "width": 3547,
+        "height": 5320
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/C1820555-FA2F-4177-92C0-FF19E4E6F40A.jpg?v=1772880563",
+        "altText": "Moonchild Triangle Top, Piura Swim",
+        "width": 3547,
+        "height": 5320
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/6F82D216-4D22-4D33-AEE3-17B5E2433A67.jpg?v=1772880570",
+      "altText": "Moonchild Triangle Top, Piura Swim",
+      "width": 3544,
+      "height": 5316
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "top",
+      "recommended-products-seguno",
+      "just-dropped"
+    ],
+    "category": "tops",
+    "collection": "moonchild",
+    "pairsWith": "moonchild-triangle-bottom",
+    "fitNotes": [
+      "Classic triangle silhouette with adjustable ties",
+      "Signature Moonchild print",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/15719560708177",
+    "handle": "moonchild-triangle-bottom",
+    "title": "Moonchild Triangle Bottom",
+    "description": "The Moonchild print in a flattering triangle cut. Seamless and fully lined, with minimal, cheeky coverage made for long days by the water. Pairs with the Moonchild Triangle Top.",
+    "productType": "swimwear",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "Small",
+          "Medium",
+          "Large",
+          "XL"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/59174180880465",
+        "title": "Small",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/59174180913233",
+        "title": "Medium",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/59174180946001",
+        "title": "Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/59174180978769",
+        "title": "XL",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "XL"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/2845632E-112F-4B1E-8BB9-D27BF02E9F23.jpg?v=1772880806",
+        "altText": "Moonchild Triangle Bottom, Piura Swim",
+        "width": 3541,
+        "height": 5311
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/1CB78A8B-46F7-42B2-AD8B-AE04A125A73F.jpg?v=1772880803",
+        "altText": "Moonchild Triangle Bottom, Piura Swim",
+        "width": 3547,
+        "height": 5321
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/C1820555-FA2F-4177-92C0-FF19E4E6F40A_2c1f4b56-d012-4127-9d6d-83d0056c6597.jpg?v=1772880803",
+        "altText": "Moonchild Triangle Bottom, Piura Swim",
+        "width": 3547,
+        "height": 5320
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/2845632E-112F-4B1E-8BB9-D27BF02E9F23.jpg?v=1772880806",
+      "altText": "Moonchild Triangle Bottom, Piura Swim",
+      "width": 3541,
+      "height": 5311
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "bottom",
+      "recommended-products-seguno",
+      "just-dropped"
+    ],
+    "category": "bottoms",
+    "collection": "moonchild",
+    "pairsWith": "moonchild-triangle-top",
+    "fitNotes": [
+      "Minimal / cheeky coverage",
+      "Seamless triangle silhouette",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/7519223480401",
+    "handle": "moonchild-bottom",
+    "title": "Moonchild Mesh Bottom",
+    "description": "The Moonchild print with soft mesh detailing. A smooth, seamless bottom with cheeky coverage and a clean silhouette. Pairs with the Moonchild Bandeau Top.",
+    "productType": "",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "Small",
+          "Medium",
+          "Large",
+          "XL"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/41699493937233",
+        "title": "Small",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41699493970001",
+        "title": "Medium",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41699494002769",
+        "title": "Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41699494035537",
+        "title": "XL",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "XL"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm290.jpg?v=1770412283",
+        "altText": "Moonchild Mesh Bottom, Piura Swim",
+        "width": 3547,
+        "height": 4434
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm245.jpg?v=1770662411",
+        "altText": "Moonchild Mesh Bottom, Piura Swim",
+        "width": 3541,
+        "height": 4426
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm275.jpg?v=1770412283",
+        "altText": "Moonchild Mesh Bottom, Piura Swim",
+        "width": 3544,
+        "height": 4430
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_1530.jpg?v=1770412283",
+        "altText": "Moonchild Mesh Bottom, Piura Swim",
+        "width": 1536,
+        "height": 2730
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm235.jpg?v=1770662411",
+        "altText": "Moonchild Mesh Bottom, Piura Swim",
+        "width": 3544,
+        "height": 5316
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm250.jpg?v=1770662411",
+        "altText": "Moonchild Mesh Bottom, Piura Swim",
+        "width": 3547,
+        "height": 5321
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/4.png?v=1770412489",
+        "altText": "Moonchild Mesh Bottom, Piura Swim",
+        "width": 1080,
+        "height": 1080
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/D0A069D5-49AC-4873-8176-D4FB329B60D0.jpg?v=1770412283",
+        "altText": "Moonchild Mesh Bottom, Piura Swim",
+        "width": 3456,
+        "height": 5184
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm290.jpg?v=1770412283",
+      "altText": "Moonchild Mesh Bottom, Piura Swim",
+      "width": 3547,
+      "height": 4434
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "bottom",
+      "recommended-products-seguno"
+    ],
+    "category": "bottoms",
+    "collection": "moonchild",
+    "pairsWith": "moonchild-bandeau-top",
+    "fitNotes": [
+      "Cheeky coverage",
+      "Soft mesh detailing",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/7519171084369",
+    "handle": "moonchild-bandeau-top",
+    "title": "Moonchild Bandeau Top",
+    "description": "Bandeau bikini top featuring the Moonchild print with soft mesh detailing. A strapless silhouette designed for a smooth, flattering fit, no padding, for a natural shape. Pairs with the Moonchild Mesh Bottom.",
+    "productType": "",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "Small",
+          "Medium",
+          "Large",
+          "XL"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/41699447013457",
+        "title": "Small",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41699447046225",
+        "title": "Medium",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41699447078993",
+        "title": "Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41699447111761",
+        "title": "XL",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "XL"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm240.jpg?v=1770662411",
+        "altText": "Moonchild Bandeau Top, Piura Swim",
+        "width": 3547,
+        "height": 4434
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm235.jpg?v=1770662411",
+        "altText": "Moonchild Bandeau Top, Piura Swim",
+        "width": 3544,
+        "height": 5316
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm250.jpg?v=1770662411",
+        "altText": "Moonchild Bandeau Top, Piura Swim",
+        "width": 3547,
+        "height": 5321
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm245.jpg?v=1770662411",
+        "altText": "Moonchild Bandeau Top, Piura Swim",
+        "width": 3541,
+        "height": 4426
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm287.jpg?v=1770662411",
+        "altText": "Moonchild Bandeau Top, Piura Swim",
+        "width": 3541,
+        "height": 4426
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/BA1B24F3-1459-41ED-8423-CA904E115309.jpg?v=1770341564",
+        "altText": "Moonchild Bandeau Top, Piura Swim",
+        "width": 3456,
+        "height": 5184
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_1701.jpg?v=1770341564",
+        "altText": "Moonchild Bandeau Top, Piura Swim",
+        "width": 1536,
+        "height": 2048
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_1470.jpg?v=1770341564",
+        "altText": "Moonchild Bandeau Top, Piura Swim",
+        "width": 1536,
+        "height": 2048
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_1530.jpg?v=1770412283",
+        "altText": "Moonchild Bandeau Top, Piura Swim",
+        "width": 1536,
+        "height": 2730
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_1606.jpg?v=1770341564",
+        "altText": "Moonchild Bandeau Top, Piura Swim",
+        "width": 1536,
+        "height": 2048
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/3.png?v=1770662484",
+        "altText": "Moonchild Bandeau Top, Piura Swim",
+        "width": 1080,
+        "height": 1080
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm240.jpg?v=1770662411",
+      "altText": "Moonchild Bandeau Top, Piura Swim",
+      "width": 3547,
+      "height": 4434
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "top",
+      "recommended-products-seguno"
+    ],
+    "category": "tops",
+    "collection": "moonchild",
+    "pairsWith": "moonchild-bottom",
+    "fitNotes": [
+      "Strapless bandeau silhouette",
+      "No padding, for a natural fit",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/7509947744337",
+    "handle": "lotus-bottom",
+    "title": "Sunchild Mesh Bottom",
+    "description": "The Sunchild print with soft mesh detailing. A smooth, seamless bottom with cheeky coverage and a clean silhouette. Pairs with the Sunchild Bandeau Top.",
+    "productType": "",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "small",
+          "medium",
+          "large",
+          "XL"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/41500225503313",
+        "title": "small",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41500225536081",
+        "title": "medium",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41500225568849",
+        "title": "large",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41500225601617",
+        "title": "XL",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "XL"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm677.jpg?v=1770662484",
+        "altText": "Sunchild Mesh Bottom, Piura Swim",
+        "width": 3547,
+        "height": 4434
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm621_e5728d89-9e57-400a-a810-b2ea86d3e8aa.jpg?v=1770662375",
+        "altText": "Sunchild Mesh Bottom, Piura Swim",
+        "width": 3541,
+        "height": 4426
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm655.jpg?v=1770662375",
+        "altText": "Sunchild Mesh Bottom, Piura Swim",
+        "width": 3547,
+        "height": 4434
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm609.jpg?v=1770662375",
+        "altText": "Sunchild Mesh Bottom, Piura Swim",
+        "width": 3544,
+        "height": 5316
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_1207.jpg?v=1770412489",
+        "altText": "Sunchild Mesh Bottom, Piura Swim",
+        "width": 1536,
+        "height": 2048
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_1004.jpg?v=1770412489",
+        "altText": "Sunchild Mesh Bottom, Piura Swim",
+        "width": 1203,
+        "height": 1604
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_1441.jpg?v=1770662484",
+        "altText": "Sunchild Mesh Bottom, Piura Swim",
+        "width": 1536,
+        "height": 2048
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_1006.jpg?v=1770412489",
+        "altText": "Sunchild Mesh Bottom, Piura Swim",
+        "width": 1536,
+        "height": 2048
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/4.png?v=1770412489",
+        "altText": "Sunchild Mesh Bottom, Piura Swim",
+        "width": 1080,
+        "height": 1080
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm677.jpg?v=1770662484",
+      "altText": "Sunchild Mesh Bottom, Piura Swim",
+      "width": 3547,
+      "height": 4434
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "bottom",
+      "recommended-products-seguno"
+    ],
+    "category": "bottoms",
+    "collection": "sunchild",
+    "pairsWith": "sunchild-bandeau-top",
+    "fitNotes": [
+      "Cheeky coverage",
+      "Soft mesh detailing",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/7509944008785",
+    "handle": "sunchild-bandeau-top",
+    "title": "Sunchild Bandeau Top",
+    "description": "Bandeau bikini top featuring the Sunchild print with soft mesh detailing. A strapless silhouette designed for a smooth, flattering fit, no padding, for a natural shape. Pairs with the Sunchild Mesh Bottom.",
+    "productType": "",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "small",
+          "medium",
+          "large",
+          "XL"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/41500211576913",
+        "title": "small",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41500211609681",
+        "title": "medium",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41500211642449",
+        "title": "large",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41500211675217",
+        "title": "XL",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "XL"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm621.jpg?v=1770662484",
+        "altText": "Sunchild Bandeau Top, Piura Swim",
+        "width": 3541,
+        "height": 4426
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm629.jpg?v=1770662484",
+        "altText": "Sunchild Bandeau Top, Piura Swim",
+        "width": 3281,
+        "height": 4101
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm677.jpg?v=1770662484",
+        "altText": "Sunchild Bandeau Top, Piura Swim",
+        "width": 3547,
+        "height": 4434
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_1441.jpg?v=1770662484",
+        "altText": "Sunchild Bandeau Top, Piura Swim",
+        "width": 1536,
+        "height": 2048
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/CF0DF318-F94C-40A0-83F5-357C4E0B0931.jpg?v=1770662484",
+        "altText": "Sunchild Bandeau Top, Piura Swim",
+        "width": 1170,
+        "height": 2139
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/D2BB7E74-0BDA-4C05-9D94-DD7D2AB566BB.jpg?v=1770662484",
+        "altText": "Sunchild Bandeau Top, Piura Swim",
+        "width": 1170,
+        "height": 2056
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/3.png?v=1770662484",
+        "altText": "Sunchild Bandeau Top, Piura Swim",
+        "width": 1080,
+        "height": 1080
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm621.jpg?v=1770662484",
+      "altText": "Sunchild Bandeau Top, Piura Swim",
+      "width": 3541,
+      "height": 4426
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "top",
+      "recommended-products-seguno"
+    ],
+    "category": "tops",
+    "collection": "sunchild",
+    "pairsWith": "lotus-bottom",
+    "fitNotes": [
+      "Strapless bandeau silhouette",
+      "No padding, for a natural fit",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/7284586840145",
+    "handle": "bella-side-tie-scrunch-bottom",
+    "title": "Bella Side-Tie Scrunch Bottom",
+    "description": "Side-tie bikini bottom with scrunch detail and contrasting ties. Minimal coverage and adjustable sides for a fit that is entirely yours. Pairs with the Bella Bikini Top.",
+    "productType": "",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "Small",
+          "Medium",
+          "Large",
+          "X-Large"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/41420750782545",
+        "title": "Small",
+        "availableForSale": false,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420750815313",
+        "title": "Medium",
+        "availableForSale": false,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420750848081",
+        "title": "Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420750880849",
+        "title": "X-Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "X-Large"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm99.jpg?v=1770665133",
+        "altText": "Bella Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 3547,
+        "height": 4434
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_9072_3_c5acd4ad-9d38-44f2-ac41-03e73e4d1a98.jpg?v=1770665133",
+        "altText": "Bella Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 2752,
+        "height": 3440
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_9015.jpg?v=1770665133",
+        "altText": "Bella Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 3364,
+        "height": 4205
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/DSC01031.jpg?v=1770665133",
+        "altText": "Bella Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 4000,
+        "height": 6000
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/DSC01010_3cca2cba-c53c-481f-ba60-e85f489d389d.jpg?v=1770665133",
+        "altText": "Bella Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 4000,
+        "height": 6000
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/pinkfront1_5cf865d7-7ecd-4c85-bf19-4cb0aba550db.jpg?v=1770665133",
+        "altText": "Bella Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 3805,
+        "height": 3850
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/2_2.png?v=1770665133",
+        "altText": "Bella Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 1080,
+        "height": 1080
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm99.jpg?v=1770665133",
+      "altText": "Bella Side-Tie Scrunch Bottom, Piura Swim",
+      "width": 3547,
+      "height": 4434
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "bottom",
+      "recommended-products-seguno"
+    ],
+    "category": "bottoms",
+    "collection": "classics",
+    "pairsWith": "bella-bikini-top",
+    "fitNotes": [
+      "Minimal / cheeky coverage",
+      "Adjustable side ties with scrunch-back detail",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/7284585267281",
+    "handle": "bella-bikini-top",
+    "title": "Bella Bikini Top",
+    "description": "Minimal triangle bikini top in soft baby pink with adjustable neck and back ties. Designed for a customizable, flattering fit and effortless support. Pairs with the Bella Side-Tie Scrunch Bottom.",
+    "productType": "",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "Small",
+          "Medium",
+          "Large",
+          "X-Large"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/41420747046993",
+        "title": "Small",
+        "availableForSale": false,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420747079761",
+        "title": "Medium",
+        "availableForSale": false,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420747112529",
+        "title": "Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420747145297",
+        "title": "X-Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "X-Large"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_9015.jpg?v=1770665133",
+        "altText": "Bella Bikini Top, Piura Swim",
+        "width": 3364,
+        "height": 4205
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm112.jpg?v=1770336232",
+        "altText": "Bella Bikini Top, Piura Swim",
+        "width": 3550,
+        "height": 4437
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_9072_3_c5acd4ad-9d38-44f2-ac41-03e73e4d1a98.jpg?v=1770665133",
+        "altText": "Bella Bikini Top, Piura Swim",
+        "width": 2752,
+        "height": 3440
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/pinkfront.jpg?v=1770336232",
+        "altText": "Bella Bikini Top, Piura Swim",
+        "width": 3805,
+        "height": 3850
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm105_8d41b75f-695b-44fb-b745-f082d6c838d9.jpg?v=1770336232",
+        "altText": "Bella Bikini Top, Piura Swim",
+        "width": 3544,
+        "height": 4430
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/tempImagewuRDbJ.heic?v=1770336232",
+        "altText": "Bella Bikini Top, Piura Swim",
+        "width": 1186,
+        "height": 1780
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/tempImage3KLZft.heic?v=1770336232",
+        "altText": "Bella Bikini Top, Piura Swim",
+        "width": 2048,
+        "height": 1536
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/DSC00984.jpg?v=1770336232",
+        "altText": "Bella Bikini Top, Piura Swim",
+        "width": 4000,
+        "height": 6000
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/1_2.png?v=1770337236",
+        "altText": "Bella Bikini Top, Piura Swim",
+        "width": 1080,
+        "height": 1080
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_9015.jpg?v=1770665133",
+      "altText": "Bella Bikini Top, Piura Swim",
+      "width": 3364,
+      "height": 4205
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "top",
+      "recommended-products-seguno"
+    ],
+    "category": "tops",
+    "collection": "classics",
+    "pairsWith": "bella-side-tie-scrunch-bottom",
+    "fitNotes": [
+      "Classic triangle silhouette",
+      "Adjustable neck and back ties",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/7284582547537",
+    "handle": "bali-side-tie-bikini-scrunch-bottom",
+    "title": "Bali Side-Tie Bikini Scrunch Bottom",
+    "description": "Cheeky side-tie bikini bottom with scrunch detail and contrasting ties. Minimal coverage and adjustable sides for the perfect fit. Pairs with the Bali Bikini Top.",
+    "productType": "",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "Small",
+          "Medium",
+          "Large",
+          "X-Large"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/41420744491089",
+        "title": "Small",
+        "availableForSale": false,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420744523857",
+        "title": "Medium",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420744556625",
+        "title": "Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420744589393",
+        "title": "X-Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "X-Large"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm850.jpg?v=1770412165",
+        "altText": "Bali Side-Tie Bikini Scrunch Bottom, Piura Swim",
+        "width": 3541,
+        "height": 4426
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm788.jpg?v=1770412165",
+        "altText": "Bali Side-Tie Bikini Scrunch Bottom, Piura Swim",
+        "width": 3544,
+        "height": 4430
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm810.jpg?v=1770412165",
+        "altText": "Bali Side-Tie Bikini Scrunch Bottom, Piura Swim",
+        "width": 3544,
+        "height": 4430
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm801.jpg?v=1770412165",
+        "altText": "Bali Side-Tie Bikini Scrunch Bottom, Piura Swim",
+        "width": 3547,
+        "height": 4434
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/greenfront1.jpg?v=1770412165",
+        "altText": "Bali Side-Tie Bikini Scrunch Bottom, Piura Swim",
+        "width": 3805,
+        "height": 3850
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/2_2.png?v=1770665133",
+        "altText": "Bali Side-Tie Bikini Scrunch Bottom, Piura Swim",
+        "width": 1080,
+        "height": 1080
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm850.jpg?v=1770412165",
+      "altText": "Bali Side-Tie Bikini Scrunch Bottom, Piura Swim",
+      "width": 3541,
+      "height": 4426
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "bottom",
+      "recommended-products-seguno"
+    ],
+    "category": "bottoms",
+    "collection": "classics",
+    "pairsWith": "bali-bikini-top",
+    "fitNotes": [
+      "Minimal / cheeky coverage",
+      "Adjustable side ties with scrunch-back detail",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/7284581728337",
+    "handle": "bali-bikini-top",
+    "title": "Bali Bikini Top",
+    "description": "Minimal triangle bikini top with contrasting edges and adjustable neck and back ties. Designed for a customizable fit and effortless support. Pairs with the Bali Side-Tie Scrunch Bottom.",
+    "productType": "swimwear",
+    "tags": [
+      "best swimwear 2024",
+      "cheeky bikinis"
+    ],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "Small",
+          "Medium",
+          "Large",
+          "X-Large"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/41420743082065",
+        "title": "Small",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420743114833",
+        "title": "Medium",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420743147601",
+        "title": "Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420743180369",
+        "title": "X-Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "X-Large"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm798.jpg?v=1770665208",
+        "altText": "Bali Bikini Top, Piura Swim",
+        "width": 3547,
+        "height": 4434
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm822.jpg?v=1770665208",
+        "altText": "Bali Bikini Top, Piura Swim",
+        "width": 3544,
+        "height": 4430
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm850.jpg?v=1770412165",
+        "altText": "Bali Bikini Top, Piura Swim",
+        "width": 3541,
+        "height": 4426
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/greenfront.jpg?v=1770337005",
+        "altText": "Bali Bikini Top, Piura Swim",
+        "width": 3805,
+        "height": 3850
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/DSCF1901.jpg?v=1770337005",
+        "altText": "Bali Bikini Top, Piura Swim",
+        "width": 1184,
+        "height": 1776
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/DSC00942_3537271f-1d6b-4a00-b8e5-817f2179ef03.jpg?v=1770337005",
+        "altText": "Bali Bikini Top, Piura Swim",
+        "width": 6000,
+        "height": 4000
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/1_2.png?v=1770337236",
+        "altText": "Bali Bikini Top, Piura Swim",
+        "width": 1080,
+        "height": 1080
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm798.jpg?v=1770665208",
+      "altText": "Bali Bikini Top, Piura Swim",
+      "width": 3547,
+      "height": 4434
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "top",
+      "recommended-products-seguno"
+    ],
+    "category": "tops",
+    "collection": "classics",
+    "pairsWith": "bali-side-tie-bikini-scrunch-bottom",
+    "fitNotes": [
+      "Classic triangle silhouette",
+      "Adjustable neck and back ties",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/7284580974673",
+    "handle": "sara-side-tie-scrunch-bottom",
+    "title": "Sara Side-Tie Scrunch Bottom",
+    "description": "Minimal bikini bottom designed for a flattering, comfortable fit. A clean silhouette with cheeky coverage for effortless tan lines. Pairs with the Sara Bikini Top.",
+    "productType": "",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "Small",
+          "Medium",
+          "Large",
+          "X-Large"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/41420765528145",
+        "title": "Small",
+        "availableForSale": false,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420765560913",
+        "title": "Medium",
+        "availableForSale": false,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420765593681",
+        "title": "Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420765626449",
+        "title": "X-Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "X-Large"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm750.jpg?v=1770412610",
+        "altText": "Sara Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 3544,
+        "height": 4430
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm698.jpg?v=1770412610",
+        "altText": "Sara Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 3544,
+        "height": 4430
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm778.jpg?v=1770412610",
+        "altText": "Sara Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 3544,
+        "height": 4430
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/DSCF2068.jpg?v=1770412610",
+        "altText": "Sara Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 1184,
+        "height": 1776
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/DSCF2067_3e1843d1-a129-4f8e-9df5-820867d307ce.jpg?v=1770412610",
+        "altText": "Sara Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 592,
+        "height": 888
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/yellowback.jpg?v=1770412610",
+        "altText": "Sara Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 3805,
+        "height": 3850
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/yellowfront1_93ae48be-93b3-412f-b0f2-28671afab5fb.jpg?v=1770412610",
+        "altText": "Sara Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 3805,
+        "height": 3850
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/2_2.png?v=1770665133",
+        "altText": "Sara Side-Tie Scrunch Bottom, Piura Swim",
+        "width": 1080,
+        "height": 1080
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm750.jpg?v=1770412610",
+      "altText": "Sara Side-Tie Scrunch Bottom, Piura Swim",
+      "width": 3544,
+      "height": 4430
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "bottom",
+      "recommended-products-seguno"
+    ],
+    "category": "bottoms",
+    "collection": "classics",
+    "pairsWith": "sara-bikini-top",
+    "fitNotes": [
+      "Cheeky coverage for effortless tan lines",
+      "Clean, seamless silhouette",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/7284579467345",
+    "handle": "sara-bikini-top",
+    "title": "Sara Bikini Top",
+    "description": "Minimal bikini top designed for a clean, flattering fit. Adjustable straps allow for a customizable, comfortable feel. Pairs with the Sara Side-Tie Scrunch Bottom.",
+    "productType": "",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "Small",
+          "Medium",
+          "Large",
+          "X-Large"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/41420758319185",
+        "title": "Small",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420758351953",
+        "title": "Medium",
+        "availableForSale": false,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420758384721",
+        "title": "Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420758450257",
+        "title": "X-Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "42.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "X-Large"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm688.jpg?v=1770337236",
+        "altText": "Sara Bikini Top, Piura Swim",
+        "width": 3544,
+        "height": 4430
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm778.jpg?v=1770412610",
+        "altText": "Sara Bikini Top, Piura Swim",
+        "width": 3544,
+        "height": 4430
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm725.jpg?v=1770337236",
+        "altText": "Sara Bikini Top, Piura Swim",
+        "width": 3547,
+        "height": 4434
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/yellowfront-3_6f11b801-b3ce-4e50-8c2d-acd5e3eb9a04.jpg?v=1770337236",
+        "altText": "Sara Bikini Top, Piura Swim",
+        "width": 3805,
+        "height": 3850
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/DSCF2025.jpg?v=1770337236",
+        "altText": "Sara Bikini Top, Piura Swim",
+        "width": 746,
+        "height": 1119
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/DSCF2067.jpg?v=1770337236",
+        "altText": "Sara Bikini Top, Piura Swim",
+        "width": 592,
+        "height": 888
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/1_2.png?v=1770337236",
+        "altText": "Sara Bikini Top, Piura Swim",
+        "width": 1080,
+        "height": 1080
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm688.jpg?v=1770337236",
+      "altText": "Sara Bikini Top, Piura Swim",
+      "width": 3544,
+      "height": 4430
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "42.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "top",
+      "recommended-products-seguno"
+    ],
+    "category": "tops",
+    "collection": "classics",
+    "pairsWith": "sara-side-tie-scrunch-bottom",
+    "fitNotes": [
+      "Minimal silhouette with adjustable straps",
+      "Seamless, hardware-free design",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/7284577599569",
+    "handle": "marina-tri-bandeau-bottom",
+    "title": "Marina Tri Bandeau Bottom",
+    "description": "Bikini bottom featuring a flattering V-cut silhouette with breathable mesh detailing. Designed to elongate the legs while offering comfortable, cheeky coverage. Pairs with the Marina Tri Bandeau Top.",
+    "productType": "",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "Small",
+          "Medium",
+          "Large",
+          "X-Large"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/41420754583633",
+        "title": "Small",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420754616401",
+        "title": "Medium",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420754649169",
+        "title": "Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420754681937",
+        "title": "X-Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "X-Large"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm214.jpg?v=1770665272",
+        "altText": "Marina Tri Bandeau Bottom, Piura Swim",
+        "width": 3186,
+        "height": 3982
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm145.jpg?v=1770665272",
+        "altText": "Marina Tri Bandeau Bottom, Piura Swim",
+        "width": 3360,
+        "height": 4200
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm171.jpg?v=1770665272",
+        "altText": "Marina Tri Bandeau Bottom, Piura Swim",
+        "width": 3547,
+        "height": 4434
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/czM6Ly9tZWRpYS1wcml2YXRlLmNhbnZhLmNvbS9QV2xxOC9NQUZfOTFQV2xxOC8xL3AucG5n_1.png?v=1770411536",
+        "altText": "Marina Tri Bandeau Bottom, Piura Swim",
+        "width": 800,
+        "height": 800
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm206.jpg?v=1770411536",
+        "altText": "Marina Tri Bandeau Bottom, Piura Swim",
+        "width": 3544,
+        "height": 4430
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm208.jpg?v=1770411536",
+        "altText": "Marina Tri Bandeau Bottom, Piura Swim",
+        "width": 3541,
+        "height": 4426
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/4.png?v=1770412489",
+        "altText": "Marina Tri Bandeau Bottom, Piura Swim",
+        "width": 1080,
+        "height": 1080
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm214.jpg?v=1770665272",
+      "altText": "Marina Tri Bandeau Bottom, Piura Swim",
+      "width": 3186,
+      "height": 3982
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "bottom",
+      "recommended-products-seguno"
+    ],
+    "category": "bottoms",
+    "collection": "classics",
+    "pairsWith": "marina-tri-bandeau-top",
+    "fitNotes": [
+      "V-cut waist silhouette, designed to elongate",
+      "Cheeky coverage with mesh detailing",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with a soft, sculpting stretch",
+      "Fully lined, seamless construction, no hardware against the skin",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  },
+  {
+    "id": "gid://shopify/Product/7284575797329",
+    "handle": "marina-tri-bandeau-top",
+    "title": "Marina Tri Bandeau Top",
+    "description": "A curved bandeau top designed to accentuate and flatter, with breathable mesh detailing and discreet side support for lift and shape. Pairs with the Marina Tri Bandeau Bottom.",
+    "productType": "",
+    "tags": [],
+    "options": [
+      {
+        "name": "Size",
+        "values": [
+          "Small",
+          "Medium",
+          "Large",
+          "X-Large"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/41420756779089",
+        "title": "Small",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Small"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420756811857",
+        "title": "Medium",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Medium"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420756844625",
+        "title": "Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "Large"
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/ProductVariant/41420756877393",
+        "title": "X-Large",
+        "availableForSale": true,
+        "price": {
+          "amount": "49.0",
+          "currencyCode": "USD"
+        },
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "X-Large"
+          }
+        ]
+      }
+    ],
+    "images": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm148.jpg?v=1770339762",
+        "altText": "Marina Tri Bandeau Top, Piura Swim",
+        "width": 3544,
+        "height": 4430
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm186.jpg?v=1770339762",
+        "altText": "Marina Tri Bandeau Top, Piura Swim",
+        "width": 3510,
+        "height": 4387
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm214.jpg?v=1770665272",
+        "altText": "Marina Tri Bandeau Top, Piura Swim",
+        "width": 3186,
+        "height": 3982
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm171.jpg?v=1770665272",
+        "altText": "Marina Tri Bandeau Top, Piura Swim",
+        "width": 3547,
+        "height": 4434
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/czM6Ly9tZWRpYS1wcml2YXRlLmNhbnZhLmNvbS9QV2xxOC9NQUZfOTFQV2xxOC8xL3AucG5n.png?v=1770339762",
+        "altText": "Marina Tri Bandeau Top, Piura Swim",
+        "width": 800,
+        "height": 800
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/IMG_1909_0c6e6002-0c4f-4566-b7c6-c3115f6f74a9.jpg?v=1770339762",
+        "altText": "Marina Tri Bandeau Top, Piura Swim",
+        "width": 3024,
+        "height": 1814
+      },
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/3.png?v=1770662484",
+        "altText": "Marina Tri Bandeau Top, Piura Swim",
+        "width": 1080,
+        "height": 1080
+      }
+    ],
+    "featuredImage": {
+      "url": "https://cdn.shopify.com/s/files/1/0590/8637/2945/files/PiuraEcomm148.jpg?v=1770339762",
+      "altText": "Marina Tri Bandeau Top, Piura Swim",
+      "width": 3544,
+      "height": 4430
+    },
+    "priceRange": {
+      "minVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      },
+      "maxVariantPrice": {
+        "amount": "49.0",
+        "currencyCode": "USD"
+      }
+    },
+    "availableForSale": true,
+    "collectionHandles": [
+      "summer-024",
+      "top",
+      "recommended-products-seguno"
+    ],
+    "category": "tops",
+    "collection": "classics",
+    "pairsWith": "marina-tri-bandeau-bottom",
+    "fitNotes": [
+      "Curved bandeau silhouette with side support",
+      "Breathable mesh cutout detailing",
+      "Model wears size Small, fits true to size"
+    ],
+    "fabric": [
+      "Luxury nylon / spandex blend with breathable mesh detailing",
+      "Side support engineered for lift, shape, and stability",
+      "Fully lined, pull-on seamless construction",
+      "Hand wash cold, lay flat to dry in the shade"
+    ]
+  }
+]

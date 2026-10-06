@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Everything under the sun — fully lined, seamless, and cut for effortless tan lines. Designed in Miami, crafted in Piura, Peru.",
 };
 
-const filters: ShopFilter[] = ["all", "triangle", "contour", "onepiece"];
+const filters: ShopFilter[] = ["all", "triangle", "bandeau", "contour", "onepiece"];
 
 export default async function ShopPage({
   searchParams,
@@ -29,7 +29,7 @@ export default async function ShopPage({
         <section className="relative w-full overflow-x-clip">
           <div
             data-hero-frame
-            className="relative mx-auto h-[340px] w-full max-w-[1560px] overflow-hidden sm:h-[440px] md:h-[540px] lg:h-[640px] xl:h-[744px]"
+            className="relative h-[340px] w-full overflow-hidden sm:h-[440px] md:h-[540px] lg:h-[640px] xl:h-[744px]"
           >
             <div className="absolute inset-0 -scale-x-100">
               <img

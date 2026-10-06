@@ -109,12 +109,20 @@ function ProductCopy({
     },
     {
       title: "Fabric",
-      body: `Fabric codes: ${product.fabric}. Hand wash cold, lie flat to dry, and keep it out of the dryer.`,
+      body: product.price
+        ? product.fabric
+        : `Fabric codes: ${product.fabric}. Hand wash cold, lie flat to dry, and keep it out of the dryer.`,
     },
     {
       title: "Sizes and quantity",
       body: product.runs
-        .map((run) => `${run.piece} — ${run.counts.map((row) => `${row.size}: ${row.qty}`).join(" · ")}`)
+        .map((run) =>
+          `${run.piece} — ${run.counts
+            .map((row) =>
+              product.price ? `${row.size}: ${row.qty > 0 ? "in stock" : "sold out"}` : `${row.size}: ${row.qty}`,
+            )
+            .join(" · ")}`,
+        )
         .join(" "),
     },
   ];

@@ -78,9 +78,11 @@ function MeetCard({ product }: { product: Product }) {
           src={product.src}
           className="size-full object-cover object-[center_18%] transition-transform duration-700 ease-out group-hover:scale-[1.045]"
         />
-        <span className="absolute top-0 left-0 flex h-6 w-[78px] items-center justify-center bg-ink font-bebas text-[12px] tracking-[0.48px] text-white sm:h-7 sm:w-[92px] sm:text-[14px]">
-          PREORDER
-        </span>
+        {product.preorder ? (
+          <span className="absolute top-0 left-0 flex h-6 w-[78px] items-center justify-center bg-ink font-bebas text-[12px] tracking-[0.48px] text-white sm:h-7 sm:w-[92px] sm:text-[14px]">
+            PREORDER
+          </span>
+        ) : null}
       </span>
       <span className="flex flex-col gap-2">
         <span className="font-bebas text-[15px] leading-tight tracking-[0.6px] text-ink uppercase sm:text-[18px] lg:text-[22px]">

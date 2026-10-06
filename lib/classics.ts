@@ -199,6 +199,7 @@ export const classicProducts: Product[] = [
   },
   {
     "name": "Moonchild Mesh Bottom",
+    "sizeChart": "/assets/classics/moonchild-bottom-07.jpg",
     "src": "/assets/classics/moonchild-bottom-01.jpg",
     "alt": "Moonchild Mesh Bottom, Piura Swim",
     "kind": "bottom",
@@ -267,6 +268,7 @@ export const classicProducts: Product[] = [
   },
   {
     "name": "Moonchild Bandeau Top",
+    "sizeChart": "/assets/classics/moonchild-bandeau-top-11.jpg",
     "src": "/assets/classics/moonchild-bandeau-top-01.jpg",
     "alt": "Moonchild Bandeau Top, Piura Swim",
     "kind": "top",
@@ -347,6 +349,7 @@ export const classicProducts: Product[] = [
   },
   {
     "name": "Sunchild Mesh Bottom",
+    "sizeChart": "/assets/classics/lotus-bottom-09.jpg",
     "src": "/assets/classics/lotus-bottom-01.jpg",
     "alt": "Sunchild Mesh Bottom, Piura Swim",
     "kind": "bottom",
@@ -419,6 +422,7 @@ export const classicProducts: Product[] = [
   },
   {
     "name": "Sunchild Bandeau Top",
+    "sizeChart": "/assets/classics/sunchild-bandeau-top-07.jpg",
     "src": "/assets/classics/sunchild-bandeau-top-01.jpg",
     "alt": "Sunchild Bandeau Top, Piura Swim",
     "kind": "top",
@@ -483,6 +487,7 @@ export const classicProducts: Product[] = [
   },
   {
     "name": "Bella Side-Tie Scrunch Bottom",
+    "sizeChart": "/assets/classics/bella-side-tie-scrunch-bottom-07.jpg",
     "src": "/assets/classics/bella-side-tie-scrunch-bottom-01.jpg",
     "alt": "Bella Side-Tie Scrunch Bottom, Piura Swim",
     "kind": "bottom",
@@ -547,6 +552,7 @@ export const classicProducts: Product[] = [
   },
   {
     "name": "Bella Bikini Top",
+    "sizeChart": "/assets/classics/bella-bikini-top-09.jpg",
     "src": "/assets/classics/bella-bikini-top-01.jpg",
     "alt": "Bella Bikini Top, Piura Swim",
     "kind": "top",
@@ -619,6 +625,7 @@ export const classicProducts: Product[] = [
   },
   {
     "name": "Bali Side-Tie Bikini Scrunch Bottom",
+    "sizeChart": "/assets/classics/bali-side-tie-bikini-scrunch-bottom-06.jpg",
     "src": "/assets/classics/bali-side-tie-bikini-scrunch-bottom-01.jpg",
     "alt": "Bali Side-Tie Bikini Scrunch Bottom, Piura Swim",
     "kind": "bottom",
@@ -679,6 +686,7 @@ export const classicProducts: Product[] = [
   },
   {
     "name": "Bali Bikini Top",
+    "sizeChart": "/assets/classics/bali-bikini-top-07.jpg",
     "src": "/assets/classics/bali-bikini-top-01.jpg",
     "alt": "Bali Bikini Top, Piura Swim",
     "kind": "top",
@@ -743,6 +751,7 @@ export const classicProducts: Product[] = [
   },
   {
     "name": "Sara Side-Tie Scrunch Bottom",
+    "sizeChart": "/assets/classics/sara-side-tie-scrunch-bottom-08.jpg",
     "src": "/assets/classics/sara-side-tie-scrunch-bottom-01.jpg",
     "alt": "Sara Side-Tie Scrunch Bottom, Piura Swim",
     "kind": "bottom",
@@ -811,6 +820,7 @@ export const classicProducts: Product[] = [
   },
   {
     "name": "Sara Bikini Top",
+    "sizeChart": "/assets/classics/sara-bikini-top-07.jpg",
     "src": "/assets/classics/sara-bikini-top-01.jpg",
     "alt": "Sara Bikini Top, Piura Swim",
     "kind": "top",
@@ -875,6 +885,7 @@ export const classicProducts: Product[] = [
   },
   {
     "name": "Marina Tri Bandeau Bottom",
+    "sizeChart": "/assets/classics/marina-tri-bandeau-bottom-07.jpg",
     "src": "/assets/classics/marina-tri-bandeau-bottom-01.jpg",
     "alt": "Marina Tri Bandeau Bottom, Piura Swim",
     "kind": "bottom",
@@ -939,6 +950,7 @@ export const classicProducts: Product[] = [
   },
   {
     "name": "Marina Tri Bandeau Top",
+    "sizeChart": "/assets/classics/marina-tri-bandeau-top-07.jpg",
     "src": "/assets/classics/marina-tri-bandeau-top-01.jpg",
     "alt": "Marina Tri Bandeau Top, Piura Swim",
     "kind": "top",

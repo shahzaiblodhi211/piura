@@ -33,12 +33,14 @@ export type Product = {
   src: string;
   alt: string;
   kind: "bikini" | "onepiece" | "top" | "bottom";
+  preorder?: boolean;
   collection: "triangle" | "contour" | "onepiece" | "sunchild" | "moonchild" | "bella" | "bali" | "sara" | "marina" | "classics";
   price?: number;
   colorway: string;
   fabric: string;
   details: string;
   gallery: GalleryImage[];
+  sizeChart?: string;
   runs: SizeRun[];
 };
 
@@ -129,6 +131,7 @@ export const products: Product[] = [
     src: "/assets/coastlines/ipanema-1.jpeg",
     alt: "Emerald green triangle bikini with yellow trim, front view",
     kind: "bikini",
+    preorder: true,
     collection: "triangle",
     colorway: "Emerald green body with vibrant yellow contrast trim.",
     fabric: "Main 2404 / Band 3209",
@@ -146,6 +149,7 @@ export const products: Product[] = [
     src: "/assets/coastlines/positano-1.jpg",
     alt: "Red triangle bikini with white trim, front view",
     kind: "bikini",
+    preorder: true,
     collection: "triangle",
     colorway: "Vibrant red body with crisp white contrast trim.",
     fabric: "Main 1610 / Band 0101",
@@ -171,6 +175,7 @@ export const products: Product[] = [
     src: "/assets/coastlines/mykonos-tri-1.jpeg",
     alt: "Black triangle bikini with white trim, worn on a boat",
     kind: "bikini",
+    preorder: true,
     collection: "triangle",
     colorway: "Classic black body with crisp white contrast trim.",
     fabric: "Main 0707 / Band 0101",
@@ -188,6 +193,7 @@ export const products: Product[] = [
     src: "/assets/coastlines/malibu-1.jpg",
     alt: "Powder-blue contour bikini with gray trim, front view",
     kind: "bikini",
+    preorder: true,
     collection: "contour",
     colorway: "Soft powder-blue body with cool gray contrast trim.",
     fabric: "Main 2101 / Band 0610",
@@ -210,6 +216,7 @@ export const products: Product[] = [
     src: "/assets/coastlines/ibiza-1.jpg",
     alt: "Black contour bikini with red trim",
     kind: "bikini",
+    preorder: true,
     collection: "contour",
     colorway: "Classic black body with bold red contrast trim.",
     fabric: "Main 0707 / Band 1610",
@@ -232,6 +239,7 @@ export const products: Product[] = [
     src: "/assets/coastlines/capri-contour-1.jpeg",
     alt: "Navy contour bikini with yellow trim",
     kind: "bikini",
+    preorder: true,
     collection: "contour",
     colorway: "Deep navy body with vibrant yellow contrast trim.",
     fabric: "Main 2620 / Band 3209",
@@ -247,6 +255,7 @@ export const products: Product[] = [
     src: "/assets/coastlines/mykonos-one-1.jpg",
     alt: "Black cutout one-piece with white trim, front view",
     kind: "onepiece",
+    preorder: true,
     collection: "onepiece",
     colorway: "Classic black body with crisp white contrast trim.",
     fabric: "Main 0707 / Band 0101",
@@ -270,6 +279,7 @@ export const products: Product[] = [
     src: "/assets/coastlines/capri-one-1.jpg",
     alt: "Navy cutout one-piece with yellow trim, front view",
     kind: "onepiece",
+    preorder: true,
     collection: "onepiece",
     colorway: "Deep navy body with vibrant yellow contrast trim.",
     fabric: "Main 2620 / Band 3209",

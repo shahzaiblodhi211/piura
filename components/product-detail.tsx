@@ -158,7 +158,7 @@ function ProductCopy({
               type="button"
               data-tab
               onClick={() => setSize(option)}
-              className={`flex h-[44px] items-center justify-center px-[26px] font-serif text-[14px] tracking-[0.28px] uppercase ${
+              className={`flex h-[44px] items-center justify-center px-[26px] font-serif text-[14px] tracking-[0.28px] whitespace-nowrap uppercase ${
                 active
                   ? "border border-olive text-olive"
                   : "border border-[rgba(53,53,36,0.4)] text-[rgba(53,53,36,0.75)]"
@@ -171,8 +171,9 @@ function ProductCopy({
       </div>
       <ReserveButton productName={product.name} size={size} />
       <p className="mt-5 w-full max-w-[466px] font-serif text-[16px] leading-[28px] font-medium text-body">
-        Waitlist-first while we prepare the next drop — reserving holds your
-        place.
+        {product.preorder
+          ? "Waitlist-first while we prepare the next drop — reserving holds your place."
+          : "In stock now. Reserve your size and we'll confirm by email."}
       </p>
       <div className="mt-8 w-full max-w-[470px]">
         {accordions.map((item) => {

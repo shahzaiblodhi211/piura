@@ -79,11 +79,11 @@ export default async function ProductPage({
               ))}
             </div>
           </div>
-          <div className="relative mx-auto h-[360px] w-full max-w-[280px] overflow-hidden sm:h-[440px] sm:max-w-[340px] lg:mx-0 lg:h-[520px] lg:w-[320px] lg:max-w-none lg:shrink-0 xl:h-[560px] xl:w-[380px]">
+          <div className={`relative mx-auto h-[360px] w-full max-w-[280px] overflow-hidden sm:h-[440px] sm:max-w-[340px] lg:mx-0 lg:h-[520px] lg:w-[320px] lg:max-w-none lg:shrink-0 xl:h-[560px] xl:w-[380px] ${product.sizeChart ? "bg-[#f7f3ee]" : ""}`}>
             <img
-              alt={shot.alt}
-              src={shot.src}
-              className="absolute inset-0 size-full object-cover object-[center_16%]"
+              alt={product.sizeChart ? `${product.name} size chart` : shot.alt}
+              src={product.sizeChart ?? shot.src}
+              className={`absolute inset-0 size-full ${product.sizeChart ? "object-contain" : "object-cover object-[center_16%]"}`}
             />
           </div>
         </section>

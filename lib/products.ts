@@ -23,8 +23,9 @@ export type SizeRun = { piece: string; counts: SizeQty[] };
 export type GalleryImage = { src: string; alt: string };
 
 export const piecePrices = {
-  top: 52,
-  bottom: 52,
+  top: 54,
+  bottom: 54,
+  onepiece: 119,
   tote: 30,
 } as const;
 
@@ -46,6 +47,7 @@ export type Product = {
 
 export function productPriceLine(product: Product) {
   if (typeof product.price === "number") return `$${product.price}`;
+  if (product.kind === "onepiece") return `$${piecePrices.onepiece}`;
   if (product.kind !== "bikini") return null;
   return `Top $${piecePrices.top} · Bottom $${piecePrices.bottom}`;
 }

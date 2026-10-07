@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { useCart } from "@/lib/cart";
 import { productPriceLine, productSlug, products } from "@/lib/products";
 
 const navItems = [
@@ -41,6 +42,7 @@ function MenuMark({ open = false }: { open?: boolean }) {
 export function HomeHeader({ solid = false }: { solid?: boolean }) {
   const pathname = usePathname();
   const router = useRouter();
+  const { count, setOpen } = useCart();
   const [present, setPresent] = useState(false);
   const [entered, setEntered] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -159,7 +161,24 @@ export function HomeHeader({ solid = false }: { solid?: boolean }) {
             </nav>
           </div>
           <HomeMark light={!solid} className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2" />
-          <div className="flex flex-1 items-center justify-end">
+          <div className="flex flex-1 items-center justify-end gap-1">
+            <button
+              type="button"
+              aria-label={count ? `Bag, ${count} items` : "Bag"}
+              onClick={() => {
+                if (present) closeMenu();
+                setSearchOpen(false);
+                setOpen(true);
+              }}
+              className="relative flex size-11 items-center justify-center transition-opacity hover:opacity-70"
+            >
+              <img src="/assets/icon-bag.svg" alt="" className={`size-6 ${solid ? "brightness-0" : ""}`} />
+              {count > 0 ? (
+                <span className="absolute top-1 right-0 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-ink px-1 font-bebas text-[11px] leading-none text-white">
+                  {count}
+                </span>
+              ) : null}
+            </button>
             <button
               type="button"
               aria-label="Search"

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Besley, League_Spartan } from "next/font/google";
+import { Providers } from "@/components/providers";
 import "./globals.css";
 
 const besley = Besley({
@@ -33,7 +34,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-scroll-behavior="smooth"
       className={`${besley.variable} ${leagueSpartan.variable} ${bebas.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-white font-serif text-olive">{children}</body>
+      <body className="min-h-full bg-white font-serif text-olive">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

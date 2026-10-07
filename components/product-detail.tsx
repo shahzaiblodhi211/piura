@@ -5,10 +5,11 @@ import {
   productDescription,
   productPriceLine,
   productSizes,
+  sizeInStock,
   type Product,
 } from "@/lib/products";
 import { ImageStage } from "./image-stage";
-import { ReserveButton } from "./reserve-modal";
+import { PreorderPurchase } from "./preorder-purchase";
 
 export type ProductSlide = {
   src: string;
@@ -157,8 +158,9 @@ function ProductCopy({
               key={option}
               type="button"
               data-tab
+              disabled={!sizeInStock(product, option)}
               onClick={() => setSize(option)}
-              className={`flex h-[44px] items-center justify-center px-[26px] font-serif text-[14px] tracking-[0.28px] whitespace-nowrap uppercase ${
+              className={`flex h-[44px] items-center justify-center px-[26px] font-serif text-[14px] tracking-[0.28px] whitespace-nowrap uppercase disabled:cursor-not-allowed disabled:opacity-35 ${
                 active
                   ? "border border-olive text-olive"
                   : "border border-[rgba(53,53,36,0.4)] text-[rgba(53,53,36,0.75)]"
@@ -169,12 +171,7 @@ function ProductCopy({
           );
         })}
       </div>
-      <ReserveButton productName={product.name} size={size} />
-      <p className="mt-5 w-full max-w-[466px] font-serif text-[16px] leading-[28px] font-medium text-body">
-        {product.preorder
-          ? "Waitlist-first while we prepare the next drop — reserving holds your place."
-          : "In stock now. Reserve your size and we'll confirm by email."}
-      </p>
+      <PreorderPurchase product={product} size={size} />
       <div className="mt-8 w-full max-w-[470px]">
         {accordions.map((item) => {
           const expanded = open === item.title;
@@ -220,7 +217,9 @@ export function ProductDetail({
   featured?: boolean;
 }) {
   const [index, setIndex] = useState(0);
-  const [size, setSize] = useState<(typeof productSizes)[number]>("SMALL");
+  const [size, setSize] = useState<(typeof productSizes)[number]>(
+    () => productSizes.find((option) => sizeInStock(product, option)) ?? "SMALL",
+  );
   const [open, setOpen] = useState<string | null>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 

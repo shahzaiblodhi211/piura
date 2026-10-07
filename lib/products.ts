@@ -369,3 +369,16 @@ export function productDescription(product: Product) {
 }
 
 export const productSizes = ["SMALL", "MEDIUM", "LARGE", "EXTRA LARGE"] as const;
+
+const sizeCode: Record<(typeof productSizes)[number], string> = {
+  SMALL: "S",
+  MEDIUM: "M",
+  LARGE: "L",
+  "EXTRA LARGE": "XL",
+};
+
+export function sizeInStock(product: Product, size: (typeof productSizes)[number]) {
+  if (product.preorder || typeof product.price !== "number") return true;
+  const row = product.runs.flatMap((run) => run.counts).find((item) => item.size === sizeCode[size]);
+  return row ? row.qty > 0 : true;
+}

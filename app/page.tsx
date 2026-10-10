@@ -11,7 +11,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Piura Swim — Coastlines is here",
   description:
-    "The new era of Piura. Sun-drenched designs inspired by coastlines, as seen at Miami Swim Week 2026.",
+    "The new era of Piura. Sun-drenched designs inspired by coastlines, as seen at Miami Swim Week 2026",
 };
 
 const categories = [

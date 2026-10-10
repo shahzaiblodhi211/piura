@@ -9,6 +9,7 @@ type Creator = {
   discountPercent: number;
   commissionPercent: number;
   dashboardPath: string;
+  pending: number;
   payable: number;
   clawback: number;
 };
@@ -130,7 +131,7 @@ export function AffiliateAdmin() {
           <li key={creator.code} className="border-b border-olive/10 py-4 font-serif text-[16px] text-olive">
             <p className="font-bebas text-[24px] leading-none tracking-[0.04em]">{creator.name} · {creator.code}</p>
             <p className="mt-2 text-body">{creator.email} · {creator.discountPercent}% off · {creator.commissionPercent}% commission</p>
-            <p className="mt-1 text-body">Ready to pay {money(creator.payable)}{creator.clawback ? ` · Refunds to collect ${money(creator.clawback)}` : ""}</p>
+            <p className="mt-1 text-body">On hold {money(creator.pending)} · Ready to pay {money(creator.payable)}{creator.clawback ? ` · Refunds to collect ${money(creator.clawback)}` : ""}</p>
             <p className="mt-2 break-all text-[14px]">{origin}{creator.dashboardPath}</p>
             <button type="button" disabled={busy} onClick={() => void markPaid(creator.code)} className="mt-3 h-10 bg-olive px-4 font-bebas text-[16px] tracking-[0.08em] text-cream disabled:opacity-60">
               Mark ready sales paid

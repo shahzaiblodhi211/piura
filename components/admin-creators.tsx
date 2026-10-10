@@ -10,6 +10,7 @@ type Creator = {
   email: string;
   discountPercent: number;
   commissionPercent: number;
+  pending: number;
   payable: number;
   clawback: number;
 };
@@ -78,14 +79,18 @@ export function AdminCreators() {
                 </div>
                 <p className="mt-3 font-serif text-[14px] text-body">{creator.email}</p>
                 <p className="mt-2 font-serif text-[14px] text-olive">{creator.discountPercent}% off · {creator.commissionPercent}% commission</p>
-                <div className="mt-4 grid grid-cols-2 gap-3">
-                  <div className="bg-cream px-3 py-3">
-                    <p className="font-serif text-[12px] tracking-[0.12em] text-body uppercase">Ready to pay</p>
-                    <p className="mt-1 font-bebas text-[22px] leading-none text-olive">{money(creator.payable)}</p>
+                <div className="mt-4 grid grid-cols-3 gap-2">
+                  <div className="bg-cream px-2 py-3 sm:px-3">
+                    <p className="font-serif text-[11px] tracking-[0.12em] text-body uppercase">On hold</p>
+                    <p className="mt-1 font-bebas text-[20px] leading-none text-olive sm:text-[22px]">{money(creator.pending)}</p>
                   </div>
-                  <div className="bg-cream px-3 py-3">
-                    <p className="font-serif text-[12px] tracking-[0.12em] text-body uppercase">To collect</p>
-                    <p className="mt-1 font-bebas text-[22px] leading-none text-olive">{money(creator.clawback)}</p>
+                  <div className="bg-cream px-2 py-3 sm:px-3">
+                    <p className="font-serif text-[11px] tracking-[0.12em] text-body uppercase">Ready to pay</p>
+                    <p className="mt-1 font-bebas text-[20px] leading-none text-olive sm:text-[22px]">{money(creator.payable)}</p>
+                  </div>
+                  <div className="bg-cream px-2 py-3 sm:px-3">
+                    <p className="font-serif text-[11px] tracking-[0.12em] text-body uppercase">To collect</p>
+                    <p className="mt-1 font-bebas text-[20px] leading-none text-olive sm:text-[22px]">{money(creator.clawback)}</p>
                   </div>
                 </div>
               </Link>

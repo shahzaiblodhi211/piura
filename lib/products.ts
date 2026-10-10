@@ -55,6 +55,10 @@ export function productPriceLine(product: Product) {
   return `Top $${piecePrices.top} · Bottom $${piecePrices.bottom}`;
 }
 
+function coastCollection(product: Product) {
+  return product.collection === "triangle" || product.collection === "contour" || product.collection === "onepiece" || product.kind === "bikini" || product.kind === "onepiece";
+}
+
 const bikiniTops: SizeQty[] = [
   { size: "S", qty: 30 },
   { size: "M", qty: 30 },
@@ -85,11 +89,42 @@ const contourDetails =
 const onePieceDetails =
   "Cutout one-piece with adjustable shoulder straps and side cutout detailing. Contrast binding throughout.";
 
-function bikiniRuns(): SizeRun[] {
-  return [
-    { piece: "Tops — 80 units", counts: bikiniTops },
-    { piece: "Bottoms — 80 units", counts: bikiniBottoms },
-  ];
+export const retiredProductSlugs: Record<string, string> = {};
+export const splitFromSlug: Record<string, string> = {};
+
+function splitCoastSet(product: Product): Product[] {
+  const place = product.name.split("—")[1]?.trim() || product.name;
+  const style = product.collection === "contour" ? "Contour" : "Triangle";
+  const back = product.gallery.find((image) => /back/i.test(image.alt)) ?? product.gallery[1] ?? product.gallery[0];
+  const topDetails =
+    style === "Contour"
+      ? "Sculpted contour top with thin adjustable shoulder straps and curved under-bust shaping. Contrast binding throughout."
+      : "Triangle halter top with adjustable ties. Contrast binding throughout.";
+  const bottomDetails = "High-cut, cheeky bottom with adjustable side straps. Contrast binding throughout.";
+  const top: Product = {
+    ...product,
+    name: `${style} Top — ${place}`,
+    alt: `${place} ${style.toLowerCase()} top`,
+    kind: "top",
+    price: piecePrices.top,
+    details: `${topDetails} Pairs with the ${style} Bottom — ${place}.`,
+    runs: [{ piece: "Top", counts: bikiniTops }],
+  };
+  const bottom: Product = {
+    ...product,
+    name: `${style} Bottom — ${place}`,
+    alt: `${place} ${style.toLowerCase()} bottom`,
+    kind: "bottom",
+    price: piecePrices.bottom,
+    src: back?.src ?? product.src,
+    details: `${bottomDetails} Pairs with the ${style} Top — ${place}.`,
+    runs: [{ piece: "Bottom", counts: bikiniBottoms }],
+  };
+  const previous = productSlug(product.name);
+  retiredProductSlugs[previous] = productSlug(top.name);
+  splitFromSlug[productSlug(top.name)] = previous;
+  splitFromSlug[productSlug(bottom.name)] = previous;
+  return [top, bottom];
 }
 
 const triangleClassics = new Set([
@@ -130,7 +165,7 @@ export function productStyles(product: Product): ShopFilter[] {
   return styles;
 }
 
-export const products: Product[] = [
+const coastSets: Product[] = [
   {
     name: "Triangle Bikini — Ipanema",
     src: "/assets/coastlines/ipanema-1.jpeg",
@@ -147,7 +182,7 @@ export const products: Product[] = [
       { src: "/assets/coastlines/ecom/ipanema-01.jpg", alt: "Ipanema triangle bikini, back pose" },
       { src: "/assets/coastlines/ecom/ipanema-02.jpg", alt: "Ipanema triangle bikini, pose" },
     ],
-    runs: bikiniRuns(),
+    runs: [{ piece: "Set", counts: bikiniTops }],
   },
   {
     name: "Triangle Bikini — Positano",
@@ -173,7 +208,7 @@ export const products: Product[] = [
       { src: "/assets/coastlines/ecom/positano-10.jpg", alt: "Positano triangle bikini, pose 9" },
       { src: "/assets/coastlines/ecom/positano-11.jpg", alt: "Positano triangle bikini, pose 10" },
     ],
-    runs: bikiniRuns(),
+    runs: [{ piece: "Set", counts: bikiniTops }],
   },
   {
     name: "Triangle Bikini — Mykonos",
@@ -191,7 +226,7 @@ export const products: Product[] = [
       { src: "/assets/coastlines/mykonos-tri-3.jpeg", alt: "Mykonos triangle bikini, back view on the water" },
       { src: "/assets/coastlines/mykonos-tri-4.jpeg", alt: "Mykonos triangle bikini laid flat" },
     ],
-    runs: bikiniRuns(),
+    runs: [{ piece: "Set", counts: bikiniTops }],
   },
   {
     name: "Contour Bikini — Malibu",
@@ -214,7 +249,7 @@ export const products: Product[] = [
       { src: "/assets/coastlines/ecom/malibu-05.jpg", alt: "Malibu contour bikini, pose 5" },
       { src: "/assets/coastlines/ecom/malibu-06.jpg", alt: "Malibu contour bikini, pose 6" },
     ],
-    runs: bikiniRuns(),
+    runs: [{ piece: "Set", counts: bikiniTops }],
   },
   {
     name: "Contour Bikini — Ibiza",
@@ -237,7 +272,7 @@ export const products: Product[] = [
       { src: "/assets/coastlines/ecom/ibiza-07.jpg", alt: "Ibiza contour bikini, pose 7" },
       { src: "/assets/coastlines/ecom/ibiza-08.jpg", alt: "Ibiza contour bikini, pose 8" },
     ],
-    runs: bikiniRuns(),
+    runs: [{ piece: "Set", counts: bikiniTops }],
   },
   {
     name: "Contour Bikini — Capri",
@@ -253,8 +288,12 @@ export const products: Product[] = [
       { src: "/assets/coastlines/capri-contour-1.jpeg", alt: "Capri contour bikini" },
       { src: "/assets/coastlines/ecom/capri-contour-01.jpg", alt: "Capri contour bikini, pose" },
     ],
-    runs: bikiniRuns(),
+    runs: [{ piece: "Set", counts: bikiniTops }],
   },
+];
+
+export const products: Product[] = [
+  ...coastSets.flatMap(splitCoastSet),
   {
     name: "Cutout One-Piece — Mykonos",
     src: "/assets/coastlines/mykonos-one-1.jpg",
@@ -315,10 +354,10 @@ const printFilters = ["sunchild", "moonchild", "sara", "bali", "marina"] as cons
 export function filterProducts(filter: ShopFilter, source: Product[] = products) {
   if (filter === "all") return source;
   return source.filter((product) => {
-    if (filter === "coastlines") return product.kind === "bikini" || product.kind === "onepiece";
-    if (filter === "classics") return typeof product.price === "number";
-    if (filter === "tops") return product.kind === "top";
-    if (filter === "bottoms") return product.kind === "bottom";
+    if (filter === "coastlines") return coastCollection(product);
+    if (filter === "classics") return typeof product.price === "number" && !coastCollection(product);
+    if (filter === "tops") return product.kind === "top" && !coastCollection(product);
+    if (filter === "bottoms") return product.kind === "bottom" && !coastCollection(product);
     if ((printFilters as readonly string[]).includes(filter)) {
       return product.name.toLowerCase().startsWith(filter);
     }
@@ -375,7 +414,7 @@ export function pairProduct(_product: Product) {
 }
 
 export function productDescription(product: Product) {
-  if (typeof product.price === "number") return product.details;
+  if (typeof product.price === "number" && !product.preorder) return product.details;
   return `${product.colorway} ${product.details}`;
 }
 

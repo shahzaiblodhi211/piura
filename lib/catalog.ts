@@ -1,7 +1,7 @@
 import { MongoServerError } from "mongodb";
 import { db } from "@/lib/mongo";
 import { hostedSrc } from "@/lib/photos";
-import { productSlug, products, type GalleryImage, type Product, type SizeRun } from "@/lib/products";
+import { productSlug, products, retiredProductSlugs, splitFromSlug, type GalleryImage, type Product, type SizeRun } from "@/lib/products";
 
 export type StoredProduct = Product & { slug: string; sort: number };
 
@@ -213,14 +213,37 @@ export async function seedCatalog() {
       kept += 1;
       continue;
     }
+    const parentSlug = splitFromSlug[slug];
+    const parent = parentSlug
+      ? await productsCollection.findOne({ slug: parentSlug }, { projection: { _id: 0, slug: 0, sort: 0 } })
+      : null;
+    const gallery = parent?.gallery?.length ? parent.gallery : product.gallery;
+    const back = gallery.find((image) => /back/i.test(image.alt)) ?? gallery[1] ?? gallery[0];
+    const doc = {
+      ...product,
+      ...(parent
+        ? {
+            gallery,
+            colorway: parent.colorway || product.colorway,
+            fabric: parent.fabric || product.fabric,
+            src: product.kind === "bottom" ? back?.src || product.src : parent.src || product.src,
+            ...(parent.sizeChart ? { sizeChart: parent.sizeChart } : {}),
+          }
+        : {}),
+      slug,
+      sort: index,
+      hidden: false,
+    };
     try {
-      await productsCollection.insertOne({ ...product, slug, sort: index, hidden: false });
+      await productsCollection.insertOne(doc);
       added += 1;
     } catch (error) {
       if (!(error instanceof MongoServerError) || error.code !== 11000) throw error;
       kept += 1;
     }
   }
+  const retired = Object.keys(retiredProductSlugs);
+  if (retired.length) await productsCollection.updateMany({ slug: { $in: retired } }, { $set: { hidden: true } });
   clearCatalogCache();
   return { added, kept };
 }

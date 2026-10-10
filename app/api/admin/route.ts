@@ -11,6 +11,7 @@ function allowed(request: Request) {
 function creatorsFrom(affiliates: Awaited<ReturnType<typeof listAffiliates>>, commissions: Awaited<ReturnType<typeof listCommissions>>) {
   return affiliates.map((affiliate) => {
     const rows = commissions.filter((row) => row.code === affiliate.code);
+    const pending = rows.filter((row) => commissionDue(row.placedAt, row.paidAt, row.commissionCents <= 0) === "pending").reduce((sum, row) => sum + row.commissionCents, 0);
     const payable = rows.filter((row) => commissionDue(row.placedAt, row.paidAt, row.commissionCents <= 0) === "payable").reduce((sum, row) => sum + row.commissionCents, 0);
     return {
       code: affiliate.code,
@@ -19,6 +20,7 @@ function creatorsFrom(affiliates: Awaited<ReturnType<typeof listAffiliates>>, co
       discountPercent: affiliate.discountPercent,
       commissionPercent: affiliate.commissionPercent,
       dashboardPath: `/affiliate/${affiliate.token}`,
+      pending,
       payable,
       clawback: rows.reduce((sum, row) => sum + row.clawbackCents, 0),
     };

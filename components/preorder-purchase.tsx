@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { useCart, type CartPiece } from "@/lib/cart";
 import { piecePrices, productPath, productSizes, sizeInStock, type Product } from "@/lib/products";
 
 const pieceOptions: { id: CartPiece; label: string; price: number }[] = [
-  { id: "top", label: "Top", price: piecePrices.top },
-  { id: "bottom", label: "Bottom", price: piecePrices.bottom },
+  { id: "top", label: "top", price: piecePrices.top },
+  { id: "bottom", label: "bottom", price: piecePrices.bottom },
 ];
 
 export function PreorderPurchase({
@@ -17,84 +16,67 @@ export function PreorderPurchase({
   size: (typeof productSizes)[number];
 }) {
   const { addMany } = useCart();
-  const onePiece = product.kind === "onepiece";
-  const inStock = typeof product.price === "number";
+  const separate = product.kind === "bikini" && typeof product.price !== "number";
   const available = sizeInStock(product, size);
-  const [selected, setSelected] = useState<CartPiece[]>(onePiece ? ["onepiece"] : ["top", "bottom"]);
 
-  function toggle(piece: CartPiece) {
-    setSelected((current) =>
-      current.includes(piece) ? current.filter((item) => item !== piece) : [...current, piece],
-    );
-  }
-
-  function purchase() {
+  function add(piece: CartPiece, price: number) {
     if (!available) return;
-    const shared = {
-      slug: productPath(product),
-      name: product.name,
-      size,
-      src: product.src,
-      preorder: Boolean(product.preorder),
-    };
-    if (inStock && product.price) {
-      addMany([
-        {
-          ...shared,
-          piece: product.kind === "bottom" ? "bottom" : product.kind === "onepiece" ? "onepiece" : "top",
-          price: product.price,
-        },
-      ]);
-      return;
-    }
-    if (onePiece) {
-      addMany([{ ...shared, piece: "onepiece", price: piecePrices.onepiece }]);
-      return;
-    }
-    addMany(
-      pieceOptions
-        .filter((option) => selected.includes(option.id))
-        .map((option) => ({ ...shared, piece: option.id, price: option.price })),
-    );
+    addMany([
+      {
+        slug: productPath(product),
+        name: product.name,
+        piece,
+        size,
+        price,
+        src: product.src,
+        preorder: Boolean(product.preorder),
+      },
+    ]);
   }
+
+  const amount = product.kind === "onepiece" ? piecePrices.onepiece : product.price;
+  const label = !available ? "Sold out" : product.preorder ? `Preorder · $${amount}` : `Add to bag · $${amount}`;
 
   return (
     <>
-      {!onePiece && !inStock ? (
-        <div className="mt-4 grid w-full max-w-[470px] grid-cols-2 gap-[14px]">
-          {pieceOptions.map((option) => {
-            const active = selected.includes(option.id);
-            return (
-              <button
-                key={option.id}
-                type="button"
-                aria-pressed={active}
-                onClick={() => toggle(option.id)}
-                className={`flex h-[44px] items-center justify-center px-3 font-serif text-[14px] tracking-[0.28px] whitespace-nowrap uppercase ${
-                  active
-                    ? "border border-olive text-olive"
-                    : "border border-[rgba(53,53,36,0.4)] text-[rgba(53,53,36,0.75)]"
-                }`}
-              >
-                {option.label} ${option.price}
-              </button>
-            );
-          })}
+      {separate ? (
+        <div className="mt-8 grid w-full max-w-[470px] gap-3">
+          {pieceOptions.map((option) => (
+            <button
+              key={option.id}
+              type="button"
+              data-btn
+              disabled={!available}
+              onClick={() => add(option.id, option.price)}
+              className="flex h-[58px] w-full items-center justify-center gap-4 bg-olive font-serif text-[16px] font-medium tracking-[0.64px] text-cream uppercase disabled:opacity-40"
+            >
+              <img src="/assets/icon-bag.svg" alt="" />
+              {available ? `Preorder ${option.label} · $${option.price}` : "Sold out"}
+            </button>
+          ))}
         </div>
-      ) : null}
-      <button
-        type="button"
-        data-btn
-        disabled={!available || (!onePiece && !inStock && selected.length === 0)}
-        onClick={purchase}
-        className="mt-8 flex h-[58px] w-full max-w-[470px] items-center justify-center gap-4 bg-olive font-serif text-[16px] font-medium tracking-[0.64px] text-cream uppercase disabled:opacity-40"
-      >
-        <img src="/assets/icon-bag.svg" alt="" />
-        {!available ? "Sold out" : product.preorder ? (onePiece ? `Preorder · $${piecePrices.onepiece}` : "Preorder") : `Add to bag · $${product.price}`}
-      </button>
+      ) : (
+        <button
+          type="button"
+          data-btn
+          disabled={!available}
+          onClick={() =>
+            add(
+              product.kind === "bottom" ? "bottom" : product.kind === "onepiece" ? "onepiece" : "top",
+              product.kind === "onepiece" ? piecePrices.onepiece : product.price ?? 0,
+            )
+          }
+          className="mt-8 flex h-[58px] w-full max-w-[470px] items-center justify-center gap-4 bg-olive font-serif text-[16px] font-medium tracking-[0.64px] text-cream uppercase disabled:opacity-40"
+        >
+          <img src="/assets/icon-bag.svg" alt="" />
+          {label}
+        </button>
+      )}
       <p className="mt-5 w-full max-w-[466px] font-serif text-[16px] leading-[28px] font-medium text-body">
         {product.preorder
-          ? "Coastlines is a preorder. Your size is held, and we'll email you to complete payment before it ships."
+          ? separate
+            ? "The top and bottom are sold separately. Pick a size, then preorder the piece you want."
+            : "Coastlines is a preorder. Your size is held, and we'll email you to complete payment before it ships."
           : "In stock and ready to ship. Add your size to the bag to purchase."}
       </p>
     </>

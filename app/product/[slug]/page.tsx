@@ -3,8 +3,8 @@ import { PageShell } from "@/components/page-shell";
 import { ProductDetail } from "@/components/product-detail";
 import { SplitTitle } from "@/components/split-title";
 import { publicProducts } from "@/lib/catalog";
-import { findInCatalog, productPath, products } from "@/lib/products";
-import { notFound } from "next/navigation";
+import { findInCatalog, productPath, products, retiredProductSlugs } from "@/lib/products";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -16,7 +16,8 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug: requested } = await params;
+  const slug = retiredProductSlugs[requested] ?? requested;
   const product = findInCatalog(await publicProducts(), slug);
   if (!product) return { title: "Product — Piura Swim" };
   return {
@@ -31,6 +32,8 @@ export default async function ProductPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const next = retiredProductSlugs[slug];
+  if (next) redirect(`/product/${next}`);
   const product = findInCatalog(await publicProducts(), slug);
   if (!product) notFound();
   const shot = product.gallery[1] ?? product.gallery[0];

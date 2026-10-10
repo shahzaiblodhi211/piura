@@ -225,7 +225,7 @@ export default async function Home() {
             </p>
           </div>
           <div data-reveal className="mt-8 grid grid-cols-2 gap-x-3 gap-y-8 sm:mt-12 sm:gap-x-4 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-[11px]">
-            {catalog.slice(0, 4).map((product) => (
+            {catalog.filter((product) => product.kind !== "bottom").slice(0, 4).map((product) => (
               <MeetCard key={product.name} product={product} />
             ))}
           </div>

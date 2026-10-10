@@ -138,7 +138,10 @@ export async function recordCommission(input: {
   try {
     await (await commissions()).insertOne(row);
   } catch (error) {
-    if (error instanceof MongoServerError && error.code === 11000) return;
+    if (error instanceof MongoServerError && error.code === 11000) {
+      await (await commissions()).updateOne({ paymentIntentId: input.paymentIntentId }, { $set: { placedAt: input.placedAt } });
+      return;
+    }
     throw error;
   }
 }

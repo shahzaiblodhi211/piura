@@ -12,6 +12,7 @@ type Creator = {
   discountPercent: number;
   commissionPercent: number;
   dashboardPath: string;
+  pending: number;
   payable: number;
   clawback: number;
 };
@@ -23,12 +24,13 @@ type Draft = {
   discount: string;
   commission: string;
   dashboardPath: string;
+  pending: number;
   payable: number;
   clawback: number;
 };
 
 function blankDraft(): Draft {
-  return { code: "", name: "", email: "", discount: "15", commission: "15", dashboardPath: "", payable: 0, clawback: 0 };
+  return { code: "", name: "", email: "", discount: "15", commission: "15", dashboardPath: "", pending: 0, payable: 0, clawback: 0 };
 }
 
 export function AdminCreatorForm({ code }: { code?: string }) {
@@ -58,6 +60,7 @@ export function AdminCreatorForm({ code }: { code?: string }) {
           discount: String(creator.discountPercent),
           commission: String(creator.commissionPercent),
           dashboardPath: creator.dashboardPath,
+          pending: creator.pending,
           payable: creator.payable,
           clawback: creator.clawback,
         });
@@ -114,7 +117,7 @@ export function AdminCreatorForm({ code }: { code?: string }) {
       const count = Number(data.count ?? 0);
       const creators = (data.creators as Creator[]) ?? [];
       const creator = creators.find((item) => item.code === (draft?.code || code).toUpperCase());
-      if (creator && draft) setDraft({ ...draft, payable: creator.payable, clawback: creator.clawback });
+      if (creator && draft) setDraft({ ...draft, pending: creator.pending, payable: creator.payable, clawback: creator.clawback });
       toast(count ? `Marked ${count} sale${count === 1 ? "" : "s"} paid.` : "Nothing is ready to pay yet.");
     } catch (err) {
       toast(err instanceof Error ? err.message : "Could not mark that paid.", "bad");
@@ -146,7 +149,11 @@ export function AdminCreatorForm({ code }: { code?: string }) {
         <p className="font-serif text-[14px] leading-6 text-body sm:col-span-2">Followers type this code at checkout. Use 20% commission for a top performer. Past sales keep the commission they were given.</p>
         {draft.dashboardPath ? <p className="break-all font-serif text-[14px] leading-6 text-olive sm:col-span-2">{origin}{draft.dashboardPath}</p> : null}
         {code ? (
-          <div className="grid grid-cols-2 gap-3 sm:col-span-2">
+          <div className="grid grid-cols-3 gap-2 sm:col-span-2">
+            <div className="bg-cream px-3 py-3">
+              <p className="font-serif text-[12px] tracking-[0.12em] text-body uppercase">On hold</p>
+              <p className="mt-1 font-bebas text-[24px] leading-none text-olive">{money(draft.pending)}</p>
+            </div>
             <div className="bg-cream px-3 py-3">
               <p className="font-serif text-[12px] tracking-[0.12em] text-body uppercase">Ready to pay</p>
               <p className="mt-1 font-bebas text-[24px] leading-none text-olive">{money(draft.payable)}</p>

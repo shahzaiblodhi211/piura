@@ -111,9 +111,9 @@ function ProductCopy({
     },
     {
       title: "Fabric",
-      body: product.price
-        ? product.fabric
-        : `Fabric codes: ${product.fabric}. Hand wash cold, lie flat to dry, and keep it out of the dryer.`,
+      body: product.preorder
+        ? `Fabric codes: ${product.fabric}. Hand wash cold, lie flat to dry, and keep it out of the dryer.`
+        : product.fabric,
     },
     {
       title: "Sizes and quantity",
@@ -121,7 +121,7 @@ function ProductCopy({
         .map((run) =>
           `${run.piece} — ${run.counts
             .map((row) =>
-              product.price ? `${row.size}: ${row.qty > 0 ? "in stock" : "sold out"}` : `${row.size}: ${row.qty}`,
+              product.preorder || typeof product.price !== "number" ? `${row.size}: ${row.qty}` : `${row.size}: ${row.qty > 0 ? "in stock" : "sold out"}`,
             )
             .join(" · ")}`,
         )

@@ -25,7 +25,8 @@ export function AdminOrders() {
     Promise.all([call({ action: "orders" }), call({ action: "products" })])
       .then(([ordersData, productsData]) => {
         if (!live) return;
-        setOrders((ordersData.orders as PlacedOrder[]) ?? []);
+        const shown = [...((ordersData.orders as PlacedOrder[]) ?? [])].sort((a, b) => b.placedAt.localeCompare(a.placedAt));
+        setOrders(shown);
         setCatalog((productsData.products as Product[]) ?? []);
         setTestMode(ordersData.testMode === true);
       })

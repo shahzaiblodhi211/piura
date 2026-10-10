@@ -111,24 +111,28 @@ export async function placePaidOrder(stripe: Stripe, intent: Stripe.PaymentInten
   if (catalog - off !== intent.amount) throw new Error("The paid amount does not match the order.");
 
   const existing = await readOrder(intent.id);
-  const order: PlacedOrder = existing ?? {
-    number: orderNumber(intent.id),
-    paymentIntentId: intent.id,
-    email: intent.receipt_email || intent.metadata.email || null,
-    amount: intent.amount,
-    currency: intent.currency,
-    lines,
-    shipping: shippingFrom(intent),
-    placedAt: new Date().toISOString(),
-    test: intent.livemode === false,
-  };
+  const placedAt = new Date(intent.created * 1000).toISOString();
+  const test = intent.livemode === false;
+  const order: PlacedOrder = existing
+    ? { ...existing, placedAt, test }
+    : {
+        number: orderNumber(intent.id),
+        paymentIntentId: intent.id,
+        email: intent.receipt_email || intent.metadata.email || null,
+        amount: intent.amount,
+        currency: intent.currency,
+        lines,
+        shipping: shippingFrom(intent),
+        placedAt,
+        test,
+      };
 
   if (!existing) {
     await (await orders()).insertOne({ ...order }).catch((error: unknown) => {
       if (!(error instanceof MongoServerError) || error.code !== 11000) throw error;
     });
-  } else if (existing.test === undefined) {
-    await (await orders()).updateOne({ paymentIntentId: intent.id }, { $set: { test: intent.livemode === false } });
+  } else if (existing.placedAt !== placedAt || existing.test !== test) {
+    await (await orders()).updateOne({ paymentIntentId: intent.id }, { $set: { placedAt, test } });
   }
 
   if (intent.metadata.order_status !== "placed" || intent.metadata.order_number !== order.number) {

@@ -22,6 +22,8 @@ const bebas = Bebas_Neue({
   variable: "--font-bebas-neue",
 });
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Piura Swim",
   description: "Designed in Miami. Crafted in Piura, Peru — The City of Eternal Heat.",

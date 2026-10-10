@@ -1,4 +1,8 @@
+import { discountCents } from "@/lib/affiliate-math";
+import { publicProducts } from "@/lib/catalog";
+import { findAffiliate } from "@/lib/affiliates";
 import { quoteCheckout, type CheckoutItem, type CheckoutPiece } from "@/lib/checkout-quote";
+import { orderLineMetadata } from "@/lib/orders";
 import { getStripe } from "@/lib/stripe";
 
 type ShippingBody = {
@@ -24,7 +28,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "Stripe is not configured." }, { status: 503 });
   }
 
-  let body: { items?: unknown; email?: unknown; shipping?: ShippingBody };
+  let body: { items?: unknown; email?: unknown; shipping?: ShippingBody; news?: unknown; code?: unknown };
   try {
     body = await request.json();
   } catch {
@@ -35,8 +39,23 @@ export async function POST(request: Request) {
     return Response.json({ error: "Check the pieces in your bag." }, { status: 400 });
   }
 
-  const quote = quoteCheckout(body.items);
+  const quote = quoteCheckout(body.items, await publicProducts());
   if (!quote.ok) return Response.json({ error: quote.error }, { status: 400 });
+
+  const code = typeof body.code === "string" ? body.code.trim() : "";
+  let affiliate = null;
+  if (code) {
+    try {
+      affiliate = await findAffiliate(code);
+    } catch {
+      return Response.json({ error: "Discount codes are unavailable right now." }, { status: 503 });
+    }
+  }
+  if (code && !affiliate) return Response.json({ error: "That code isn't valid." }, { status: 400 });
+  const discount = affiliate ? discountCents(quote.amount, affiliate.discountPercent) : 0;
+  const amount = quote.amount - discount;
+  if (amount < 50) return Response.json({ error: "This order can't be charged." }, { status: 400 });
+  const commission = affiliate ? discountCents(amount, affiliate.commissionPercent) : 0;
 
   const email = typeof body.email === "string" && body.email.includes("@") ? body.email : undefined;
   const shipping = body.shipping;
@@ -44,13 +63,23 @@ export async function POST(request: Request) {
 
   try {
     const intent = await stripe.paymentIntents.create({
-      amount: quote.amount,
+      amount,
       currency: "usd",
-      automatic_payment_methods: { enabled: true },
+      allowed_payment_method_types: ["card", "cashapp"],
       receipt_email: email,
       description: quote.lines.map((line) => `${line.qty}× ${line.name} (${line.piece}, ${line.size})`).join(", ").slice(0, 500),
       metadata: {
-        items: quote.lines.map((line) => `${line.qty}:${line.name}:${line.piece}:${line.size}`).join("|").slice(0, 500),
+        ...(email ? { email } : {}),
+        ...(body.news === true ? { news: "yes" } : {}),
+        ...(affiliate
+          ? {
+              affiliate_code: affiliate.code,
+              affiliate_discount_cents: String(discount),
+              affiliate_commission_percent: String(affiliate.commissionPercent),
+              affiliate_commission_cents: String(commission),
+            }
+          : {}),
+        ...orderLineMetadata(quote.lines),
       },
       shipping: addressReady
         ? {
@@ -67,7 +96,7 @@ export async function POST(request: Request) {
         : undefined,
     });
 
-    return Response.json({ clientSecret: intent.client_secret, amount: quote.amount });
+    return Response.json({ clientSecret: intent.client_secret, amount });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Could not start payment.";
     return Response.json({ error: message }, { status: 400 });

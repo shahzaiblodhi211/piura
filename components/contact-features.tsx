@@ -19,7 +19,7 @@ const features = [
   },
   {
     title: "Free US shipping",
-    subtitle: "On orders over $100",
+    subtitle: "On orders over $130",
     src: "/assets/icon-shipping.png",
     width: 100,
     height: 102,

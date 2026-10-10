@@ -2,6 +2,7 @@ import { HomeHeader } from "@/components/home-header";
 import { PageShell } from "@/components/page-shell";
 import { ShopGrid } from "@/components/shop-grid";
 import { SplitTitle } from "@/components/split-title";
+import { publicProducts } from "@/lib/catalog";
 import { acceptedFilters, type ShopFilter } from "@/lib/products";
 import type { Metadata } from "next";
 
@@ -19,6 +20,7 @@ export default async function ShopPage({
   searchParams: Promise<{ filter?: string }>;
 }) {
   const { filter } = await searchParams;
+  const catalog = await publicProducts();
   const initialFilter = filters.includes(filter as ShopFilter)
     ? (filter as ShopFilter)
     : "all";
@@ -40,7 +42,7 @@ export default async function ShopPage({
             </div>
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(77,77,77,0.2)] from-[13%] to-transparent to-[26%]" />
           </div>
-          <HomeHeader />
+          <HomeHeader catalog={catalog} />
         </section>
 
         <section className="mx-auto w-full max-w-[1560px] px-5 pt-12 sm:px-8 sm:pt-16 xl:px-20 xl:pt-[93px]">
@@ -64,7 +66,7 @@ export default async function ShopPage({
           id="shop"
           className="mx-auto w-full max-w-[1560px] scroll-mt-8 pt-10 pb-16 sm:pt-12 xl:pt-16 xl:pb-[80px]"
         >
-          <ShopGrid key={initialFilter} initialFilter={initialFilter} />
+          <ShopGrid key={initialFilter} initialFilter={initialFilter} catalog={catalog} />
         </section>
       </main>
     </PageShell>

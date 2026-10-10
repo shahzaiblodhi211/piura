@@ -24,7 +24,7 @@ const sections: LegalSection[] = [
     id: "orders-shipping-returns",
     number: "03.",
     title: "Orders, shipping & returns",
-    body: "Orders ship from Miami, Florida. Free standard shipping applies to US orders over $100. For hygiene reasons, swimwear can only be returned unworn, unwashed, with the hygiene liner intact, within [ISABELLA TO CONFIRM: return window, e.g. 14 days] of delivery. [ISABELLA TO CONFIRM: refund vs. store-credit policy]. To start a return, contact us via the contact page.",
+    body: "Orders ship from Miami, Florida. Free standard shipping applies to US orders over $130. For hygiene reasons, swimwear can only be returned unworn, unwashed, with the hygiene liner intact, within [ISABELLA TO CONFIRM: return window, e.g. 14 days] of delivery. [ISABELLA TO CONFIRM: refund vs. store-credit policy]. To start a return, contact us via the contact page.",
   },
   {
     id: "pricing-payment",

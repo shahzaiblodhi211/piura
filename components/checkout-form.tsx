@@ -3,7 +3,9 @@
 import { FormEvent, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { pieceLabel, useCart } from "@/lib/cart";
+import { discountCents } from "@/lib/affiliate-math";
 import { quoteCheckout } from "@/lib/checkout-quote";
+import type { Product } from "@/lib/products";
 import { FieldMenu } from "@/components/field-menu";
 import { StripeCheckout } from "@/components/stripe-pay";
 
@@ -34,26 +36,63 @@ function prettySize(size: string) {
 const field =
   "piura-field h-14 w-full border border-olive bg-white px-4 font-serif text-[16px] text-olive outline-none placeholder:text-olive/45 focus:outline-none sm:px-[22px] sm:text-[17px]";
 
-export function CheckoutForm() {
+export function CheckoutForm({ catalog }: { catalog: Product[] }) {
   const { lines, total, clear } = useCart();
   const [placed, setPlaced] = useState(false);
+  const [orderNumber, setOrderNumber] = useState("");
   const [code, setCode] = useState("");
   const [codeNote, setCodeNote] = useState("");
+  const [codeBusy, setCodeBusy] = useState(false);
+  const [deal, setDeal] = useState<{ code: string; discountPercent: number } | null>(null);
   const [canPay, setCanPay] = useState(false);
   const [email, setEmail] = useState("");
+  const [news, setNews] = useState(false);
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [apartment, setApartment] = useState("");
   const [country, setCountry] = useState("US");
   const [address, setAddress] = useState({ line: "", city: "", state: "", zip: "" });
   const addressReady = Boolean(address.line && address.city && address.state && address.zip);
-  const shippingFree = addressReady && total >= 100;
+  const shippingFree = addressReady && total >= 130;
   const count = lines.reduce((sum, line) => sum + line.qty, 0);
   const items = lines.map((line) => ({ slug: line.slug, piece: line.piece, size: line.size, qty: line.qty }));
-  const quote = quoteCheckout(items);
+  const quote = quoteCheckout(items, catalog);
+  const off = quote.ok && deal ? discountCents(quote.amount, deal.discountPercent) : 0;
+  const due = quote.ok ? quote.amount - off : 0;
+
+  async function applyCode() {
+    const next = code.trim();
+    if (!next) {
+      setDeal(null);
+      setCodeNote("");
+      return;
+    }
+    setCodeBusy(true);
+    setCodeNote("");
+    try {
+      const response = await fetch("/api/affiliate/check", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code: next }),
+      });
+      const data = (await response.json()) as { code?: string; discountPercent?: number; error?: string };
+      if (!response.ok || !data.code || !data.discountPercent) {
+        setDeal(null);
+        setCodeNote(data.error || "That code isn't valid.");
+        return;
+      }
+      setDeal({ code: data.code, discountPercent: data.discountPercent });
+    } catch {
+      setDeal(null);
+      setCodeNote("Could not check that code. Try again.");
+    } finally {
+      setCodeBusy(false);
+    }
+  }
   const shipping =
     addressReady && lastName
       ? {
-          name: lastName,
+          name: [firstName, lastName].filter(Boolean).join(" "),
           line1: address.line,
           line2: apartment,
           city: address.city,
@@ -62,7 +101,8 @@ export function CheckoutForm() {
         }
       : null;
 
-  function paid() {
+  function paid(number?: string) {
+    setOrderNumber(number ?? "");
     setPlaced(true);
     clear();
   }
@@ -80,17 +120,10 @@ export function CheckoutForm() {
     );
   }
 
-  function layout(express: ReactNode, payment: ReactNode) {
+  function layout(payment: ReactNode) {
     return (
       <>
         <div className="order-2 min-w-0 lg:order-1">
-          {express}
-          <div className="my-6 flex items-center gap-4 font-bebas text-[16px] tracking-[0.14em] text-olive/50">
-            <span className="h-px flex-1 bg-olive/20" />
-            OR
-            <span className="h-px flex-1 bg-olive/20" />
-          </div>
-
           <h2 className="font-bebas text-[28px] leading-none tracking-[0.04em] text-olive sm:text-[32px]">Contact</h2>
           <input
             name="email"
@@ -103,7 +136,7 @@ export function CheckoutForm() {
           />
           <label className="group mt-3 flex items-center gap-3 font-serif text-[15px] text-body sm:text-[16px]">
             <span className="relative grid size-4 shrink-0 place-items-center border border-olive bg-white group-has-[:checked]:bg-olive">
-              <input type="checkbox" name="news" className="absolute inset-0 cursor-pointer opacity-0" />
+              <input type="checkbox" name="news" checked={news} onChange={(event) => setNews(event.target.checked)} className="absolute inset-0 cursor-pointer opacity-0" />
               <svg viewBox="0 0 16 16" aria-hidden className="pointer-events-none hidden size-3.5 text-white group-has-[:checked]:block">
                 <path d="M3.2 8.2 6.4 11.4 12.8 4.6" fill="none" stroke="currentColor" strokeWidth="1.8" />
               </svg>
@@ -119,7 +152,7 @@ export function CheckoutForm() {
             </span>
           </label>
           <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <input name="firstName" placeholder="First name" className={field} />
+            <input name="firstName" placeholder="First name" value={firstName} onChange={(event) => setFirstName(event.target.value)} className={field} />
             <input
               name="lastName"
               required
@@ -182,7 +215,7 @@ export function CheckoutForm() {
             </label>
           ) : (
             <p className="mt-4 border border-olive/15 bg-cream px-4 py-4 text-center font-serif text-[15px] leading-6 text-body sm:text-[16px]">
-              {addressReady ? "Free shipping on US orders over $100." : "Enter your shipping address to view available shipping methods."}
+              {addressReady ? "Free shipping on US orders over $130." : "Enter your shipping address to view available shipping methods."}
             </p>
           )}
 
@@ -220,12 +253,14 @@ export function CheckoutForm() {
             <input value={code} onChange={(event) => setCode(event.target.value)} placeholder="Discount code" className={`${field} min-w-0`} />
             <button
               type="button"
-              onClick={() => setCodeNote(code.trim() ? "Enter a valid discount code" : "")}
-              className="h-14 shrink-0 bg-olive px-4 font-bebas text-[18px] tracking-[0.08em] text-cream sm:px-5"
+              disabled={codeBusy}
+              onClick={() => void applyCode()}
+              className="h-14 shrink-0 bg-olive px-4 font-bebas text-[18px] tracking-[0.08em] text-cream disabled:opacity-60 sm:px-5"
             >
-              Apply
+              {codeBusy ? "..." : "Apply"}
             </button>
           </div>
+          {deal ? <p className="mt-2 font-serif text-[14px] text-olive">{deal.code} takes {deal.discountPercent}% off.</p> : null}
           {codeNote ? <p className="mt-2 font-serif text-[14px] text-[#8a1c1c]">{codeNote}</p> : null}
           <dl className="mt-6 space-y-3 font-serif text-[15px] text-olive sm:text-[16px]">
             <div className="flex justify-between gap-4">
@@ -234,16 +269,22 @@ export function CheckoutForm() {
               </dt>
               <dd className="shrink-0">{money(total)}</dd>
             </div>
+            {off > 0 ? (
+              <div className="flex justify-between gap-4">
+                <dt>Discount</dt>
+                <dd className="shrink-0">−{money(off / 100)}</dd>
+              </div>
+            ) : null}
             <div className="flex justify-between gap-4 text-body">
               <dt>Shipping</dt>
-              <dd className="shrink-0 text-right">{shippingFree ? "Free" : "Enter shipping address"}</dd>
+              <dd className="shrink-0 text-right">{shippingFree ? "Free" : addressReady ? "Free over $130" : "Enter shipping address"}</dd>
             </div>
           </dl>
           <div className="mt-5 flex items-end justify-between gap-4 border-t border-olive/15 pt-4">
             <span className="font-bebas text-[28px] leading-none tracking-[0.04em] text-olive">Total</span>
             <span className="text-right">
               <span className="mr-2 font-serif text-[12px] tracking-[0.08em] text-body">USD</span>
-              <span className="font-bebas text-[32px] leading-none text-olive">{money(quote.ok ? quote.amount / 100 : total)}</span>
+              <span className="font-bebas text-[32px] leading-none text-olive">{money(quote.ok ? due / 100 : total)}</span>
             </span>
           </div>
         </aside>
@@ -257,7 +298,9 @@ export function CheckoutForm() {
         <div className="max-w-[640px]">
           <p className="font-serif text-[16px] text-body sm:text-[18px]">Checkout</p>
           <h1 className="mt-3 font-bebas text-[40px] leading-none text-olive sm:text-[56px]">Thank you</h1>
-          <p className="mt-5 font-serif text-[16px] leading-7 text-body sm:text-[18px] sm:leading-8">Payment received. Stripe will email your receipt.</p>
+          <p className="mt-5 font-serif text-[16px] leading-7 text-body sm:text-[18px] sm:leading-8">
+            {orderNumber ? `Payment received. Order ${orderNumber} is in the studio.` : "Payment received. Stripe will email your receipt."}
+          </p>
           <Link href="/shop" className="mt-8 inline-flex h-14 items-center justify-center bg-olive px-8 font-bebas text-[22px] tracking-[0.08em] text-cream">
             Continue shopping
           </Link>
@@ -272,11 +315,11 @@ export function CheckoutForm() {
             className="mt-8 grid grid-cols-1 gap-10 lg:mt-12 lg:grid-cols-[minmax(0,1fr)_minmax(280px,380px)] lg:items-start lg:gap-12 xl:grid-cols-[minmax(0,1fr)_420px] xl:gap-16"
           >
           {quote.ok ? (
-            <StripeCheckout items={items} amount={quote.amount} email={email} shipping={shipping} canPay={canPay} onPaid={paid}>
-              {({ express, payment }) => layout(express, payment)}
+            <StripeCheckout items={items} amount={due} email={email} shipping={shipping} news={news} code={deal?.code ?? ""} canPay={canPay} onPaid={paid}>
+              {(payment) => layout(payment)}
             </StripeCheckout>
           ) : (
-            layout(null, <p className="mt-4 font-serif text-[15px] leading-6 text-[#8a1c1c]">{quote.error}</p>)
+            layout(<p className="mt-4 font-serif text-[15px] leading-6 text-[#8a1c1c]">{quote.error}</p>)
           )}
           </form>
         </>

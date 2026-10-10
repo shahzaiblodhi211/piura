@@ -8,6 +8,7 @@ import { useCart } from "@/lib/cart";
 export function CheckoutComplete() {
   const { clear } = useCart();
   const [status, setStatus] = useState<"loading" | "paid" | "processing" | "failed">("loading");
+  const [orderNumber, setOrderNumber] = useState("");
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -23,6 +24,13 @@ export function CheckoutComplete() {
       const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
       if (cancel) return;
       if (paymentIntent?.status === "succeeded") {
+        const saved = await fetch("/api/checkout/confirm", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ clientSecret }),
+        });
+        const placed = (await saved.json()) as { number?: string };
+        if (!cancel && placed.number) setOrderNumber(placed.number);
         clear();
         setStatus("paid");
       } else if (paymentIntent?.status === "processing") {
@@ -39,7 +47,9 @@ export function CheckoutComplete() {
 
   const copy =
     status === "paid"
-      ? "Payment received. Stripe will email your receipt."
+      ? orderNumber
+        ? `Payment received. Order ${orderNumber} is in the studio.`
+        : "Payment received. Your receipt is emailed."
       : status === "processing"
         ? "Your payment is processing. We'll email you when it clears."
         : status === "failed"

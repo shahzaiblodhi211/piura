@@ -40,9 +40,12 @@ export type Product = {
   colorway: string;
   fabric: string;
   details: string;
+  production?: string;
   gallery: GalleryImage[];
   sizeChart?: string;
   runs: SizeRun[];
+  slug?: string;
+  hidden?: boolean;
 };
 
 export function productPriceLine(product: Product) {
@@ -309,9 +312,9 @@ export const products: Product[] = [
 
 const printFilters = ["sunchild", "moonchild", "sara", "bali", "marina"] as const;
 
-export function filterProducts(filter: ShopFilter) {
-  if (filter === "all") return products;
-  return products.filter((product) => {
+export function filterProducts(filter: ShopFilter, source: Product[] = products) {
+  if (filter === "all") return source;
+  return source.filter((product) => {
     if (filter === "coastlines") return product.kind === "bikini" || product.kind === "onepiece";
     if (filter === "classics") return typeof product.price === "number";
     if (filter === "tops") return product.kind === "top";
@@ -353,6 +356,14 @@ export function productSlug(name: string) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
+}
+
+export function productPath(product: { name: string; slug?: string }) {
+  return product.slug || productSlug(product.name);
+}
+
+export function findInCatalog(list: Product[], slug: string) {
+  return list.find((product) => productPath(product) === slug);
 }
 
 export function getProduct(slug: string) {

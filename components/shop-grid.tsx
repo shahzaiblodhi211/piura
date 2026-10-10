@@ -6,8 +6,8 @@ import { ProductCard } from "./product-card";
 import { gsap, registerGsap, ScrollTrigger } from "@/lib/gsap";
 import {
   filterProducts,
-  products,
   shopFilters,
+  type Product,
   type ShopFilter,
 } from "@/lib/products";
 
@@ -40,14 +40,16 @@ function showCards(cards: HTMLElement[], animate: boolean) {
 
 export function ShopGrid({
   initialFilter = "all",
+  catalog,
 }: {
   initialFilter?: ShopFilter;
+  catalog: Product[];
 }) {
   const router = useRouter();
   const [filter, setFilter] = useState<ShopFilter>(initialFilter);
   const gridRef = useRef<HTMLDivElement>(null);
   const seen = useRef<Set<string> | null>(null);
-  const visible = new Set(filterProducts(filter).map((item) => item.name));
+  const visible = new Set(filterProducts(filter, catalog).map((item) => item.name));
 
   useEffect(() => {
     setFilter(initialFilter);
@@ -93,6 +95,7 @@ export function ShopGrid({
       <div data-tabs className="flex w-full flex-wrap gap-x-3 gap-y-2 px-5 sm:gap-x-6 sm:gap-y-3 sm:px-8 xl:px-20">
         {shopFilters.map((item) => {
           const active = filter === item.id;
+          const count = filterProducts(item.id, catalog).length;
           return (
             <button
               key={item.id}
@@ -106,8 +109,8 @@ export function ShopGrid({
                   : "border border-[rgba(53,53,36,0.4)] bg-white text-olive"
               }`}
             >
-              <span>{item.label}</span>
-              <span>{item.count}</span>
+              <span className="translate-y-[2px] sm:translate-y-0">{item.label}</span>
+              <span className="translate-y-[2px] sm:translate-y-0">{count}</span>
             </button>
           );
         })}
@@ -116,7 +119,7 @@ export function ShopGrid({
         ref={gridRef}
         className="mx-auto mt-8 grid w-full max-w-[1560px] grid-cols-2 gap-x-3 gap-y-8 px-5 sm:mt-10 sm:gap-x-4 sm:gap-y-12 sm:px-8 lg:grid-cols-3 xl:mt-14 xl:grid-cols-4 xl:gap-x-[11px] xl:gap-y-[70px] xl:px-20"
       >
-        {products.map((product) => {
+        {catalog.map((product) => {
           const shown = visible.has(product.name);
           return (
             <div

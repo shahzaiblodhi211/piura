@@ -1,7 +1,7 @@
 "use client";
 
 const items = [
-  "FREE US SHIPPING OVER $100",
+  "FREE US SHIPPING OVER $130",
   "THE NEXT DROP - WAITLIST GETS 24-HOUR EARLY ACCESS",
   "CRAFTED IN PIURA, PERU",
 ] as const;

@@ -2,23 +2,37 @@
 
 import { FormEvent, useLayoutEffect, useRef, useState } from "react";
 import { gsap, registerGsap } from "@/lib/gsap";
+import { postNote } from "@/lib/post-note";
 
 const fieldClass =
   "w-full border border-olive bg-white px-[26px] font-serif text-[18px] tracking-[0.36px] text-olive placeholder:text-olive focus:outline-none";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
   const successRef = useRef<HTMLParagraphElement>(null);
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (busy) return;
     const data = new FormData(event.currentTarget);
     const firstName = String(data.get("firstName") ?? "").trim();
     const lastName = String(data.get("lastName") ?? "").trim();
     const email = String(data.get("email") ?? "").trim();
+    const phone = String(data.get("phone") ?? "").trim();
     const message = String(data.get("message") ?? "").trim();
     if (!firstName || !lastName || !email || !message) return;
-    setSent(true);
+    setError("");
+    setBusy(true);
+    try {
+      await postNote({ kind: "contact", name: `${firstName} ${lastName}`, email, phone, message });
+      setSent(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not send that. Try again.");
+    } finally {
+      setBusy(false);
+    }
   }
 
   useLayoutEffect(() => {
@@ -116,10 +130,12 @@ export function ContactForm() {
       <button
         type="submit"
         data-btn
-        className="mt-12 flex h-[54px] w-full max-w-[258px] items-center justify-center bg-olive px-[22px] font-serif text-[18px] tracking-[0.36px] text-cream uppercase whitespace-nowrap"
+        disabled={busy}
+        className="mt-12 flex h-[54px] w-full max-w-[258px] items-center justify-center bg-olive px-[22px] font-serif text-[18px] tracking-[0.36px] text-cream uppercase whitespace-nowrap disabled:opacity-60"
       >
-        Send
+        {busy ? "Sending" : "Send"}
       </button>
+      {error ? <p className="mt-4 font-serif text-[16px] text-[#8a1c1c]">{error}</p> : null}
       <p
         data-note
         className="mt-6 w-full font-serif text-[16px] leading-[25px] font-normal text-[#7c7c7c]"

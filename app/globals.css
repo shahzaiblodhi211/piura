@@ -75,6 +75,35 @@ body {
   animation: piura-float 4.8s ease-in-out infinite;
 }
 
+@keyframes piura-shimmer {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -120% 0;
+  }
+}
+
+.piura-shimmer {
+  background-color: #efeae4;
+  background-image: linear-gradient(100deg, #efeae4 16%, #f8f4f0 38%, #e4ddd4 52%, #efeae4 78%);
+  background-size: 220% 100%;
+  animation: piura-shimmer 1.35s ease-in-out infinite;
+}
+
+@keyframes piura-toast {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+.piura-toast {
+  animation: piura-toast 3.6s linear forwards;
+}
+
 @keyframes search-panel {
   from {
     opacity: 0;
@@ -111,6 +140,8 @@ body {
   }
 
   .piura-float,
+  .piura-shimmer,
+  .piura-toast,
   .search-panel,
   .search-row {
     animation: none;

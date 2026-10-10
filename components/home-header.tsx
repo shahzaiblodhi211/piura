@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { ShimmerImage } from "@/components/shimmer-image";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useCart } from "@/lib/cart";
-import { productPriceLine, productSlug, products } from "@/lib/products";
+import { productPath, productPriceLine, products, type Product } from "@/lib/products";
 
 const navItems = [
   { href: "/shop", label: "Shop" },
@@ -39,7 +40,7 @@ function MenuMark({ open = false }: { open?: boolean }) {
   );
 }
 
-export function HomeHeader({ solid = false }: { solid?: boolean }) {
+export function HomeHeader({ solid = false, catalog }: { solid?: boolean; catalog?: Product[] }) {
   const pathname = usePathname();
   const router = useRouter();
   const { count, setOpen } = useCart();
@@ -73,9 +74,10 @@ export function HomeHeader({ solid = false }: { solid?: boolean }) {
 
   const results = useMemo(() => {
     const needle = query.trim().toLowerCase();
-    if (!needle) return products.slice(0, 3);
-    return products.filter((product) => product.name.toLowerCase().includes(needle)).slice(0, 6);
-  }, [query]);
+    const source = catalog ?? products;
+    if (!needle) return source.slice(0, 3);
+    return source.filter((product) => product.name.toLowerCase().includes(needle)).slice(0, 6);
+  }, [catalog, query]);
 
   useEffect(() => {
     if (!searchOpen) return;
@@ -203,7 +205,7 @@ export function HomeHeader({ solid = false }: { solid?: boolean }) {
               onSubmit={(event) => {
                 event.preventDefault();
                 const first = results[0];
-                if (first) router.push(`/product/${productSlug(first.name)}`);
+                if (first) router.push(`/product/${productPath(first)}`);
               }}
             >
               <img src="/assets/home-icon-search.svg" alt="" className="size-5 shrink-0 brightness-0" />
@@ -229,12 +231,12 @@ export function HomeHeader({ solid = false }: { solid?: boolean }) {
                       style={{ animationDelay: `${80 + index * 60}ms` }}
                     >
                       <Link
-                        href={`/product/${productSlug(product.name)}`}
+                        href={`/product/${productPath(product)}`}
                         onClick={closeMenus}
                         className="group flex items-center gap-3.5 px-2 py-2.5 transition-colors duration-300 hover:bg-[#f6f1ee]"
                       >
                         <span className="relative h-[84px] w-[64px] shrink-0 overflow-hidden">
-                          <img
+                          <ShimmerImage
                             alt=""
                             src={product.src}
                             className="size-full object-cover object-[center_18%] transition-transform duration-500 ease-out group-hover:scale-105"

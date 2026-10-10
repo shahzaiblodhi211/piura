@@ -1,6 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
+import { ShimmerImage } from "@/components/shimmer-image";
 import { gsap, registerGsap } from "@/lib/gsap";
 
 export type StageSlide = {
@@ -83,7 +84,7 @@ export function ImageStage({
           className="absolute inset-0 flex items-center justify-center"
           style={{ opacity: i === index ? 1 : 0 }}
         >
-          <img
+          <ShimmerImage
             alt={slide.alt}
             src={slide.src}
             className={

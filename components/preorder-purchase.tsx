@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useCart, type CartPiece } from "@/lib/cart";
-import { piecePrices, productSizes, productSlug, sizeInStock, type Product } from "@/lib/products";
+import { piecePrices, productPath, productSizes, sizeInStock, type Product } from "@/lib/products";
 
 const pieceOptions: { id: CartPiece; label: string; price: number }[] = [
   { id: "top", label: "Top", price: piecePrices.top },
@@ -31,7 +31,7 @@ export function PreorderPurchase({
   function purchase() {
     if (!available) return;
     const shared = {
-      slug: productSlug(product.name),
+      slug: productPath(product),
       name: product.name,
       size,
       src: product.src,

@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { gsap, registerGsap } from "@/lib/gsap";
+import { postNote } from "@/lib/post-note";
 
 const STORAGE_KEY = "piura-come-closer";
 const STARTED_KEY = "piura-come-closer-started";
@@ -30,6 +31,8 @@ const perks = [
 export function ComeCloserPopup() {
   const [open, setOpen] = useState(false);
   const [joined, setJoined] = useState(false);
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
@@ -142,16 +145,26 @@ export function ComeCloserPopup() {
     });
   }
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (busy) return;
     const email = String(new FormData(event.currentTarget).get("email") ?? "").trim();
     if (!email) return;
+    setError("");
+    setBusy(true);
     try {
-      window.localStorage.setItem(STORAGE_KEY, "1");
-    } catch {
-      /* storage can be blocked */
+      await postNote({ kind: "popup", email });
+      try {
+        window.localStorage.setItem(STORAGE_KEY, "1");
+      } catch {
+        /* storage can be blocked */
+      }
+      setJoined(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not send that. Try again.");
+    } finally {
+      setBusy(false);
     }
-    setJoined(true);
   }
 
   if (!open || typeof document === "undefined") return null;
@@ -232,10 +245,12 @@ export function ComeCloserPopup() {
               />
               <button
                 type="submit"
-                className="mt-[26px] flex h-[56px] w-full items-center justify-center bg-ink font-bebas text-[22px] tracking-[0.44px] text-[#f6f3ee] uppercase"
+                disabled={busy}
+                className="mt-[26px] flex h-[56px] w-full items-center justify-center bg-ink font-bebas text-[22px] tracking-[0.44px] text-[#f6f3ee] uppercase disabled:opacity-60"
               >
-                I&apos;m in
+                {busy ? "..." : "I'm in"}
               </button>
+              {error ? <p className="mt-3 text-center font-serif text-[15px] text-[#8a1c1c]">{error}</p> : null}
             </form>
           )}
 

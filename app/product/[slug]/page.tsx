@@ -1,12 +1,14 @@
+import { ShimmerImage } from "@/components/shimmer-image";
 import { PageShell } from "@/components/page-shell";
 import { ProductDetail } from "@/components/product-detail";
 import { SplitTitle } from "@/components/split-title";
-import { getProduct, products, productSlug } from "@/lib/products";
+import { publicProducts } from "@/lib/catalog";
+import { findInCatalog, productPath, products } from "@/lib/products";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
-  return products.map((product) => ({ slug: productSlug(product.name) }));
+  return products.map((product) => ({ slug: productPath(product) }));
 }
 
 export async function generateMetadata({
@@ -15,7 +17,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProduct(slug);
+  const product = findInCatalog(await publicProducts(), slug);
   if (!product) return { title: "Product — Piura Swim" };
   return {
     title: `${product.name} — Piura Swim`,
@@ -29,7 +31,7 @@ export default async function ProductPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const product = getProduct(slug);
+  const product = findInCatalog(await publicProducts(), slug);
   if (!product) notFound();
   const shot = product.gallery[1] ?? product.gallery[0];
 
@@ -80,7 +82,7 @@ export default async function ProductPage({
             </div>
           </div>
           <div className={`relative mx-auto h-[360px] w-full max-w-[280px] overflow-hidden sm:h-[440px] sm:max-w-[340px] lg:mx-0 lg:h-[520px] lg:w-[320px] lg:max-w-none lg:shrink-0 xl:h-[560px] xl:w-[380px] ${product.sizeChart ? "bg-[#f7f3ee]" : ""}`}>
-            <img
+            <ShimmerImage
               alt={product.sizeChart ? `${product.name} size chart` : shot.alt}
               src={product.sizeChart ?? shot.src}
               className={`absolute inset-0 size-full ${product.sizeChart ? "object-contain" : "object-cover object-[center_16%]"}`}

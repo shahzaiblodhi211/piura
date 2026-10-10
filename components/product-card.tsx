@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { productPriceLine, productSlug, type Product } from "@/lib/products";
+import { ShimmerImage } from "@/components/shimmer-image";
+import { productPath, productPriceLine, type Product } from "@/lib/products";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
     <Link
-      href={`/product/${productSlug(product.name)}`}
+      href={`/product/${productPath(product)}`}
       data-product
       className="block w-full cursor-pointer"
     >
@@ -13,7 +14,7 @@ export function ProductCard({ product }: { product: Product }) {
         data-product-media
         className="relative aspect-[382/536] w-full overflow-hidden"
       >
-        <img
+        <ShimmerImage
           data-photo-img
           alt={product.alt}
           src={product.src}

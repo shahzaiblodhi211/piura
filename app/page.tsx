@@ -1,8 +1,10 @@
+import { ShimmerImage } from "@/components/shimmer-image";
 import { HomeFilmstrip } from "@/components/home-filmstrip";
 import { HomeHeader } from "@/components/home-header";
 import { HomeTicker } from "@/components/home-ticker";
 import { PageShell } from "@/components/page-shell";
-import { piecePrices, productPriceLine, productSlug, products, type Product } from "@/lib/products";
+import { publicProducts } from "@/lib/catalog";
+import { piecePrices, productPath, productPriceLine, type Product } from "@/lib/products";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -71,9 +73,9 @@ function OutlineButton({
 
 function MeetCard({ product }: { product: Product }) {
   return (
-    <Link href={`/product/${productSlug(product.name)}`} className="group flex flex-col gap-[18px]">
+    <Link href={`/product/${productPath(product)}`} className="group flex flex-col gap-[18px]">
       <span className="relative block aspect-[382/536] w-full overflow-hidden">
-        <img
+        <ShimmerImage
           alt={product.alt}
           src={product.src}
           className="size-full object-cover object-[center_18%] transition-transform duration-700 ease-out group-hover:scale-[1.045]"
@@ -125,7 +127,8 @@ function CollectionTile({
   );
 }
 
-export default function Home() {
+export default async function Home() {
+  const catalog = await publicProducts();
   return (
     <PageShell hero>
       <main className="w-full">
@@ -148,7 +151,7 @@ export default function Home() {
               }}
             />
           </div>
-          <HomeHeader />
+          <HomeHeader catalog={catalog} />
           <div className="relative mx-auto flex h-full w-full max-w-[1560px] flex-col justify-end px-5 pt-24 pb-10 sm:px-8 sm:pt-28 sm:pb-14 md:pb-16 xl:px-[60px] xl:pt-[186px] xl:pb-[100px]">
             <p data-intro className="font-serif text-[14px] tracking-[-0.28px] text-[#f1f1f1] sm:text-[16px]">
               THE WAIT IS OVER
@@ -222,7 +225,7 @@ export default function Home() {
             </p>
           </div>
           <div data-reveal className="mt-8 grid grid-cols-2 gap-x-3 gap-y-8 sm:mt-12 sm:gap-x-4 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-[11px]">
-            {products.slice(0, 4).map((product) => (
+            {catalog.slice(0, 4).map((product) => (
               <MeetCard key={product.name} product={product} />
             ))}
           </div>

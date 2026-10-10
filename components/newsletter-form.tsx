@@ -1,16 +1,28 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { postNote } from "@/lib/post-note";
 
 export function NewsletterForm({ tone = "light" }: { tone?: "light" | "ink" }) {
   const ink = tone === "ink";
   const [email, setEmail] = useState("");
   const [joined, setJoined] = useState(false);
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!email.trim()) return;
-    setJoined(true);
+    if (!email.trim() || busy) return;
+    setError("");
+    setBusy(true);
+    try {
+      await postNote({ kind: "newsletter", email: email.trim() });
+      setJoined(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not send that. Try again.");
+    } finally {
+      setBusy(false);
+    }
   }
 
   if (joined) {
@@ -23,7 +35,7 @@ export function NewsletterForm({ tone = "light" }: { tone?: "light" | "ink" }) {
 
   return (
     <form
-      className="mt-[39px] mb-0 flex w-full max-w-[467px] flex-row items-center gap-3 sm:gap-[14px]"
+      className="mt-[39px] mb-0 flex w-full max-w-[467px] flex-row flex-wrap items-center gap-3 sm:gap-[14px]"
       onSubmit={onSubmit}
     >
       <label className="sr-only" htmlFor="waitlist-email">
@@ -45,12 +57,14 @@ export function NewsletterForm({ tone = "light" }: { tone?: "light" | "ink" }) {
       <button
         type="submit"
         data-btn
-        className={`flex h-[54px] w-[96px] shrink-0 items-center justify-center font-bebas text-[18px] sm:w-[117px] ${
+        disabled={busy}
+        className={`flex h-[54px] w-[96px] shrink-0 items-center justify-center font-bebas text-[18px] disabled:opacity-60 sm:w-[117px] ${
           ink ? "bg-white text-ink" : "bg-olive font-serif text-cream"
         }`}
       >
-        Join
+        {busy ? "..." : "Join"}
       </button>
+      {error ? <p className={`basis-full font-serif text-[14px] ${ink ? "text-white" : "text-[#8a1c1c]"}`}>{error}</p> : null}
     </form>
   );
 }

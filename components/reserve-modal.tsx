@@ -3,6 +3,7 @@
 import { FormEvent, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { gsap, registerGsap } from "@/lib/gsap";
+import { postNote } from "@/lib/post-note";
 
 const fieldClass =
   "h-12 w-full border border-olive bg-white px-4 font-serif text-[16px] tracking-[0.32px] text-olive placeholder:text-olive focus:outline-none sm:h-14 sm:px-5 md:h-[68px] md:px-[26px] md:text-[18px] md:tracking-[0.36px]";
@@ -23,6 +24,8 @@ export function ReserveModal({
   size: string;
 }) {
   const [joined, setJoined] = useState(false);
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const successRef = useRef<HTMLParagraphElement>(null);
@@ -111,12 +114,23 @@ export function ReserveModal({
     });
   }
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (busy) return;
     const data = new FormData(event.currentTarget);
     const email = String(data.get("email") ?? "").trim();
+    const phone = String(data.get("phone") ?? "").trim();
     if (!email) return;
-    setJoined(true);
+    setError("");
+    setBusy(true);
+    try {
+      await postNote({ kind: "reserve", email, phone, product: productName, size });
+      setJoined(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not send that. Try again.");
+    } finally {
+      setBusy(false);
+    }
   }
 
   if (typeof document === "undefined" || !open) return null;
@@ -203,10 +217,12 @@ export function ReserveModal({
               />
               <button
                 type="submit"
-                className="mt-1 flex h-12 w-full items-center justify-center bg-olive px-6 font-serif text-[16px] tracking-[0.32px] text-cream uppercase sm:text-[18px] md:mt-6 md:h-[54px] md:px-[34px] md:tracking-[0.36px]"
+                disabled={busy}
+                className="mt-1 flex h-12 w-full items-center justify-center bg-olive px-6 font-serif text-[16px] tracking-[0.32px] text-cream uppercase disabled:opacity-60 sm:text-[18px] md:mt-6 md:h-[54px] md:px-[34px] md:tracking-[0.36px]"
               >
-                reserve my place
+                {busy ? "reserving" : "reserve my place"}
               </button>
+              {error ? <p className="font-serif text-[16px] text-[#8a1c1c]">{error}</p> : null}
             </form>
           )}
         </div>

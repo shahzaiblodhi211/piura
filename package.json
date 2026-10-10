@@ -11,8 +11,11 @@
   "dependencies": {
     "@stripe/react-stripe-js": "^7.0.0",
     "@stripe/stripe-js": "^10.0.0",
+    "cloudinary": "^2.11.0",
     "gsap": "^3.15.0",
+    "mongodb": "^7.7.0",
     "next": "16.3.6",
+    "nodemailer": "^10.0.16",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "stripe": "^23.0.0"

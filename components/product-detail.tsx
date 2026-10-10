@@ -8,6 +8,7 @@ import {
   sizeInStock,
   type Product,
 } from "@/lib/products";
+import { ShimmerImage } from "./shimmer-image";
 import { ImageStage } from "./image-stage";
 import { PreorderPurchase } from "./preorder-purchase";
 
@@ -37,14 +38,14 @@ function CroppedImage({
   return (
     <div className="relative size-full overflow-hidden">
       {crop ? (
-        <img
+        <ShimmerImage
           alt={alt}
           src={src}
           className="absolute max-w-none"
           style={crop}
         />
       ) : (
-        <img alt={alt} src={src} className="size-full object-cover object-[center_16%]" />
+        <ShimmerImage alt={alt} src={src} className="size-full object-cover object-[center_16%]" />
       )}
     </div>
   );
@@ -106,7 +107,7 @@ function ProductCopy({
   const accordions = [
     {
       title: "Production details",
-      body: product.details,
+      body: product.production ?? "",
     },
     {
       title: "Fabric",
@@ -126,7 +127,7 @@ function ProductCopy({
         )
         .join(" "),
     },
-  ];
+  ].filter((item) => item.body.trim());
 
   return (
     <>

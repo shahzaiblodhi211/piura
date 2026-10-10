@@ -2,7 +2,7 @@ const perks = [
   {
     icon: "/assets/home-feat-ship.svg",
     title: "Free US shipping",
-    body: "On orders over $100",
+    body: "On orders over $130",
   },
   {
     icon: "/assets/home-feat-exchange.svg",

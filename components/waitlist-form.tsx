@@ -2,20 +2,34 @@
 
 import { FormEvent, useLayoutEffect, useRef, useState } from "react";
 import { gsap, registerGsap } from "@/lib/gsap";
+import { postNote } from "@/lib/post-note";
 
 const fieldClass =
   "h-14 w-full border border-olive bg-white px-4 font-serif text-[16px] tracking-[0.32px] text-olive placeholder:text-olive focus:outline-none sm:h-[68px] sm:px-[26px] sm:text-[18px]";
 
 export function WaitlistForm() {
   const [joined, setJoined] = useState(false);
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
   const successRef = useRef<HTMLParagraphElement>(null);
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (busy) return;
     const data = new FormData(event.currentTarget);
     const email = String(data.get("email") ?? "").trim();
+    const phone = String(data.get("phone") ?? "").trim();
     if (!email) return;
-    setJoined(true);
+    setError("");
+    setBusy(true);
+    try {
+      await postNote({ kind: "waitlist", email, phone });
+      setJoined(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not send that. Try again.");
+    } finally {
+      setBusy(false);
+    }
   }
 
   useLayoutEffect(() => {
@@ -76,10 +90,12 @@ export function WaitlistForm() {
       <button
         type="submit"
         data-btn
-        className="mt-7 flex h-14 w-full max-w-full items-center justify-center bg-olive px-4 font-serif text-[16px] tracking-[0.32px] text-cream uppercase sm:h-[71px] sm:px-[22px] sm:text-[18px]"
+        disabled={busy}
+        className="mt-7 flex h-14 w-full max-w-full items-center justify-center bg-olive px-4 font-serif text-[16px] tracking-[0.32px] text-cream uppercase disabled:opacity-60 sm:h-[71px] sm:px-[22px] sm:text-[18px]"
       >
-        JOIN THE WAITLIST
+        {busy ? "JOINING" : "JOIN THE WAITLIST"}
       </button>
+      {error ? <p className="mt-4 font-serif text-[16px] text-[#8a1c1c]">{error}</p> : null}
     </form>
   );
 }
